@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-29T13:40:04.285Z</updated>
+  <updated>2022-09-30T12:19:34.770Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2022/09/29/hello-world/"/>
-    <id>http://example.com/2022/09/29/hello-world/</id>
-    <published>2022-09-29T13:40:04.285Z</published>
-    <updated>2022-09-29T13:40:04.285Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>英语笔记</title>
@@ -183,14 +163,14 @@
     <link href="http://example.com/2022/09/16/Slf4j/"/>
     <id>http://example.com/2022/09/16/Slf4j/</id>
     <published>2022-09-16T13:27:42.206Z</published>
-    <updated>2022-09-30T12:23:56.187Z</updated>
+    <updated>2022-09-30T16:00:02.745Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Slf4j使用"><a href="#Slf4j使用" class="headerlink" title="Slf4j使用"></a>Slf4j使用</h1><h3 id="使用slf4j-api和slf4j-simple组合"><a href="#使用slf4j-api和slf4j-simple组合" class="headerlink" title="使用slf4j-api和slf4j-simple组合"></a>使用slf4j-api和slf4j-simple组合</h3><pre><code class="java">//导入依赖implementation(&quot;org.slf4j:slf4j-simple:2.0.0&quot;)implementation(&quot;org.slf4j:slf4j-api:2.0.0&quot;)    //slf4j使用import org.slf4j.Logger;import org.slf4j.LoggerFactory;import redis.clients.jedis.Jedis;public class Slf4jDome &#123;    public static void main(String[] args) &#123;        Logger logger = LoggerFactory.getLogger(Slf4jDome.class);        logger.info(&quot;Hello World&quot;);    &#125;&#125;</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的实现类关系。</p><img src="https://img-blog.csdnimg.cn/20200303144556379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N3ZWV0eWk=,size_16,color_FFFFFF,t_70" alt="Slf4j"  /><h1 id="Slf4j使用"><a href="#Slf4j使用" class="headerlink" title="Slf4j使用"></a>Slf4j使用</h1><h3 id="使用slf4j-api和slf4j-simple组合"><a href="#使用slf4j-api和slf4j-simple组合" class="headerlink" title="使用slf4j-api和slf4j-simple组合"></a>使用slf4j-api和slf4j-simple组合</h3><pre><code class="java">//导入依赖implementation(&quot;org.slf4j:slf4j-simple:2.0.0&quot;)implementation(&quot;org.slf4j:slf4j-api:2.0.0&quot;)    //slf4j使用import org.slf4j.Logger;import org.slf4j.LoggerFactory;import redis.clients.jedis.Jedis;public class Slf4jDome &#123;    public static void main(String[] args) &#123;        Logger logger = LoggerFactory.getLogger(Slf4jDome.class);        logger.info(&quot;Hello World&quot;);    &#125;&#125;</code></pre><h3 id="使用log4j"><a href="#使用log4j" class="headerlink" title="使用log4j"></a>使用log4j</h3><ul><li>导入依赖</li></ul><pre><code class="kotlin">implementation(&quot;log4j:log4j:1.2.17&quot;)</code></pre><ul><li>在项目资源文件（根目录）配置log4j.properties</li></ul><pre><code class="properties">#日志配置log4j.rootLogger = DEBUG,stdout#,file#控制台输出log4j.appender.stdout=org.apache.log4j.ConsoleAppenderlog4j.appender.stdout.Target=System.outlog4j.appender.stdout.Threshold=DEBUGlog4j.appender.stdout.layout=org.apache.log4j.PatternLayoutlog4j.appender.stdout.layout.ConversionPattern=%-d&#123;yyyy-MM-dd HH:mm:ss&#125;[ %p ]%m%n#所有文件输出#log4j.appender.file = org.apache.log4j.FileAppender#log4j.appender.file.File = D:/logs/log.log#log4j.appender.file.Encoding=UTF-8#log4j.appender.file.name = fileLogDemo#log4j.appender.file.Threshold=DEBUG#log4j.appender.file.layout=org.apache.log4j.PatternLayout#log4j.appender.file.layout.ConversionPattern=%-d&#123;yyyy-MM-dd HH:mm:ss&#125; [%c &#123;Num&#125;] [%l] [ %t:%r ] - [ %p ]  %m%n#log4j.appender.file.append = true</code></pre><ul><li>创建Logger</li></ul><pre><code class="java">import org.apache.log4j.Logger;@Testpublic void log4jTest()&#123;    Logger logger = Logger.getLogger(Slf4jDome.class);    logger.info(&quot;Hello World&quot;);&#125;</code></pre>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Slf4j使用&quot;&gt;&lt;a href=&quot;#Slf4j使用&quot; class=&quot;headerlink&quot; title=&quot;Slf4j使用&quot;&gt;&lt;/a&gt;Slf4j使用&lt;/h1&gt;&lt;h3 id=&quot;使用slf4j-api和slf4j-simple组合&quot;&gt;&lt;a href=&quot;#使用slf4j</summary>
+    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的</summary>
       
     
     
@@ -506,6 +486,26 @@
 &lt;/thead&gt;
 &lt;tbody&gt;&lt;tr&gt;
 &lt;td align=&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/08/07/Linux/"/>
+    <id>http://example.com/2022/08/07/Linux/</id>
+    <published>2022-08-07T01:02:04.932Z</published>
+    <updated>2022-09-19T15:34:28.595Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux设置环境变量"><a href="#Linux设置环境变量" class="headerlink" title="Linux设置环境变量"></a>Linux设置环境变量</h1><h3 id="设置完成使用该命令刷新"><a href="#设置完成使用该命令刷新" class="headerlink" title="设置完成使用该命令刷新"></a><em><strong>设置完成使用该命令刷新</strong></em></h3><pre><code class="sh">source 编辑的文件</code></pre><h3 id="临时设置"><a href="#临时设置" class="headerlink" title="临时设置"></a>临时设置</h3><pre><code class="sh">export PATH=/you/bin/path:$PATH</code></pre><h3 id="当前用户永久生效"><a href="#当前用户永久生效" class="headerlink" title="当前用户永久生效"></a>当前用户永久生效</h3><pre><code class="sh">vim ~/.bashrcexport PATH=/you/bin/path:$PATH</code></pre><h3 id="所有用户永久生效（需要重新登录）"><a href="#所有用户永久生效（需要重新登录）" class="headerlink" title="所有用户永久生效（需要重新登录）"></a>所有用户永久生效<strong>（需要重新登录）</strong></h3><pre><code class="sh">//三者挑其一vim /etc/bashrcvim /etc/profilevim /etc/environment//添加下面的设置export PATH=/you/bin/path:$PATH</code></pre><h3 id="Java环境变量设置"><a href="#Java环境变量设置" class="headerlink" title="Java环境变量设置"></a>Java环境变量设置</h3><pre><code class="sh">export JAVA_HOME=/usr/share/jdk1.6.0_14export PATH=$JAVA_HOME/bin:$PATHexport CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</code></pre><h1 id="问题：安全检查"><a href="#问题：安全检查" class="headerlink" title="问题：安全检查"></a>问题：安全检查</h1><pre><code class="sh">fatal: detected dubious ownership in repository at &#39;/media/data/users/jhu3szh/serialize&#39;To add an exception for this directory, call:git config --global --add safe.directory /media/data/users/jhu3szh/serialize</code></pre><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><pre><code class="sh">//修改拥有者chown -R user:user dir//无效再使用一下方式git config --global --add safe.directory &#39;*&#39;</code></pre><h1 id="文件压缩、解压"><a href="#文件压缩、解压" class="headerlink" title="文件压缩、解压"></a>文件压缩、解压</h1><h3 id="tar解压"><a href="#tar解压" class="headerlink" title="tar解压"></a><strong>tar</strong>解压</h3><pre><code class="sh">tar -xvf 文件名</code></pre><h3 id="tar压缩"><a href="#tar压缩" class="headerlink" title="tar压缩"></a><strong>tar</strong>压缩</h3><pre><code class="sh">tar -cvf 压缩名称.tar 文件（目录）</code></pre><h1 id="用户创建"><a href="#用户创建" class="headerlink" title="用户创建"></a>用户创建</h1><pre><code class="sh">//创建用户useradd uesrname//创建用户和生成用户文件夹及shelluseradd username -m -s /bin/bash//设置用户密码passwd username//允许用户使用sudousermod -a -G sudo username</code></pre><h1 id="SSH远程连接"><a href="#SSH远程连接" class="headerlink" title="SSH远程连接"></a>SSH远程连接</h1><h3 id="ssh：连接远程服务器"><a href="#ssh：连接远程服务器" class="headerlink" title="ssh：连接远程服务器"></a><strong>ssh</strong>：连接远程服务器</h3><pre><code class="sh">ssh username@ip//如下ssh root@www.test.com</code></pre><h3 id="scp：远程拷贝文件（ssh方式）"><a href="#scp：远程拷贝文件（ssh方式）" class="headerlink" title="scp：远程拷贝文件（ssh方式）"></a><strong>scp</strong>：远程拷贝文件（ssh方式）</h3><pre><code class="sh">scp filepath username@ip:targetPath//如下scp test.js root@www.test.com:/home/root</code></pre><h1 id="问题：Snap商店安装错误"><a href="#问题：Snap商店安装错误" class="headerlink" title="问题：Snap商店安装错误"></a>问题：Snap商店安装错误</h1><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p><strong>snap “xxxx” has “install-snap” change in progress</strong></p><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><pre><code class="sh">//查看snap 正在安装的软件，获取idsnap changes//终止安装软件sudo snap abort id//重新安装软件即可sudo snap install xxx</code></pre><h1 id="Cat日志查看"><a href="#Cat日志查看" class="headerlink" title="Cat日志查看"></a>Cat日志查看</h1><p><strong>cat常用于查看指定日志信息，系统在运行时，日志会不断写入，如果使用vim等编辑器指令查看会无法得到全部的日志，同时也可能导致日志的修改。</strong></p><pre><code class="sh">//查看文件的全部内容cat 文件名 //如：cat test.js//对所有行添加编号输出，1开始cat -n 文件名//如：cat -n test.js//排除空白行添加编号输出cat -b 文件名//如：cat -b test.js//替换连续两行以上的空白行为一行空白行cat -s 文件名//如：cat -b test.js//结合grep查看指定内容cat 文件名 | grep 搜索内容</code></pre><h1 id="Grep查看符合条件的内容"><a href="#Grep查看符合条件的内容" class="headerlink" title="Grep查看符合条件的内容"></a>Grep查看符合条件的内容</h1><pre><code class="sh">grep 查找内容 文件名//如：grep hello test.js//忽略大小写grep -i 查找内容 文件名</code></pre><h1 id="Find查找文件位置"><a href="#Find查找文件位置" class="headerlink" title="Find查找文件位置"></a>Find查找文件位置</h1><pre><code class="sh">find 路径 &lt;选项&gt; 参数//查找当前目录及子目录test.jsfind . -name test.js//查找所有目录test.jsfind / -name test.js</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Linux设置环境变量&quot;&gt;&lt;a href=&quot;#Linux设置环境变量&quot; class=&quot;headerlink&quot; title=&quot;Linux设置环境变量&quot;&gt;&lt;/a&gt;Linux设置环境变量&lt;/h1&gt;&lt;h3 id=&quot;设置完成使用该命令刷新&quot;&gt;&lt;a href=&quot;#设置完成使用</summary>
       
     
     

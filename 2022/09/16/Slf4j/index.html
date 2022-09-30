@@ -10,9 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="Slf4j使用使用slf4j-api和slf4j-simple组合//导入依赖
-implementation(&amp;quot;org.slf4j:slf4j-simple:2.0.0&amp;quot;)
-im,"> 
+    <meta name="description" content="介绍Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的实现类关系。
+
+
+Slf4j使用使用slf4j-api,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -21,9 +22,10 @@ im,">
     
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:title" content="Slf4j那些事 - Hexo"/>
-    <meta name="twitter:description" content="Slf4j使用使用slf4j-api和slf4j-simple组合//导入依赖
-implementation(&amp;quot;org.slf4j:slf4j-simple:2.0.0&amp;quot;)
-im,"/>
+    <meta name="twitter:description" content="介绍Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的实现类关系。
+
+
+Slf4j使用使用slf4j-api,"/>
     
     
     
@@ -31,9 +33,10 @@ im,"/>
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="Slf4j那些事 - Hexo"/>
-    <meta property="og:description" content="Slf4j使用使用slf4j-api和slf4j-simple组合//导入依赖
-implementation(&amp;quot;org.slf4j:slf4j-simple:2.0.0&amp;quot;)
-im,"/>
+    <meta property="og:description" content="介绍Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的实现类关系。
+
+
+Slf4j使用使用slf4j-api,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -75,7 +78,10 @@ im,"/>
 
         </div>
         <div class="content markdown">
-            <h1 id="Slf4j使用"><a href="#Slf4j使用" class="headerlink" title="Slf4j使用"></a>Slf4j使用</h1><h3 id="使用slf4j-api和slf4j-simple组合"><a href="#使用slf4j-api和slf4j-simple组合" class="headerlink" title="使用slf4j-api和slf4j-simple组合"></a>使用slf4j-api和slf4j-simple组合</h3><pre><code class="java">//导入依赖
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>Slf4j是一个日志接口，不提供具体的实现类。实用Slf4j作为日志框架则需要和一个具体的实现类结合实用，否则无效。下图为Slf4j和对应的实现类关系。</p>
+<img src="https://img-blog.csdnimg.cn/20200303144556379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N3ZWV0eWk=,size_16,color_FFFFFF,t_70" alt="Slf4j"  />
+
+<h1 id="Slf4j使用"><a href="#Slf4j使用" class="headerlink" title="Slf4j使用"></a>Slf4j使用</h1><h3 id="使用slf4j-api和slf4j-simple组合"><a href="#使用slf4j-api和slf4j-simple组合" class="headerlink" title="使用slf4j-api和slf4j-simple组合"></a>使用slf4j-api和slf4j-simple组合</h3><pre><code class="java">//导入依赖
 implementation(&quot;org.slf4j:slf4j-simple:2.0.0&quot;)
 implementation(&quot;org.slf4j:slf4j-api:2.0.0&quot;)
     
@@ -90,6 +96,46 @@ public class Slf4jDome &#123;
         Logger logger = LoggerFactory.getLogger(Slf4jDome.class);
         logger.info(&quot;Hello World&quot;);
     &#125;
+&#125;
+</code></pre>
+<h3 id="使用log4j"><a href="#使用log4j" class="headerlink" title="使用log4j"></a>使用log4j</h3><ul>
+<li>导入依赖</li>
+</ul>
+<pre><code class="kotlin">implementation(&quot;log4j:log4j:1.2.17&quot;)
+</code></pre>
+<ul>
+<li>在项目资源文件（根目录）配置log4j.properties</li>
+</ul>
+<pre><code class="properties">#日志配置
+log4j.rootLogger = DEBUG,stdout
+#,file
+
+#控制台输出
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.Target=System.out
+log4j.appender.stdout.Threshold=DEBUG
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%-d&#123;yyyy-MM-dd HH:mm:ss&#125;[ %p ]%m%n
+
+#所有文件输出
+#log4j.appender.file = org.apache.log4j.FileAppender
+#log4j.appender.file.File = D:/logs/log.log
+#log4j.appender.file.Encoding=UTF-8
+#log4j.appender.file.name = fileLogDemo
+#log4j.appender.file.Threshold=DEBUG
+#log4j.appender.file.layout=org.apache.log4j.PatternLayout
+#log4j.appender.file.layout.ConversionPattern=%-d&#123;yyyy-MM-dd HH:mm:ss&#125; [%c &#123;Num&#125;] [%l] [ %t:%r ] - [ %p ]  %m%n
+#log4j.appender.file.append = true
+</code></pre>
+<ul>
+<li>创建Logger</li>
+</ul>
+<pre><code class="java">import org.apache.log4j.Logger;
+
+@Test
+public void log4jTest()&#123;
+    Logger logger = Logger.getLogger(Slf4jDome.class);
+    logger.info(&quot;Hello World&quot;);
 &#125;
 </code></pre>
 

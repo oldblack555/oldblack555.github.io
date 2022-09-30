@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SpringBoot - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="POJO参数绑定提交参数形式&amp;#123;
+    name:&amp;#39;tom&amp;#39;,
+    age:18,
+    //以post方式提交
+    address:&amp;#123;
+       ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="SpringBoot - Hexo"/>
+    <meta name="twitter:description" content="POJO参数绑定提交参数形式&amp;#123;
+    name:&amp;#39;tom&amp;#39;,
+    age:18,
+    //以post方式提交
+    address:&amp;#123;
+       ,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="SpringBoot - Hexo"/>
+    <meta property="og:description" content="POJO参数绑定提交参数形式&amp;#123;
+    name:&amp;#39;tom&amp;#39;,
+    age:18,
+    //以post方式提交
+    address:&amp;#123;
+       ,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">SpringBoot</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">SpringBoot</h1>
+        <div class="stuff">
+            <span>八月 20, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="POJO参数绑定"><a href="#POJO参数绑定" class="headerlink" title="POJO参数绑定"></a>POJO参数绑定</h1><h3 id="提交参数形式"><a href="#提交参数形式" class="headerlink" title="提交参数形式"></a><strong>提交参数形式</strong></h3><pre><code class="js">&#123;
+    name:&#39;tom&#39;,
+    age:18,
+    //以post方式提交
+    address:&#123;
+        road:&#39;xxx&#39;,
+        city:&#39;xx&#39;
+    &#125;
+    //以get方式提交
+    //address.road:&#39;xxx&#39;,
+    //address.city:&#39;xx&#39;
+&#125;
+</code></pre>
+<h3 id="POJO"><a href="#POJO" class="headerlink" title="POJO"></a><strong>POJO</strong></h3><pre><code class="java">class User&#123;
+    String name;
+    Integer age;
+    Address address;
+&#125;
+
+class Address&#123;
+    String road;
+    String city;
+&#125;
+</code></pre>
+<h3 id="接收方式"><a href="#接收方式" class="headerlink" title="接收方式"></a><strong>接收方式</strong></h3><pre><code class="java">//get方式
+//需要将
+//address:&#123;
+//		road:&#39;xxx&#39;,
+//		city:&#39;xx&#39;
+//	&#125;
+//改为
+//address.road:&#39;xxx&#39;,
+//address.city:&#39;xx&#39;
+@GetMapping(&quot;/test&quot;)
+public void recive(User user)&#123;&#125;
+
+//Post方式
+//提交方式采用application/json
+//使用@RequestBody注解绑定post提交的参数
+@PostMapping(&quot;/test&quot;)
+public void recive(@RequestBody User user)&#123;&#125;
+</code></pre>
+<h1 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h1><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p><strong>spring定时任务使用@Scheduled注解声明对应的方法，需要使用@EnableScheduling注解开启定时任务</strong></p>
+<pre><code class="java">@Async
+@Scheduled(initialDelay = TimerDelay.HALF_DAY, fixedDelay = TimerDelay.ONE_DAY)
+public void allUpdate() &#123;
+    List&lt;Long&gt; dmids = tbDmStatusMapper.queryUpdate();
+    detailTimer(dmids);
+&#125;
+
+//方式一
+//@EnableScheduling注解结合Configuration注解使用进行打开定时任务
+@Configuration
+@EnableAsync
+@EnableScheduling
+public class SpiderTimer &#123;&#125;
+
+//方式二
+//在springboot启动类上声明@EnableScheduling注解
+@SpringBootApplication
+@EnableScheduling
+public class OlddmApplication &#123;&#125;
+</code></pre>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>fixedRate</td>
+<td>以固定速率执行，即每隔时间t执行一次</td>
+</tr>
+<tr>
+<td>fixedDelay</td>
+<td>上次执行完毕后延迟再执行，即本次执行完毕后等待时间t再次执行</td>
+</tr>
+<tr>
+<td>initialDelay</td>
+<td>第一次延时执行，常与fixedRate、fixedDelay搭配使用，即延时t后第一次执行任务，第一次结束后按照fixedRate或fixedDelay的规则执行，否则以后的效果与fixedDelay一样</td>
+</tr>
+<tr>
+<td>cron</td>
+<td>按cron规则执行</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>cron常用表达式</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 0 2 1 * ? *</td>
+<td>表示在每月 1 日的凌晨 2 点执行</td>
+</tr>
+<tr>
+<td>0 15 10 ? * MON-FRI</td>
+<td>表示周一到周五每天上午 10:15 执行</td>
+</tr>
+<tr>
+<td>0 15 10 ? 6L 2019-2020</td>
+<td>表示 2019-2020 年的每个月的最后一个星期五上午 10:15 执行</td>
+</tr>
+<tr>
+<td>0 0 10,14,16 * * ?</td>
+<td>每天上午 10 点，下午 2 点，4 点执行</td>
+</tr>
+<tr>
+<td>0 0&#x2F;30 9-17 * * ?</td>
+<td>朝九晚五工作时间内每半小时执行</td>
+</tr>
+<tr>
+<td>0 0 12 ? * WED</td>
+<td>表示每个星期三中午 12 点执行</td>
+</tr>
+<tr>
+<td>0 0 12 * * ?</td>
+<td>每天中午 12点执行</td>
+</tr>
+<tr>
+<td>0 15 10 ? * *</td>
+<td>每天上午 10:15 执行</td>
+</tr>
+<tr>
+<td>0 15 10 * * ?</td>
+<td>每天上午 10:15 执行</td>
+</tr>
+<tr>
+<td>0 15 10 * * ? *</td>
+<td>每天上午 10:15 执行</td>
+</tr>
+<tr>
+<td>0 15 10 * * ? 2019</td>
+<td>2019 年的每天上午 10:15 执行</td>
+</tr>
+</tbody></table>
+<h1 id="ApplicationContextAware接口实现全局Context获取"><a href="#ApplicationContextAware接口实现全局Context获取" class="headerlink" title="ApplicationContextAware接口实现全局Context获取"></a>ApplicationContextAware接口实现全局Context获取</h1><pre><code class="java">package com.dm.config;
+
+import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.util.Assert;
+
+@Configuration
+public class ApplicationContextHolder implements ApplicationContextAware &#123;
+
+    //静态声明context
+    private static ApplicationContext applicationContext = null;
+
+    public static ApplicationContext getApplicationContext() &#123;
+        assertContextNotNull();
+        return applicationContext;
+    &#125;
+
+    //检查ApplicationContext是否为null
+    private static void assertContextNotNull() &#123;
+        Assert.notNull(applicationContext, &quot;Context is null&quot;);
+    &#125;
+
+    //按名称返回容器中的Bean
+    public static &lt;T&gt; T getBean(String name) &#123;
+        assertContextNotNull();
+        return (T) applicationContext.getBean(name);
+    &#125;
+
+    //按类型返回容器中的Bean
+    public static &lt;T&gt; T getBean(Class&lt;T&gt; clazz) &#123;
+        assertContextNotNull();
+        return applicationContext.getBean(clazz);
+    &#125;
+
+    //需要实现的方法，注入Context
+    //Springboot会自动给实现ApplicationContextAware接口的Bean注入Context
+    @Override
+    public void setApplicationContext(@NotNull ApplicationContext applicationContext) throws BeansException &#123;
+        ApplicationContextHolder.applicationContext = applicationContext;
+    &#125;
+&#125;
+
+//测试
+@Resource
+private DmService dmService;
+log.info(&quot;&#123;&#125;&quot;, dmService == ApplicationContextHolder.getBean(&quot;dmService&quot;));
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sa-Token - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Sa-Token - Hexo"/>
+    <meta name="twitter:description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Sa-Token - Hexo"/>
+    <meta property="og:description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Sa-Token</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Sa-Token</h1>
+        <div class="stuff">
+            <span>九月 20, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Permission/" rel="tag">Permission</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Token/" rel="tag">Token</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Sa-Token介绍"><a href="#Sa-Token介绍" class="headerlink" title="Sa-Token介绍"></a>Sa-Token介绍</h1><p><strong>Sa-Token</strong> 是一个轻量级 Java 权限认证框架，主要解决：<strong>登录认证</strong>、<strong>权限认证</strong>、<strong>单点登录</strong>、<strong>OAuth2.0</strong>、<strong>分布式Session会话</strong>、<strong>微服务网关鉴权</strong> 等一系列权限相关问题。</p>
+<h1 id="SpringBoot集成Sa-Token"><a href="#SpringBoot集成Sa-Token" class="headerlink" title="SpringBoot集成Sa-Token"></a>SpringBoot集成Sa-Token</h1><p><em>建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0</em></p>
+<pre><code class="kotlin">implementation &#39;cn.dev33:sa-token-spring-boot-starter:1.31.0&#39;
+</code></pre>
+<h1 id="Application-yml配置token信息（可选，不配置则使用默认配置）"><a href="#Application-yml配置token信息（可选，不配置则使用默认配置）" class="headerlink" title="Application.yml配置token信息（可选，不配置则使用默认配置）"></a>Application.yml配置token信息（可选，不配置则使用默认配置）</h1><pre><code class="sh">sa-token:
+  #  token 名称
+  token-name: sa_token
+  #  token 超时时间
+  timeout: 60
+  #  是否允许多个登录
+  is-concurrent: true
+  #  是否共享一个token
+  is-share: false
+  #  token风格
+  token-style: uuid
+  #  是否输出日志
+  is-log: false
+  # token 临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+</code></pre>
+<h1 id="简单登录认证"><a href="#简单登录认证" class="headerlink" title="简单登录认证"></a>简单登录认证</h1><p>主要使用StpUtil类中方法，实现核心是通过Cookie进行Token认证。</p>
+<h3 id="StpUtil-login-id-：登录生成Token"><a href="#StpUtil-login-id-：登录生成Token" class="headerlink" title="StpUtil.login(id)：登录生成Token"></a>StpUtil.login(id)：登录生成Token</h3><pre><code class="java">@RequestMapping(&quot;/login&quot;)
+public SaResult login(String username, String password) &#123;
+    if (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;
+        String id = UUID.randomUUID().toString().replaceAll(&quot;-&quot;, &quot;&quot;);
+        log.info(&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;, username, id);
+        //核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie，后端会进行登录判断。
+        //该方法的具体原理暂不介绍
+        StpUtil.login(id);
+        return SaResult.ok(&quot;LOGIN SUCCESS&quot;);
+    &#125;
+    return SaResult.ok(&quot;LOGIN FAILED&quot;);
+&#125;
+</code></pre>
+<h3 id="StpUtil-isLogin-：通过Cookie携带的Token登录判断"><a href="#StpUtil-isLogin-：通过Cookie携带的Token登录判断" class="headerlink" title="StpUtil.isLogin()：通过Cookie携带的Token登录判断"></a>StpUtil.isLogin()：通过Cookie携带的Token登录判断</h3><pre><code class="java">@RequestMapping(&quot;/login/check&quot;)
+public SaResult checkLogin() &#123;
+    //登录检查，
+    //方式一：会对请求中Cookie的Token进行验证，
+    //方式二：自定义header，tokenname = token
+    //登录返回true，否则返回false
+    return SaResult.ok(&quot;是否登录: &quot; + StpUtil.isLogin());
+&#125;
+</code></pre>
+<p>也可以使用StpUtil.checkLogin()进行判断，但是在未登录时会抛出NotLoginException。</p>
+<h3 id="StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"><a href="#StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可" class="headerlink" title="StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"></a>StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可</h3><pre><code class="java">StpUtil.checkLogin();
+</code></pre>
+<h3 id="StpUtil-getLoginIdDefaultNull-：获取登录ID"><a href="#StpUtil-getLoginIdDefaultNull-：获取登录ID" class="headerlink" title="StpUtil.getLoginIdDefaultNull()：获取登录ID"></a>StpUtil.getLoginIdDefaultNull()：获取登录ID</h3><pre><code class="java">@RequestMapping(&quot;/login/id&quot;)
+public SaResult getLoginId() &#123;
+    //获取登录的ID，
+    //方式一：会对请求中Cookie的Token进行验证，
+    //方式二：自定义header，tokenname = token
+    //已登录返回登录ID，否则返回NULL
+    return SaResult.data(&quot;当前登录ID: &quot; + StpUtil.getLoginIdDefaultNull());
+&#125;
+</code></pre>
+<h3 id="StpUtil-getTokenTimeout-：获取登录有效时长"><a href="#StpUtil-getTokenTimeout-：获取登录有效时长" class="headerlink" title="StpUtil.getTokenTimeout()：获取登录有效时长"></a>StpUtil.getTokenTimeout()：获取登录有效时长</h3><pre><code class="java">@RequestMapping(&quot;/login/token/timeout&quot;)
+public SaResult getTokenTimeout() &#123;
+    //获取登录有效时长，
+    //方式一：会对请求中Cookie的Token进行验证，
+    //方式二：自定义header，tokenname = token
+    //已登录返回登录有效时长，-1表示永久登录，否则返回-2表示未登录
+    return SaResult.data(&quot;当前token时间: &quot; + StpUtil.getTokenTimeout());
+&#125;
+</code></pre>
+<h3 id="StpUtil-getTokenInfo-：获取Token信息"><a href="#StpUtil-getTokenInfo-：获取Token信息" class="headerlink" title="StpUtil.getTokenInfo()：获取Token信息"></a>StpUtil.getTokenInfo()：获取Token信息</h3><pre><code class="java">@RequestMapping(&quot;/login/token/info&quot;)
+public SaResult getTokenInfo() &#123;
+    //获取Token详细信息，
+    //方式一：会对请求中Cookie的Token进行验证，
+    //方式二：自定义header，tokenname = token
+    //已登录返回登录详细信息，否则返回未登录的Token状态
+    return SaResult.data(&quot;当前token信息: &quot; + StpUtil.getTokenInfo());
+&#125;
+</code></pre>
+<h3 id="StpUtil-logout-：退出登录"><a href="#StpUtil-logout-：退出登录" class="headerlink" title="StpUtil.logout()：退出登录"></a>StpUtil.logout()：退出登录</h3><pre><code class="java">@RequestMapping(&quot;/logout&quot;)
+public SaResult logout() &#123;
+    log.info(&quot;当前注销的token is &#123;&#125;&quot;, StpUtil.getTokenInfo());
+    //退出登录，
+    //方式一：会对请求中Cookie的Token进行验证，
+    //方式二：自定义header，tokenname = token
+    //如果Token已登录，则会清楚相关信息。
+    StpUtil.logout();
+    return SaResult.ok(&quot;LOGOUT SUCCESS&quot;);
+&#125;
+</code></pre>
+<h3 id="Http请求样例"><a href="#Http请求样例" class="headerlink" title="Http请求样例"></a>Http请求样例</h3><pre><code class="http"># 登录
+GET http://localhost:8082/login?username=yb&amp;password=123456
+# 验证
+# 方式一：自定义header，携带tokenname（服务器设置的token名称）和value
+GET http://localhost:8082/login/check
+Content-Type: application/json
+sa_token: e26904c7-7a77-4e0f-b7e1-37f14323447d
+# 方式二：使用登录成功返回的Cookie进行提交
+GET http://localhost:8082/login/check
+Content-Type: application/json
+Cookie: sa_token=785b9582-9b4e-4c44-9662-457a61598381
+</code></pre>
+<h1 id="简单权限认证"><a href="#简单权限认证" class="headerlink" title="简单权限认证"></a>简单权限认证</h1><h3 id="实现StpInterface接口"><a href="#实现StpInterface接口" class="headerlink" title="实现StpInterface接口"></a>实现StpInterface接口</h3><p>StpInterface提供id和权限、角色绑定方法。用户登录时，通过实现的StpInterface接口，将用户id和数据库或者其他提供用户权限、角色进行list的自动绑定。</p>
+<pre><code class="java">@Component
+public class PermissionAuthImpl implements StpInterface &#123;
+
+    // 对用户id和加载的权限列表绑定，限定用户的权限
+    @Override
+    public List&lt;String&gt; getPermissionList(Object loginId, String loginType) &#123;
+        // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;101&quot;);
+        list.add(&quot;user-add&quot;);
+        list.add(&quot;user-delete&quot;);
+        list.add(&quot;user-update&quot;);
+        list.add(&quot;user-get&quot;);
+        list.add(&quot;article-get&quot;);
+        return list;
+    &#125;
+
+    // 对用户id和加载的角色列表绑定，限定用户的角色
+    @Override
+    public List&lt;String&gt; getRoleList(Object loginId, String loginType) &#123;
+        // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;admin&quot;);
+        list.add(&quot;super-admin&quot;);
+        return list;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="权限、角色绑定"><a href="#权限、角色绑定" class="headerlink" title="权限、角色绑定"></a>权限、角色绑定</h3><p>当用户登录时，调用StpUtil.login(id)方法，会自动使用实现的StpInterface接口进行对应的权限绑定。</p>
+<pre><code class="java">@RequestMapping(&quot;/login&quot;)
+public SaResult login(String username, String password) &#123;
+    if (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;
+        String id = UUID.randomUUID().toString().replaceAll(&quot;-&quot;, &quot;&quot;);
+        log.info(&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;, username, id);
+        //核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie或者自定义的header，后端会进行登录判断。
+        //该方法的具体原理暂不介绍
+        //login方法会自动绑定角色和权限。
+        StpUtil.login(id);
+        return SaResult.ok(&quot;LOGIN SUCCESS&quot;);
+    &#125;
+    return SaResult.ok(&quot;LOGIN FAILED&quot;);
+&#125;
+</code></pre>
+<h3 id="权限认证"><a href="#权限认证" class="headerlink" title="权限认证"></a>权限认证</h3><p>前提：http请求中需要携带有token的Cookie或者自定义的header中tokenname和value</p>
+<pre><code class="java">// 获取：当前账号所拥有的权限集合
+StpUtil.getPermissionList();
+
+// 判断：当前账号是否含有指定权限, 返回true或false
+StpUtil.hasPermission(&quot;user-update&quot;);        
+
+// 校验：当前账号是否含有指定权限, 如果验证未通过，则抛出异常: NotPermissionException 
+StpUtil.checkPermission(&quot;user-update&quot;);        
+
+// 校验：当前账号是否含有指定权限 [指定多个，必须全部验证通过]
+StpUtil.checkPermissionAnd(&quot;user-update&quot;, &quot;user-delete&quot;);        
+
+// 校验：当前账号是否含有指定权限 [指定多个，只要其一验证通过即可]
+StpUtil.checkPermissionOr(&quot;user-update&quot;, &quot;user-delete&quot;);    
+</code></pre>
+<h3 id="角色认证"><a href="#角色认证" class="headerlink" title="角色认证"></a>角色认证</h3><p>前提：http请求中需要携带有token的Cookie或者自定义的header中tokenname和value</p>
+<pre><code class="java">// 获取：当前账号所拥有的角色集合
+StpUtil.getRoleList();
+
+// 判断：当前账号是否拥有指定角色, 返回true或false
+StpUtil.hasRole(&quot;super-admin&quot;);        
+
+// 校验：当前账号是否含有指定角色标识, 如果验证未通过，则抛出异常: NotRoleException
+StpUtil.checkRole(&quot;super-admin&quot;);        
+
+// 校验：当前账号是否含有指定角色标识 [指定多个，必须全部验证通过]
+StpUtil.checkRoleAnd(&quot;super-admin&quot;, &quot;shop-admin&quot;);        
+
+// 校验：当前账号是否含有指定角色标识 [指定多个，只要其一验证通过即可] 
+StpUtil.checkRoleOr(&quot;super-admin&quot;, &quot;shop-admin&quot;);        
+</code></pre>
+<h3 id="权限通配符："><a href="#权限通配符：" class="headerlink" title="权限通配符：*****"></a>权限通配符：*****</h3><p>使用权限统配符可以简化匹配规则（角色也试用），如</p>
+<pre><code class="sh">user* 匹配 user-list、user-add、user-delete等
+
+* 匹配所有的角色和权限。
+</code></pre>
+<h1 id="强制下线"><a href="#强制下线" class="headerlink" title="强制下线"></a>强制下线</h1><p><img src="https://oss.dev33.cn/sa-token/doc/g/g3--kickout.gif" alt="强制下线"></p>
+<h3 id="方式一：强制注销"><a href="#方式一：强制注销" class="headerlink" title="方式一：强制注销"></a>方式一：强制注销</h3><pre><code class="java">StpUtil.logout(10001);                    // 强制指定账号注销下线 
+StpUtil.logout(10001, &quot;PC&quot;);              // 强制指定账号指定端注销下线 
+StpUtil.logoutByTokenValue(&quot;token&quot;);      // 强制指定 Token 注销下线 
+</code></pre>
+<h3 id="方式二：踢人下线"><a href="#方式二：踢人下线" class="headerlink" title="方式二：踢人下线"></a>方式二：踢人下线</h3><pre><code class="java">StpUtil.kickout(10001);                    // 将指定账号踢下线 
+StpUtil.kickout(10001, &quot;PC&quot;);              // 将指定账号指定端踢下线
+StpUtil.kickoutByTokenValue(&quot;token&quot;);      // 将指定 Token 踢下线
+</code></pre>
+<h1 id="注解方式权限认证"><a href="#注解方式权限认证" class="headerlink" title="注解方式权限认证"></a>注解方式权限认证</h1><h3 id="配置连接器"><a href="#配置连接器" class="headerlink" title="配置连接器"></a>配置连接器</h3><pre><code class="java">@Configuration
+public class SaTokenConfigure implements WebMvcConfigurer &#123;
+    // 注册 Sa-Token 拦截器，打开注解式鉴权功能 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) &#123;
+        // 注册 Sa-Token 拦截器，打开注解式鉴权功能 
+        registry.addInterceptor(new SaInterceptor()).addPathPatterns(&quot;/**&quot;);    
+    &#125;
+&#125;
+</code></pre>
+<h3 id="权限检查注解（可类可方法）"><a href="#权限检查注解（可类可方法）" class="headerlink" title="权限检查注解（可类可方法）"></a>权限检查注解（可类可方法）</h3><pre><code class="java">// 登录认证：只有登录之后才能进入该方法 
+@SaCheckLogin
+
+// 角色认证：必须具有指定角色才能进入该方法 
+@SaCheckRole(&quot;super-admin&quot;)
+
+// 权限认证：必须具有指定权限才能进入该方法 
+@SaCheckPermission(&quot;user-add&quot;)
+
+//校验模式
+//SaMode.AND, 标注一组权限，会话必须全部具有才可通过校验。
+//SaMode.OR, 标注一组权限，会话只要具有其一即可通过校验。
+@SaCheckPermission(value = &#123;&quot;user-add&quot;, &quot;user-all&quot;, &quot;user-delete&quot;&#125;, mode = SaMode.OR)
+
+//角色权限双重 “or校验”
+//写法一：orRole = &quot;admin&quot;，代表需要拥有角色 admin 。
+//写法二：orRole = &#123;&quot;admin&quot;, &quot;manager&quot;, &quot;staff&quot;&#125;，代表具有三个角色其一即可。
+//写法三：orRole = &#123;&quot;admin, manager, staff&quot;&#125;，代表必须同时具有三个角色。
+@SaCheckPermission(value = &quot;user-add&quot;, orRole = &quot;admin&quot;) 
+
+// 二级认证：必须二级认证之后才能进入该方法 
+@SaCheckSafe() 
+
+// Http Basic 认证：只有通过 Basic 认证后才能进入该方法 
+@SaCheckBasic(account = &quot;sa:123456&quot;)
+
+// 校验当前账号是否被封禁 comment 服务，如果已被封禁会抛出异常，无法进入方法 
+@SaCheckDisable(&quot;comment&quot;) 
+
+//可以游客访问 
+@SaIgnore
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hexo</title>
+    <title> - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="错误：【Failed to transform bcprov-jdk15on-1.68.jar (org.bouncycastle:bcprov-jdk15on:1.68) to match att,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +18,16 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="Hexo"/>
-    
+    <meta name="twitter:title" content=" - Hexo"/>
+    <meta name="twitter:description" content="错误：【Failed to transform bcprov-jdk15on-1.68.jar (org.bouncycastle:bcprov-jdk15on:1.68) to match att,"/>
     
     
     
     
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="Hexo"/>
-    
+    <meta property="og:title" content=" - Hexo"/>
+    <meta property="og:description" content="错误：【Failed to transform bcprov-jdk15on-1.68.jar (org.bouncycastle:bcprov-jdk15on:1.68) to match att,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -40,27 +40,83 @@
 <body class="loading">
     <span id="config-title" style="display:none">Hexo</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="iconfont icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                
-                    <div class="set">
-  <h2>分类</h2>
-  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li></ul>
-</div>
-
-                
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>八月 22, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="错误：【Failed-to-transform-bcprov-jdk15on-1-68-jar-org-bouncycastle-bcprov-jdk15on-1-68-to-match-attributes-artifactType-x3D-processed-jar-org-gradle-category-x3D-library-org-gradle-libraryelements-x3D-jar-org-gradle-status-x3D-release-org-gradle-usage-x3D-java-runtime-】"><a href="#错误：【Failed-to-transform-bcprov-jdk15on-1-68-jar-org-bouncycastle-bcprov-jdk15on-1-68-to-match-attributes-artifactType-x3D-processed-jar-org-gradle-category-x3D-library-org-gradle-libraryelements-x3D-jar-org-gradle-status-x3D-release-org-gradle-usage-x3D-java-runtime-】" class="headerlink" title="错误：【Failed to transform bcprov-jdk15on-1.68.jar (org.bouncycastle:bcprov-jdk15on:1.68) to match attributes {artifactType&#x3D;processed-jar, org.gradle.category&#x3D;library, org.gradle.libraryelements&#x3D;jar, org.gradle.status&#x3D;release, org.gradle.usage&#x3D;java-runtime}.】"></a>错误：【Failed to transform bcprov-jdk15on-1.68.jar (org.bouncycastle:bcprov-jdk15on:1.68) to match attributes {artifactType&#x3D;processed-jar, org.gradle.category&#x3D;library, org.gradle.libraryelements&#x3D;jar, org.gradle.status&#x3D;release, org.gradle.usage&#x3D;java-runtime}.】</h1><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><pre><code class="properties">//升级gradle
+//将gradle文件夹下的gradle-wrapper.properties的改为gradle-7.2-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.2-all.zip
+
+//将Android目录下build.gradle中buildscript下的dependencies改为7.1.2
+dependencies &#123;
+//即修改gradle的版本
+        classpath &#39;com.android.tools.build:gradle:7.1.2&#39;
+&#125;
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 
 

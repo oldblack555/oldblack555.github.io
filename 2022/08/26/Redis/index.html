@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Redis - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Redis安装ubuntu安装redissudo apt update
+#安装redis服务
+sudo apt install redis-server
+#重启redis服务
+sudo system,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Redis - Hexo"/>
+    <meta name="twitter:description" content="Redis安装ubuntu安装redissudo apt update
+#安装redis服务
+sudo apt install redis-server
+#重启redis服务
+sudo system,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Redis - Hexo"/>
+    <meta property="og:description" content="Redis安装ubuntu安装redissudo apt update
+#安装redis服务
+sudo apt install redis-server
+#重启redis服务
+sudo system,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Redis</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Redis</h1>
+        <div class="stuff">
+            <span>八月 26, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><h3 id="ubuntu安装redis"><a href="#ubuntu安装redis" class="headerlink" title="ubuntu安装redis"></a>ubuntu安装redis</h3><pre><code class="sh">sudo apt update
+#安装redis服务
+sudo apt install redis-server
+#重启redis服务
+sudo systemctl restart redis-server.service
+</code></pre>
+<h1 id="Redis设置密码"><a href="#Redis设置密码" class="headerlink" title="Redis设置密码"></a>Redis设置密码</h1><pre><code class="sh">sudo vim /etc/redis/redis.conf
+#查找requirepass，将password改为自己的密码，保存退出，重启服务
+requirepass password
+</code></pre>
+<h1 id="Redis开启远程链接"><a href="#Redis开启远程链接" class="headerlink" title="Redis开启远程链接"></a>Redis开启远程链接</h1><pre><code class="sh">sudo vim /etc/redis/redis.conf
+# 查找bind 127.0.0.1；将其注释或者改为如下
+bind 0.0.0.0
+</code></pre>
+<h1 id="Redis-cli连接"><a href="#Redis-cli连接" class="headerlink" title="Redis-cli连接"></a>Redis-cli连接</h1><pre><code class="sh">//无密码连接
+redis-cli -h host -p port
+//如：redis-cli -h localhost -p 6379
+
+//有密码连接
+redis-cli -h host -p port -a password
+//如：redis-cli -h localhost -p 6379 -a &quot;password&quot;
+</code></pre>
+<h1 id="问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe"><a href="#问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe" class="headerlink" title="问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe."></a>问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe.</h1><pre><code class="sh">//解决方式一: --no-auth-warning参数
+//不进行验证警告
+redis-cli -h localhost -p 6379 -a &quot;password&quot; --no-auth-warning
+
+//解决方式二: 无密码登录后使用auth password验证
+redis-cli -h localhost -p 6379
+auth password
+</code></pre>
+<h1 id="Java连接Redis"><a href="#Java连接Redis" class="headerlink" title="Java连接Redis"></a>Java连接Redis</h1><h3 id="导入Jedis依赖（Gradle）"><a href="#导入Jedis依赖（Gradle）" class="headerlink" title="导入Jedis依赖（Gradle）"></a>导入Jedis依赖（Gradle）</h3><pre><code class="kotlin">implementation(&quot;redis.clients:jedis:4.2.3&quot;)
+</code></pre>
+<h3 id="Jedis连接Redis"><a href="#Jedis连接Redis" class="headerlink" title="Jedis连接Redis"></a>Jedis连接Redis</h3><pre><code class="java">//Jedis创建连接对象，指定host和port，只指定host不一定连接成功
+try (Jedis jedis = new Jedis(&quot;localhost&quot;, 6379)) &#123;
+    //如果存在auth验证，则使用下行代码，否则删除即可
+    jedis.auth(&quot;YB520lly..&quot;);
+    //测试ping
+    logger.info(&quot;Redis ping status: &#123;&#125;&quot;, jedis.ping());
+&#125; catch (Exception e) &#123;
+    logger.info(&quot;Redis连接失败: &#123;&#125;&quot;, e.getMessage());
+&#125;
+</code></pre>
+<h3 id="JedisPool连接Redis"><a href="#JedisPool连接Redis" class="headerlink" title="JedisPool连接Redis"></a>JedisPool连接Redis</h3><pre><code class="java">JedisPoolConfig config = new JedisPoolConfig();
+config.setMaxTotal(3);
+config.setMaxIdle(2);
+config.setMinIdle(1);
+
+try (JedisPool jedisPool = new JedisPool(config, &quot;localhost&quot;, 6379, 300, &quot;YB520lly..&quot;)) &#123;
+    Jedis jedis = jedisPool.getResource();
+    logger.info(&quot;Redis ping status: &#123;&#125;&quot;, jedis.ping());
+&#125; catch (Exception e) &#123;
+    logger.info(&quot;&#123;&#125;&quot;, e.getMessage());
+&#125;
+</code></pre>
+<h3 id="Springboot集成Redis"><a href="#Springboot集成Redis" class="headerlink" title="Springboot集成Redis"></a>Springboot集成Redis</h3><ul>
+<li>导入依赖</li>
+</ul>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+    &lt;version&gt;2.7.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ul>
+<li>设置Redis信息</li>
+</ul>
+<pre><code class="yml">spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: YB520lly..
+    timeout: 3000
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1
+        max-idle: 10
+        min-idle: 0
+    database: 0
+</code></pre>
+<ul>
+<li>创建RedisConfig</li>
+</ul>
+<pre><code class="java">@Configuration
+public class RedisConfig &#123;
+
+    @Value(&quot;$&#123;spring.redis.host&#125;&quot;)
+    private String host;
+
+    @Value(&quot;$&#123;spring.redis.password&#125;&quot;)
+    private String password;
+
+    @Value(&quot;$&#123;spring.redis.database&#125;&quot;)
+    private Integer database;
+
+    @Value(&quot;$&#123;spring.redis.port&#125;&quot;)
+    private Integer port;
+
+    @Bean
+    @ConfigurationProperties(prefix = &quot;spring.redis.jedis.pool&quot;)
+    public JedisPoolConfig jedisPoolConfig() &#123;
+        return new JedisPoolConfig();
+    &#125;
+
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory(JedisPoolConfig jedisPoolConfig) &#123;
+        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
+//        设置主机、端口、数据库、验证密码等
+        redisStandaloneConfiguration.setHostName(host);
+        redisStandaloneConfiguration.setPort(port);
+        redisStandaloneConfiguration.setDatabase(database);
+        redisStandaloneConfiguration.setPassword(password);
+
+        JedisClientConfiguration.JedisPoolingClientConfigurationBuilder jedisPoolingClientConfigurationBuilder
+                = (JedisClientConfiguration.JedisPoolingClientConfigurationBuilder) JedisClientConfiguration.builder();
+        jedisPoolingClientConfigurationBuilder.poolConfig(jedisPoolConfig);
+        JedisClientConfiguration jedisClientConfiguration = jedisPoolingClientConfigurationBuilder.build();
+
+//        创建Jedis连接工厂
+        return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration);
+    &#125;
+
+    @Bean
+    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) &#123;
+        RedisTemplate&lt;String, Object&gt; redisTemplate = new RedisTemplate&lt;&gt;();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+//        配置redis的key序列化方式
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(stringRedisSerializer);
+        redisTemplate.setHashKeySerializer(stringRedisSerializer);
+//        配置redis的value序列化方式
+        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer&lt;&gt;(Object.class);
+        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
+
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
+    &#125;
+
+//    封装RedisTemplate，可省略
+    @Bean
+    public OBRedisClient obRedisClient(RedisTemplate&lt;String, Object&gt; redisTemplate)&#123;
+        return new OBRedisClientImpl(redisTemplate);
+    &#125;
+
+&#125;
+</code></pre>
+<h1 id="Redis-Config：查看、配置redis信息"><a href="#Redis-Config：查看、配置redis信息" class="headerlink" title="Redis Config：查看、配置redis信息"></a>Redis Config：查看、配置redis信息</h1><pre><code class="sh">//查看redis的配置信息
+config get configname
+
+//如查看ip绑定：
+config get bind
+//1) &quot;bind&quot;
+//2) &quot;127.0.0.1 ::1&quot;
+
+//查看redis安装目录
+config get dir
+
+//设置redis配置信息
+config set configname configvalue
+
+//如设置超时时间(默认值为300)：
+config set timeout 400
+//OK
+//查看超时时间
+config get timeout
+//1) &quot;timeout&quot;
+//2) &quot;400&quot;
+</code></pre>
+<h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><table>
+<thead>
+<tr>
+<th align="left">配置</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">daemonize (on|yes)</td>
+<td align="left">使用 yes 启用守护进程，默认为no</td>
+</tr>
+<tr>
+<td align="left">pidfile path&#x2F;file.pid</td>
+<td align="left">以守护进程方式运行时，Redis 默认会把 pid 写入&#x2F;var&#x2F;run&#x2F;redis&#x2F;redis-server.pid（默认） 文件，可以通过 pidfile 指定。</td>
+</tr>
+<tr>
+<td align="left">port 端口号</td>
+<td align="left">默认端口为 6379</td>
+</tr>
+<tr>
+<td align="left">bind ip</td>
+<td align="left">绑定的主机地址,如果指定为 0；表示关闭该功能,允许任何机器访问</td>
+</tr>
+<tr>
+<td align="left">timeout time</td>
+<td align="left">当客户端闲置多长秒后关闭连接，如果指定为 0 ，表示关闭该功能</td>
+</tr>
+<tr>
+<td align="left">loglevel type</td>
+<td align="left">指定日志记录级别，Redis 总共支持四个级别：debug、verbose、notice、warning，默认为 notice</td>
+</tr>
+<tr>
+<td align="left">logfile stdout</td>
+<td align="left">日志记录方式，默认为标准输出，如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 &#x2F;dev&#x2F;null</td>
+</tr>
+<tr>
+<td align="left">databases num</td>
+<td align="left">设置数据库的数量，默认数据库为0，可以使用SELECT 命令在连接上指定数据库id</td>
+</tr>
+<tr>
+<td align="left">requirepass password</td>
+<td align="left">设置 Redis 连接密码，如果配置了连接密码。关闭使用config set requirepass 即可。</td>
+</tr>
+</tbody></table>
+<h1 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h1><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串（string）</td>
+<td>String 是一组字节。在 Redis 数据库中，字符串是二进制安全的。这意味着它们具有已知长度，并且不受任何特殊终止字符的影响。可以在一个字符串中存储最多 512 兆字节的内容。</td>
+</tr>
+<tr>
+<td>哈希（hash）</td>
+<td>哈希是键值对的集合。在 Redis 中，哈希是字符串字段和字符串值之间的映射。因此，它们适合表示对象。</td>
+</tr>
+<tr>
+<td>列表（list）</td>
+<td>Redis 列表定义为字符串列表，按插入顺序排序。可以将元素添加到 Redis 列表的头部或尾部。</td>
+</tr>
+<tr>
+<td>集合（set）</td>
+<td>集合（set）是 Redis 数据库中的<strong>无序字符串集合</strong>。在 Redis 中，添加，删除和查找的时间复杂度是 O(1)。</td>
+</tr>
+<tr>
+<td>有序集合（sorted set）</td>
+<td>Redis 有序集合类似于 Redis 集合，也是一组非重复的字符串集合。但是，排序集的每个成员都与一个分数相关联，该分数用于获取从最小到最高分数的有序排序集。虽然成员是独特的，但可以重复分数。</td>
+</tr>
+<tr>
+<td>位图 ( Bitmaps )</td>
+<td>Redis Bitmap 通过类似 map 结构存放 0 或 1 ( bit 位 ) 作为值。</td>
+</tr>
+<tr>
+<td>基数统计 ( HyperLogLogs )</td>
+<td>Redis HyperLogLog 可以接受多个元素作为输入，并给出输入元素的基数估算值</td>
+</tr>
+</tbody></table>
+<h1 id="Key操作"><a href="#Key操作" class="headerlink" title="Key操作"></a>Key操作</h1><h3 id="Keys-pattern：查找指定pattern的key"><a href="#Keys-pattern：查找指定pattern的key" class="headerlink" title="Keys pattern：查找指定pattern的key"></a>Keys pattern：查找指定pattern的key</h3><pre><code>//返回所有匹配pattern的key；*表示返回所有的key
+keys pattern
+//keys str?
+//keys *
+</code></pre>
+<h5 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h5><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>?</td>
+<td>匹配一个字符</td>
+<td>str?匹配：str1、stra等等</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配任意长度字符</td>
+<td>str*匹配：str、str1、str11等等</td>
+</tr>
+<tr>
+<td>[ab…]</td>
+<td>匹配括号中任意一个字符，匹配多个字符无效</td>
+<td>str[12]匹配：str1、str2</td>
+</tr>
+<tr>
+<td>[^ab…]</td>
+<td>匹配不包含括号中任意一个字符，匹配多个无效，^必须放在开头，否则无效</td>
+<td>str[^12]不匹配：str1、str2</td>
+</tr>
+<tr>
+<td>[a-b]</td>
+<td>配置包含a到b范围内的任意一个字符</td>
+<td>str[1-3]匹配：str1、str2、str3</td>
+</tr>
+</tbody></table>
+<h3 id="Set-Key：设置Key"><a href="#Set-Key：设置Key" class="headerlink" title="Set Key：设置Key"></a>Set Key：设置Key</h3><pre><code class="sh">//设置键值对，成功返回OK
+set keyname value
+</code></pre>
+<h3 id="Del-Key：删除Key"><a href="#Del-Key：删除Key" class="headerlink" title="Del Key：删除Key"></a>Del Key：删除Key</h3><pre><code class="sh">//删除存在的Key,成功返回1，否则返回0
+del kename
+
+//如：del key_one
+//(integer) 1
+
+//如：del key_two
+//(integer) 0
+</code></pre>
+<h3 id="Dump-Key：序列化Key"><a href="#Dump-Key：序列化Key" class="headerlink" title="Dump Key：序列化Key"></a>Dump Key：序列化Key</h3><pre><code class="sh">//序列化给定的Key，并返回被序列化的值。前提key存在
+dump keyname
+//redis存在key_one &quot;Hello World&quot;的键值对
+//如：dump key_one
+//&quot;\x00\x0bHello World\t\x00\x14\x9aE0\xcaT\xb9a&quot;
+
+//redis不存在key_two
+//如：dump key_two
+//(nil)
+</code></pre>
+<h3 id="Exists-key：检查Key是否存在"><a href="#Exists-key：检查Key是否存在" class="headerlink" title="Exists key：检查Key是否存在"></a>Exists key：检查Key是否存在</h3><pre><code>//如果存在则返回一，否则返回0
+exists keyname
+//如：exists key_one
+//(integer) 1
+
+//如：exists key_two
+//(integer) 0
+</code></pre>
+<h3 id="Expire-key：设置key的过期时间"><a href="#Expire-key：设置key的过期时间" class="headerlink" title="Expire key：设置key的过期时间"></a>Expire key：设置key的过期时间</h3><pre><code class="sh">//指定key的生存时间，单位秒
+expire keyname seconds
+//如：expire user 1
+//(integer) 1
+//一秒后查看该键，返回空
+//hgetall user
+//(empty array)
+//删除改键，返回0，说明超时已经删除，数据库中不存在改键
+//del user
+//(integer) 0
+</code></pre>
+<h3 id="Pexpire-key：设置key的过期时间（毫秒）"><a href="#Pexpire-key：设置key的过期时间（毫秒）" class="headerlink" title="Pexpire key：设置key的过期时间（毫秒）"></a>Pexpire key：设置key的过期时间（毫秒）</h3><pre><code class="sh">//指定key的生存时间，单位秒
+pexpire keyname milliseconds
+//如：pexpire yb 1000
+//(integer) 1
+//一秒后查看该键，返回空
+//get yb
+//(nil)
+//删除改键，返回0，说明超时已经删除，数据库中不存在改键
+//del yb
+//(integer) 0
+</code></pre>
+<h3 id="Rename-key：修改key的名称（等价删除）"><a href="#Rename-key：修改key的名称（等价删除）" class="headerlink" title="Rename key：修改key的名称（等价删除）"></a>Rename key：修改key的名称（等价删除）</h3><pre><code class="sh">//如果newkey存在，则newkey的值会覆盖oldkey的值，等价于删除oldkey
+rename oldkey newkey
+//如：rename lly yb
+//OK
+//获取原来的键值
+//get lly
+//(nil)
+//获取新的键值
+//get yb
+//&quot;I Love YB&quot;
+</code></pre>
+<h3 id="Renamenx-key：修改key的名称"><a href="#Renamenx-key：修改key的名称" class="headerlink" title="Renamenx key：修改key的名称"></a>Renamenx key：修改key的名称</h3><pre><code class="sh">//如果newkey存在，则重命名失败
+renamenx oldkey newkey
+//如：renamenx lly yb
+//(integer) 0
+//获取原来的键值，不变
+//get lly
+//&quot;Hello&quot;
+//获取新的键值，不变
+//get yb
+//&quot;123&quot;
+</code></pre>
+<h3 id="Type-key：返回-key-所储存的值的类型"><a href="#Type-key：返回-key-所储存的值的类型" class="headerlink" title="Type key：返回 key 所储存的值的类型"></a>Type key：返回 key 所储存的值的类型</h3><pre><code class="sh">type keyname
+//如：type yb
+//string
+</code></pre>
+<h3 id="TTL-key：返回key的生存时间（秒）"><a href="#TTL-key：返回key的生存时间（秒）" class="headerlink" title="TTL key：返回key的生存时间（秒）"></a>TTL key：返回key的生存时间（秒）</h3><pre><code class="sh">//返回-1表示永久性，否则以秒为单位返回生存时间
+ttl keyname
+//如：ttl yb
+//(integer) -1
+//(integer) 8
+</code></pre>
+<h3 id="PTTL-key：返回key的生存时间（毫秒）"><a href="#PTTL-key：返回key的生存时间（毫秒）" class="headerlink" title="PTTL key：返回key的生存时间（毫秒）"></a>PTTL key：返回key的生存时间（毫秒）</h3><pre><code>//返回-2表示永久性，否则以毫秒为单位返回生存时间
+pttl keyname
+//如：pttl yb
+//(integer) -2
+//(integer) 8000
+</code></pre>
+<h3 id="Move-key：移动key到指定数据库"><a href="#Move-key：移动key到指定数据库" class="headerlink" title="Move key：移动key到指定数据库"></a>Move key：移动key到指定数据库</h3><pre><code class="sh">//返回1移动成功；0移动失败
+move keyname databasenum
+//如：当前数据库为0
+//move yb 1
+//(integer) 1
+</code></pre>
+<h1 id="String：字符串"><a href="#String：字符串" class="headerlink" title="String：字符串"></a>String：字符串</h1><h3 id="String介绍"><a href="#String介绍" class="headerlink" title="String介绍"></a>String介绍</h3><ul>
+<li>最大容量：512Mb</li>
+</ul>
+<h3 id="设置字符串，如果存在则覆盖原有的值"><a href="#设置字符串，如果存在则覆盖原有的值" class="headerlink" title="设置字符串，如果存在则覆盖原有的值"></a>设置字符串，如果存在则覆盖原有的值</h3><pre><code class="sh">set key value
+//set str1 &quot;Hello World&quot;
+//set str2 HelloWorld
+</code></pre>
+<h3 id="设置key值为value，前提key不存在"><a href="#设置key值为value，前提key不存在" class="headerlink" title="设置key值为value，前提key不存在"></a>设置key值为value，前提key不存在</h3><pre><code>setnx key value
+//setnx str4 &quot;Hello World&quot;
+//setnx str1 &quot;Hello World&quot;
+</code></pre>
+<h3 id="设置key值为value，指定到期时间（秒）"><a href="#设置key值为value，指定到期时间（秒）" class="headerlink" title="设置key值为value，指定到期时间（秒）"></a>设置key值为value，指定到期时间（秒）</h3><pre><code>setex key seconds value
+//setex str3 10 &quot;Hello World&quot;
+</code></pre>
+<h3 id="设置key值为value，指定到期时间（毫秒）"><a href="#设置key值为value，指定到期时间（毫秒）" class="headerlink" title="设置key值为value，指定到期时间（毫秒）"></a>设置key值为value，指定到期时间（毫秒）</h3><pre><code>psetex key seconds value
+//setex str3 10 &quot;Hello World&quot;
+</code></pre>
+<h3 id="设置多个key和value，存在则覆盖"><a href="#设置多个key和value，存在则覆盖" class="headerlink" title="设置多个key和value，存在则覆盖"></a>设置多个key和value，存在则覆盖</h3><pre><code>mset key1 value1 key2 value2 ...
+//mset str5 &quot;A&quot; str6 &quot;B&quot;
+</code></pre>
+<h3 id="设置多个key和value，存在则不进行操作"><a href="#设置多个key和value，存在则不进行操作" class="headerlink" title="设置多个key和value，存在则不进行操作"></a>设置多个key和value，存在则不进行操作</h3><pre><code>msetnx key1 value1 key2 value2 ...
+//mset str5 &quot;A&quot; str6 &quot;B&quot; str7 C
+</code></pre>
+<h3 id="获取字符串"><a href="#获取字符串" class="headerlink" title="获取字符串"></a>获取字符串</h3><pre><code class="sh">get key
+//get str1
+</code></pre>
+<h3 id="获取子串"><a href="#获取子串" class="headerlink" title="获取子串"></a>获取子串</h3><pre><code class="sh">//0：正序第一个字符，增量1；-1：逆序第一个字符，增量-1。
+getrange key start end
+//getrange str1 0 4
+//getrange str1 -5 -1
+</code></pre>
+<h3 id="设置新值，返回旧值"><a href="#设置新值，返回旧值" class="headerlink" title="设置新值，返回旧值"></a>设置新值，返回旧值</h3><pre><code class="sh">getset key value
+//getset str1 &quot;你好&quot;
+</code></pre>
+<h3 id="获取所有给定key的值"><a href="#获取所有给定key的值" class="headerlink" title="获取所有给定key的值"></a>获取所有给定key的值</h3><pre><code class="sh">mget key [key...]
+//mget str1 str2
+</code></pre>
+<h3 id="更新key指定位置的内容"><a href="#更新key指定位置的内容" class="headerlink" title="更新key指定位置的内容"></a>更新key指定位置的内容</h3><pre><code>//返回字符串值的长度。offest&gt;=0，返回字符串长度
+setrange key offest value
+//setrange str1 6 &quot;Redis&quot;
+</code></pre>
+<h3 id="获取key的值的长度"><a href="#获取key的值的长度" class="headerlink" title="获取key的值的长度"></a>获取key的值的长度</h3><pre><code>strlen key
+//strlen str1
+</code></pre>
+<h3 id="追加key的值"><a href="#追加key的值" class="headerlink" title="追加key的值"></a>追加key的值</h3><pre><code>//key存在，则在末尾追加value，否则和set key value一样；返回字符串长度
+append key value
+//append str1 A
+//append str8 D
+</code></pre>
+<h3 id="对数值字符串增加一（value为整数）"><a href="#对数值字符串增加一（value为整数）" class="headerlink" title="对数值字符串增加一（value为整数）"></a>对数值字符串增加一（value为整数）</h3><pre><code>//如果key不存在，则进行set key 0后在进行incr key；返回key的值
+incr key
+//incr num1
+</code></pre>
+<h3 id="对数值字符串增加指定数值（value和增量为整数）"><a href="#对数值字符串增加指定数值（value和增量为整数）" class="headerlink" title="对数值字符串增加指定数值（value和增量为整数）"></a>对数值字符串增加指定数值（value和增量为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行incrby key num；返回key的值
+incrby key num
+//incrby num1 10
+</code></pre>
+<h3 id="对数值字符串增加指定数值（浮点数）"><a href="#对数值字符串增加指定数值（浮点数）" class="headerlink" title="对数值字符串增加指定数值（浮点数）"></a>对数值字符串增加指定数值（浮点数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行incrbyfloat key floatnum；返回key的值
+incrbyfloat key floatnum
+//incrbyfloat num1 10.1
+</code></pre>
+<h3 id="对数值字符串增减一（value为整数）"><a href="#对数值字符串增减一（value为整数）" class="headerlink" title="对数值字符串增减一（value为整数）"></a>对数值字符串增减一（value为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行decr key；返回key的值
+decr key
+//decr num1
+</code></pre>
+<h3 id="对数值字符串增减指定数值（value和减少量为整数）"><a href="#对数值字符串增减指定数值（value和减少量为整数）" class="headerlink" title="对数值字符串增减指定数值（value和减少量为整数）"></a>对数值字符串增减指定数值（value和减少量为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行decrby key num；返回key的值
+decrby key num
+//decrby num1 num
+</code></pre>
+<h1 id="Hashes：哈希"><a href="#Hashes：哈希" class="headerlink" title="Hashes：哈希"></a>Hashes：哈希</h1><h3 id="Hashes介绍"><a href="#Hashes介绍" class="headerlink" title="Hashes介绍"></a>Hashes介绍</h3><ul>
+<li>string类型的映射表（k-v）</li>
+<li>最大容量：(2^32) - 1个</li>
+<li>适合存储对象</li>
+</ul>
+<h3 id="设置hashes的键值对，存在则覆盖，可多个"><a href="#设置hashes的键值对，存在则覆盖，可多个" class="headerlink" title="设置hashes的键值对，存在则覆盖，可多个"></a>设置hashes的键值对，存在则覆盖，可多个</h3><pre><code class="sh">//返回修改或增加的field个数
+hset hasheskey field value [field value ...]
+
+//如：hset user name yb age 18 sex man 
+//(integer) 3
+</code></pre>
+<h3 id="设置hashes的键值对，前提hasheskey不存在，只一个"><a href="#设置hashes的键值对，前提hasheskey不存在，只一个" class="headerlink" title="设置hashes的键值对，前提hasheskey不存在，只一个"></a>设置hashes的键值对，前提hasheskey不存在，只一个</h3><pre><code class="sh">//更新hashe的内容，如果hashekey不存在，则创建hashekey，再执行更新；如果hashekey中的field存在，则更新无效
+hsetnx hasheskey field value
+
+//如：hsetnx user like game
+//(integer) 1
+
+//如：hsetnx user name lly
+//(integer) 0
+</code></pre>
+<h3 id="获取hashes的field"><a href="#获取hashes的field" class="headerlink" title="获取hashes的field"></a>获取hashes的field</h3><pre><code>//返回给定字段的值，不存在为null
+hget hasheskey field
+
+//如：hget user name
+//&quot;yb&quot;
+
+//如：hget user address
+//(nil)
+</code></pre>
+<h3 id="获取hashes的多个field"><a href="#获取hashes的多个field" class="headerlink" title="获取hashes的多个field"></a>获取hashes的多个field</h3><pre><code>//返回指定的所有field内容，不存在返回null
+hmget hasheskey filed [field...]
+
+//如：hmget user name age sex like
+//1) &quot;yb&quot;
+//2) &quot;18&quot;
+//3) &quot;man&quot;
+//4) &quot;game&quot;
+</code></pre>
+<h3 id="获取hashes的全部value"><a href="#获取hashes的全部value" class="headerlink" title="获取hashes的全部value"></a>获取hashes的全部value</h3><pre><code>//返回所有values
+hvals hasheskey
+
+//如：hvals user
+//1) &quot;yb&quot;
+//2) &quot;18&quot;
+//3) &quot;man&quot;
+//4) &quot;game&quot;
+</code></pre>
+<h3 id="获取hashes的全部键值对内容"><a href="#获取hashes的全部键值对内容" class="headerlink" title="获取hashes的全部键值对内容"></a>获取hashes的全部键值对内容</h3><pre><code>//返回hasheskey的全部内容
+hgetall hasheskey
+
+//如：hgetall user
+//1) &quot;name&quot;
+//2) &quot;yb&quot;
+//3) &quot;age&quot;
+//4) &quot;18&quot;
+//5) &quot;sex&quot;
+//6) &quot;man&quot;
+//7) &quot;like&quot;
+//8) &quot;game&quot;
+
+//如：hgetall book
+//(empty array)
+</code></pre>
+<h3 id="检查hasheskey或者hashes中field是否存在"><a href="#检查hasheskey或者hashes中field是否存在" class="headerlink" title="检查hasheskey或者hashes中field是否存在"></a>检查hasheskey或者hashes中field是否存在</h3><pre><code>//如果field存在，返回1；hasheskey或者field不存在，返回0
+hexists hasheskey field
+
+//如：hexists user name
+//(integer) 1
+
+//如：hexists book name
+//(integer) 0
+</code></pre>
+<h3 id="获取hashes中field值的长度"><a href="#获取hashes中field值的长度" class="headerlink" title="获取hashes中field值的长度"></a>获取hashes中field值的长度</h3><pre><code>//返回field中的长度；hasheskey或field不存在返回0
+hstrlen hasheskey field
+
+//如：hstrlen user name
+//(integer) 2
+
+//如：hstrlen book name
+//(integer) 0
+</code></pre>
+<h3 id="获取hashes的长度"><a href="#获取hashes的长度" class="headerlink" title="获取hashes的长度"></a>获取hashes的长度</h3><pre><code>//返回field的个数，如果hasheskey不存在返回0
+hlen hasheskey
+
+//如：hlen user
+//(integer) 4
+</code></pre>
+<h3 id="获取hashes的所有field的名称"><a href="#获取hashes的所有field的名称" class="headerlink" title="获取hashes的所有field的名称"></a>获取hashes的所有field的名称</h3><pre><code>//返回所有field的名称，hasheskey不存在返回空表
+hkeys hasheskey
+
+//如：hkeys user
+//1) &quot;name&quot;
+//2) &quot;age&quot;
+//3) &quot;sex&quot;
+//4) &quot;like&quot;
+</code></pre>
+<h1 id="List：列表"><a href="#List：列表" class="headerlink" title="List：列表"></a>List：列表</h1><h3 id="List介绍"><a href="#List介绍" class="headerlink" title="List介绍"></a>List介绍</h3><ul>
+<li>按插入顺序排序的字符串列表</li>
+<li>支持头插法和尾插发</li>
+<li>最大容量：(2^32) - 1个</li>
+</ul>
+<h3 id="lpush：设置List一个或多个元素（头插法，可重复插入）"><a href="#lpush：设置List一个或多个元素（头插法，可重复插入）" class="headerlink" title="lpush：设置List一个或多个元素（头插法，可重复插入）"></a><strong>lpush</strong>：设置List一个或多个元素（头插法，可重复插入）</h3><pre><code>//头插法从左至右依次插入，返回list长度
+lpush listkey element [element ...]
+
+//如：lpush names yb lly
+//(integer) 2
+</code></pre>
+<h3 id="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"><a href="#lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"></a><strong>lpushx</strong>：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）</h3><pre><code>//头插法从左至右依次插入，返回list长度
+lpushx listkey element [element ...]
+
+//如：lpushx names yb lly
+//(integer) 8
+
+//如：lpushx animals cat dog
+//(integer) 0
+</code></pre>
+<h3 id="rpush：设置List一个或多个元素（尾插法，可重复插入）"><a href="#rpush：设置List一个或多个元素（尾插法，可重复插入）" class="headerlink" title="rpush：设置List一个或多个元素（尾插法，可重复插入）"></a><strong>rpush</strong>：设置List一个或多个元素（尾插法，可重复插入）</h3><pre><code>//头插法从左至右依次插入，返回list长度
+rpush listkey element [element ...]
+
+//如：rpush names yb lly
+//(integer) 2
+</code></pre>
+<h3 id="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"><a href="#rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"></a><strong>rpushx</strong>：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）</h3><pre><code>//头插法从左至右依次插入，返回list长度
+rpushx listkey element [element ...]
+
+//如：rpushx names yb lly
+//(integer) 8
+
+//如：rpushx animals cat dog
+//(integer) 0
+</code></pre>
+<h3 id="lset：指定位置添加元素（要求key存在）"><a href="#lset：指定位置添加元素（要求key存在）" class="headerlink" title="lset：指定位置添加元素（要求key存在）"></a><strong>lset</strong>：指定位置添加元素（要求key存在）</h3><pre><code>//返回OK，index超出范围报错
+//index：正向0开始，逆向-1开始
+lset listkey index element
+</code></pre>
+<h3 id="lpop：删除并返回list第一个元素"><a href="#lpop：删除并返回list第一个元素" class="headerlink" title="lpop：删除并返回list第一个元素"></a><strong>lpop</strong>：删除并返回list第一个元素</h3><pre><code>//返回第一个元素，listkey不存在则返回null
+lpop listkey
+</code></pre>
+<h3 id="rpop：删除并返回list第一个元素"><a href="#rpop：删除并返回list第一个元素" class="headerlink" title="rpop：删除并返回list第一个元素"></a><strong>rpop</strong>：删除并返回list第一个元素</h3><pre><code>//返回第一个元素，listkey不存在则返回null
+rpop listkey
+</code></pre>
+<h3 id="llen：获取list长度"><a href="#llen：获取list长度" class="headerlink" title="llen：获取list长度"></a><strong>llen</strong>：获取list长度</h3><pre><code>//返回list长度，为空或不存在返回0
+llen listkey
+</code></pre>
+<h3 id="lrange：获取list指定区间的元素"><a href="#lrange：获取list指定区间的元素" class="headerlink" title="lrange：获取list指定区间的元素"></a><strong>lrange</strong>：获取list指定区间的元素</h3><pre><code>//返回指定区间元素，0表示第一个元素，-1表示最后一个元素
+lrange listkey start end
+</code></pre>
+<h3 id="lindex：获取list指定下标的元素"><a href="#lindex：获取list指定下标的元素" class="headerlink" title="lindex：获取list指定下标的元素"></a><strong>lindex</strong>：获取list指定下标的元素</h3><pre><code>//返回查询的元素，不存在返回null，index：0正向第一个数，-1逆向第一个数
+lindex listkey index
+</code></pre>
+<h1 id="Set：集合"><a href="#Set：集合" class="headerlink" title="Set：集合"></a>Set：集合</h1><h3 id="Set介绍"><a href="#Set介绍" class="headerlink" title="Set介绍"></a>Set介绍</h3><ul>
+<li>string类型的无序集合</li>
+<li>集合成员唯一</li>
+<li>增删查时间为O(1)</li>
+<li>最大容量：(2^32) - 1个</li>
+</ul>
+<h3 id="sadd：添加set的成员"><a href="#sadd：添加set的成员" class="headerlink" title="sadd：添加set的成员"></a><strong>sadd</strong>：添加set的成员</h3><pre><code>//返回添加的数量，不包括已存在的成员
+sadd setkey value [value ...]
+
+//如：sadd numbers 1 2 3 4 5
+//(integer) 5
+//sadd numbers 1 2 3 4 5
+//(integer) 0
+</code></pre>
+<h3 id="smembers：查看所有set成员"><a href="#smembers：查看所有set成员" class="headerlink" title="smembers：查看所有set成员"></a><strong>smembers</strong>：查看所有set成员</h3><pre><code>//返回set的全部成员，不存在的set为空集
+smembers setkey
+
+//如：smembers numbers
+//1) &quot;1&quot;
+//2) &quot;2&quot;
+//3) &quot;3&quot;
+//4) &quot;4&quot;
+//5) &quot;5&quot;
+
+//如：smembers animals
+//(empty array)
+</code></pre>
+<h3 id="sismember：判断是否为set的成员"><a href="#sismember：判断是否为set的成员" class="headerlink" title="sismember：判断是否为set的成员"></a><strong>sismember</strong>：判断是否为set的成员</h3><pre><code>//是，返回1；否或setkey不存在返回0
+sismember setkey value
+
+//如：sismember numbers 5
+//(integer) 1
+</code></pre>
+<h3 id="spop：随机删除set指定数量成员，返回删除的成员"><a href="#spop：随机删除set指定数量成员，返回删除的成员" class="headerlink" title="spop：随机删除set指定数量成员，返回删除的成员"></a><strong>spop</strong>：随机删除set指定数量成员，返回删除的成员</h3><pre><code>//被删除的元素，当key不存在时返回nil。
+spop setkey [count]
+
+//如：spop numbers
+//&quot;3&quot;
+</code></pre>
+<h3 id="srem：删除set指定的成员"><a href="#srem：删除set指定的成员" class="headerlink" title="srem：删除set指定的成员"></a><strong>srem</strong>：删除set指定的成员</h3><pre><code>//被删除元素个数，不含不存在的元素。
+srem setkey value [value ...]
+</code></pre>
+<h3 id="sdiff：获取第一个集合与其他集合之间的差异"><a href="#sdiff：获取第一个集合与其他集合之间的差异" class="headerlink" title="sdiff：获取第一个集合与其他集合之间的差异"></a><strong>sdiff</strong>：获取第一个集合与其他集合之间的差异</h3><pre><code>//返回第一个集合与其他集合之间的差异
+sdiff setkey [setkey ...]
+</code></pre>
+<h3 id="scard：获取set的成员总数"><a href="#scard：获取set的成员总数" class="headerlink" title="scard：获取set的成员总数"></a><strong>scard</strong>：获取set的成员总数</h3><pre><code>//集合中成员的数量。 当集合 key 不存在时，返回 0 。
+scard setkey
+</code></pre>
+<h1 id="Sorted-Set：有序集合"><a href="#Sorted-Set：有序集合" class="headerlink" title="Sorted Set：有序集合"></a>Sorted Set：有序集合</h1><h3 id="Sorted-Set介绍"><a href="#Sorted-Set介绍" class="headerlink" title="Sorted Set介绍"></a>Sorted Set介绍</h3><ul>
+<li>string类型的有序集合</li>
+<li>集合成员唯一</li>
+<li>每个元素都会关联一个 double 类型的分数，通过分数来为集合中的成员进行从小到大的排序</li>
+<li>分数 ( score ) 可以重复。</li>
+<li>增删查时间为O(1)</li>
+<li>最大容量：(2^32) - 1个</li>
+</ul>
+<h3 id="zadd：添加Sorted-Set成员，或者更新分数"><a href="#zadd：添加Sorted-Set成员，或者更新分数" class="headerlink" title="zadd：添加Sorted Set成员，或者更新分数"></a><strong>zadd</strong>：添加Sorted Set成员，或者更新分数</h3><pre><code>zadd sortedsetkey score member [score member ...]
+</code></pre>
+<h3 id="zrange：获取指定范围的成员"><a href="#zrange：获取指定范围的成员" class="headerlink" title="zrange：获取指定范围的成员"></a><strong>zrange</strong>：获取指定范围的成员</h3><pre><code>zrange sortedsetkey start end
+</code></pre>
+<h3 id="zpopmax：获取最大分数的（一个或最大count个）成员"><a href="#zpopmax：获取最大分数的（一个或最大count个）成员" class="headerlink" title="zpopmax：获取最大分数的（一个或最大count个）成员"></a><strong>zpopmax</strong>：获取最大分数的（一个或最大count个）成员</h3><pre><code>zpopmax key [count]
+</code></pre>
+<h3 id="zpopmin：获取最小分数的（一个或最大count个）成员"><a href="#zpopmin：获取最小分数的（一个或最大count个）成员" class="headerlink" title="zpopmin：获取最小分数的（一个或最大count个）成员"></a><strong>zpopmin</strong>：获取最小分数的（一个或最大count个）成员</h3><pre><code>zpopmin key [count]
+</code></pre>
+<h3 id="zcard：获取集合成员数"><a href="#zcard：获取集合成员数" class="headerlink" title="zcard：获取集合成员数"></a><strong>zcard</strong>：获取集合成员数</h3><pre><code>//回有序集的成员个数，当 key 不存在时，返回 0 。
+zcard sortedsetkey
+</code></pre>
+<h3 id="zcount：获取分数在min和max的成员数"><a href="#zcount：获取分数在min和max的成员数" class="headerlink" title="zcount：获取分数在min和max的成员数"></a><strong>zcount</strong>：获取分数在min和max的成员数</h3><pre><code>zcount sortedsetkey min max
+</code></pre>
+<h1 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h1><h3 id="订阅频道和客户端"><a href="#订阅频道和客户端" class="headerlink" title="订阅频道和客户端"></a>订阅频道和客户端</h3><ul>
+<li>客户端订阅需要接收信息的频道</li>
+</ul>
+<p><img src="https://www.redis.com.cn/images/pubsub1.png" alt="client和订阅频道关系"></p>
+<ul>
+<li>频道推送消息给客户端（<strong>publish</strong>命令）</li>
+</ul>
+<p><img src="https://www.redis.com.cn/images/pubsub2.png" alt="频道消息推送"></p>
+<h3 id="publish：推送消息"><a href="#publish：推送消息" class="headerlink" title="publish：推送消息"></a><strong>publish</strong>：推送消息</h3><pre><code>//频道推送消息
+publish channel message
+</code></pre>
+<h3 id="subscribe：订阅频道"><a href="#subscribe：订阅频道" class="headerlink" title="subscribe：订阅频道"></a><strong>subscribe</strong>：订阅频道</h3><pre><code>subscribe channel [channel ...]
+</code></pre>
+<h3 id="pubsub：查看发布订阅系统的状态"><a href="#pubsub：查看发布订阅系统的状态" class="headerlink" title="pubsub：查看发布订阅系统的状态"></a><strong>pubsub</strong>：查看发布订阅系统的状态</h3><pre><code>//查看活跃频道
+pubsub channels [pattern]
+
+//查看客户端订阅的所有模式数量
+pubsub numpat
+</code></pre>
+<h3 id="unsubscribe：取消订阅"><a href="#unsubscribe：取消订阅" class="headerlink" title="unsubscribe：取消订阅"></a><strong>unsubscribe</strong>：取消订阅</h3><pre><code>unsubscribe [channel ...]
+</code></pre>
+<h1 id="消息队列（MQ、Stream）"><a href="#消息队列（MQ、Stream）" class="headerlink" title="消息队列（MQ、Stream）"></a>消息队列（MQ、Stream）</h1><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h1 id="备份还原"><a href="#备份还原" class="headerlink" title="备份还原"></a>备份还原</h1><h3 id="save：同步备份"><a href="#save：同步备份" class="headerlink" title="save：同步备份"></a><strong>save</strong>：同步备份</h3><pre><code class="sh">//备份数据库，生产dump.rdb文件在redis目录中，具体位置可用find命令查找，或者使用config get dir 查看redis目录
+save
+</code></pre>
+<h3 id="bgsave：后台备份"><a href="#bgsave：后台备份" class="headerlink" title="bgsave：后台备份"></a><strong>bgsave</strong>：后台备份</h3><pre><code>bgsave
+</code></pre>
+<h3 id="数据库恢复"><a href="#数据库恢复" class="headerlink" title="数据库恢复"></a>数据库恢复</h3><p><strong>将dump.rdb文件移动至Redis安装目录，重启Redis服务即可还原数据库</strong></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

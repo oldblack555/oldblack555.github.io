@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hello World - Hexo</title>
+    <title> - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
+    <meta name="description" content="数组转ListArrays工具类//基本数据类型
+int[] array = &amp;#123;1,2,3&amp;#125;;
+List list = Arrays.stream(array).boxed().,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +20,20 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="Hello World - Hexo"/>
-    <meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"/>
+    <meta name="twitter:title" content=" - Hexo"/>
+    <meta name="twitter:description" content="数组转ListArrays工具类//基本数据类型
+int[] array = &amp;#123;1,2,3&amp;#125;;
+List list = Arrays.stream(array).boxed().,"/>
     
     
     
     
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content="Hello World - Hexo"/>
-    <meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"/>
+    <meta property="og:title" content=" - Hexo"/>
+    <meta property="og:description" content="数组转ListArrays工具类//基本数据类型
+int[] array = &amp;#123;1,2,3&amp;#125;;
+List list = Arrays.stream(array).boxed().,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -45,7 +51,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">Hello World</h3>
+    <h3 class="subtitle"></h3>
     <div class="social">
         <div>
             <div class="share">
@@ -60,27 +66,84 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Hello World</h1>
+        <h1 class="title"></h1>
         <div class="stuff">
-            <span>九月 29, 2022</span>
+            <span>八月 18, 2022</span>
             
 
         </div>
         <div class="content markdown">
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+            <h1 id="数组转List"><a href="#数组转List" class="headerlink" title="数组转List"></a>数组转List</h1><h3 id="Arrays工具类"><a href="#Arrays工具类" class="headerlink" title="Arrays工具类"></a><strong>Arrays工具类</strong></h3><pre><code class="java">//基本数据类型
+int[] array = &#123;1,2,3&#125;;
+List list = Arrays.stream(array).boxed().collect(Collectors.toList());
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+//对象类型
+//不允许增删操作
+String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
+List list = Arrays.asList(array);
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+//对象类型
+String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
+List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList(array));
+</code></pre>
+<h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a><strong>Collections工具类</strong></h3><pre><code class="java">//对象类型
+String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+Collections.addAll(list,array);
+</code></pre>
+<h1 id="List转数组"><a href="#List转数组" class="headerlink" title="List转数组"></a>List转数组</h1><h3 id="转对象类型"><a href="#转对象类型" class="headerlink" title="转对象类型"></a><strong>转对象类型</strong></h3><pre><code class="java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+Integer[] array = list.toArray(new Integer[0]);
+</code></pre>
+<h3 id="转基本类型"><a href="#转基本类型" class="headerlink" title="转基本类型"></a><strong>转基本类型</strong></h3><pre><code class="java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+//Java8特性stream流的mapToInt()
+int[] array = list.stream().mapToInt(Integer::valueOf).toArray();
+</code></pre>
+<h1 id="Java8特性Stream流"><a href="#Java8特性Stream流" class="headerlink" title="Java8特性Stream流"></a>Java8特性Stream流</h1><h3 id="min-、max"><a href="#min-、max" class="headerlink" title="min()、max()"></a>min()、max()</h3><pre><code class="java">//使用Comparator指定比较对象，返回所有元素中的最小值
+DmInfo nextDm = search.stream().min(Comparator.comparing(DmInfo::getId)).get();
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+//使用Comparator指定比较对象，返回所有元素中的最小值
+DmInfo nextDm = search.stream().max(Comparator.comparing(DmInfo::getId)).get();
+</code></pre>
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><pre><code class="java">Collection&lt;String&gt; list = Arrays.asList(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
+ 
+// 使用distinct进行简单过滤，对于复杂对象的过滤需要使用filter和Predicate接口结合进行
+List&lt;String&gt; distinctElements = list.stream().distinct().collect(Collectors.toList());
+</code></pre>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><pre><code class="java">//定义过滤的对象
+class Person
+&#123;
+    public Person(Integer id, String fname, String lname) &#123;
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+    &#125;
+ 
+    private Integer id;
+    private String fname;
+    private String lname;
+&#125;
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+//创建过滤对象
+Person lokesh = new Person(1, &quot;Lokesh&quot;, &quot;Gupta&quot;);
+Person brian = new Person(2, &quot;Brian&quot;, &quot;Clooney&quot;);
+Person alex = new Person(3, &quot;Alex&quot;, &quot;Kolen&quot;);
+         
+//创建list集合
+Collection&lt;Person&gt; list = Arrays.asList(lokesh,brian,alex,lokesh,brian,lokesh);
 
+//使用filter对list过滤，使用 Predicate的接口来处理复杂对象
+List&lt;Person&gt; distinctElements = list.stream().filter(distinctByKey(p -&gt; p.getId())).collect(Collectors.toList());
+
+//定义Predictate接口，指定过滤规则
+//putIfAbsent(key,value)方法说明
+//如果所指定的 key 已经在 HashMap 中存在，返回和这个 key 值对应的 value, 如果所指定的 key 不在 HashMap 中存在，则返回 null。
+public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, Object&gt; keyExtractor)
+&#123;
+    Map&lt;Object, Boolean&gt; map = new ConcurrentHashMap&lt;&gt;();
+    return t -&gt; map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+&#125;
+</code></pre>
+<h1 id="浅谈泛型"><a href="#浅谈泛型" class="headerlink" title="浅谈泛型"></a>浅谈泛型</h1>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">

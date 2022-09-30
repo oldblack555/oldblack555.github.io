@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="图像加载Image.asset()加载本地图片Image.asset(
+    &amp;#39;$&amp;#123;girdMenu[index][&amp;#39;img&amp;#39;]&amp;#125;&amp;#39;,//图片地,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content=" - Hexo"/>
+    <meta name="twitter:description" content="图像加载Image.asset()加载本地图片Image.asset(
+    &amp;#39;$&amp;#123;girdMenu[index][&amp;#39;img&amp;#39;]&amp;#125;&amp;#39;,//图片地,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content=" - Hexo"/>
+    <meta property="og:description" content="图像加载Image.asset()加载本地图片Image.asset(
+    &amp;#39;$&amp;#123;girdMenu[index][&amp;#39;img&amp;#39;]&amp;#125;&amp;#39;,//图片地,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>八月 22, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="图像加载"><a href="#图像加载" class="headerlink" title="图像加载"></a>图像加载</h1><h3 id="Image-asset-加载本地图片"><a href="#Image-asset-加载本地图片" class="headerlink" title="Image.asset()加载本地图片"></a>Image.asset()加载本地图片</h3><pre><code class="dart">Image.asset(
+    &#39;$&#123;girdMenu[index][&#39;img&#39;]&#125;&#39;,//图片地址
+    fit: BoxFit.cover, //图片适应方式
+    width: double.infinity, //图片宽度
+    height: double.infinity, //图片高度
+)
+</code></pre>
+<h3 id="Image-network-加载网络图片"><a href="#Image-network-加载网络图片" class="headerlink" title="Image.network()加载网络图片"></a>Image.network()加载网络图片</h3><pre><code class="dart">Image.network(
+    &#39;$&#123;girdMenu[index][&#39;img&#39;]&#125;&#39;,//图片地址
+    fit: BoxFit.cover, //图片适应方式
+    width: double.infinity, //图片宽度
+    height: double.infinity, //图片高度
+)
+</code></pre>
+<h3 id="FadeInImage带展位图的图片展示组件"><a href="#FadeInImage带展位图的图片展示组件" class="headerlink" title="FadeInImage带展位图的图片展示组件"></a>FadeInImage带展位图的图片展示组件</h3><h5 id="FadeInImage-assetNetwork指定本地的图片作为展位图"><a href="#FadeInImage-assetNetwork指定本地的图片作为展位图" class="headerlink" title="FadeInImage.assetNetwork指定本地的图片作为展位图"></a>FadeInImage.assetNetwork指定本地的图片作为展位图</h5><pre><code class="dart">FadeInImage.assetNetwork(
+    placeholder: &#39;assets/waiting.png&#39;,//展位图
+    image: &#39;https://example.com/image.png&#39;
+)
+</code></pre>
+<h5 id="FadeInImage-memoryNetwork指定内存中的图片作为展位图"><a href="#FadeInImage-memoryNetwork指定内存中的图片作为展位图" class="headerlink" title="FadeInImage.memoryNetwork指定内存中的图片作为展位图"></a>FadeInImage.memoryNetwork指定内存中的图片作为展位图</h5><pre><code class="dart">FadeInImage.memoryNetwork(
+    placeholder: localImageBytes,
+    image: &#39;https://example.com/image.png&#39;
+)
+</code></pre>
+<h1 id="Container组件"><a href="#Container组件" class="headerlink" title="Container组件"></a>Container组件</h1><h3 id="Container设置背景图"><a href="#Container设置背景图" class="headerlink" title="Container设置背景图"></a>Container设置背景图</h3><pre><code class="dart">Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(backgroundImg),
+          fit: BoxFit.cover,
+        ),
+      ),
+);
+</code></pre>
+<h3 id="Container设置圆角"><a href="#Container设置圆角" class="headerlink" title="Container设置圆角"></a>Container设置圆角</h3><pre><code class="dart">Container(
+    clipBehavior: Clip.antiAlias,
+    //设置圆角
+    decoration: const BoxDecoration(
+    borderRadius: BorderRadius.all(
+        Radius.circular(20),
+        ),
+    ),
+)
+</code></pre>
+<h3 id="Container设置阴影"><a href="#Container设置阴影" class="headerlink" title="Container设置阴影"></a>Container设置阴影</h3><pre><code class="dart">Container(
+    decoration: new BoxDecoration(
+    boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 20.0.wDp)],
+    color: Colors.white,
+),
+</code></pre>
+<h1 id="Card组件"><a href="#Card组件" class="headerlink" title="Card组件"></a>Card组件</h1><h3 id="Card设置圆角"><a href="#Card设置圆角" class="headerlink" title="Card设置圆角"></a>Card设置圆角</h3><pre><code class="dart">Card(
+    elevation: 3,
+    shadowColor: primaryColor,
+    //设置圆角
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(radius),
+      ),
+    ),
+)
+</code></pre>
+<h1 id="正则表达式使用"><a href="#正则表达式使用" class="headerlink" title="正则表达式使用"></a>正则表达式使用</h1><pre><code class="dart">//定义匹配模板，dart中使用(r表达式)的形式作为匹配模板，与&quot;$变量&quot;区分
+static const String _httpSvgReg =
+      r&quot;^(((http|https)\:\/\/)[\S]+(\.(svg|SVG))[\s\S]*)$&quot;;
+//创建模板类
+RegExp httpSvg = RegExp(_httpSvgReg);
+
+//匹配字符串，返回值为true or false
+httpSvg.hasMatch(image);
+</code></pre>
+<h1 id="Flutter动画"><a href="#Flutter动画" class="headerlink" title="Flutter动画"></a>Flutter动画</h1><h3 id="数值变化"><a href="#数值变化" class="headerlink" title="数值变化"></a>数值变化</h3><pre><code class="dart">//动画控制器
+late AnimationController _animationController;
+//数值动画
+late Animation&lt;double&gt; _valueAnimation;
+
+@override
+void initState() &#123;
+    //初始化动画控制器
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    //初始化数值动画，确定数值变化范围，以及添加事件监听刷新UI
+    _valueAnimation = Tween&lt;double&gt;(begin: 0.0, end: 0.75)
+        .animate(_animationController)
+      ..addListener(() &#123;
+        setState(() &#123;&#125;);
+      &#125;);
+    //启动动画
+    _animationController.forward();
+    super.initState();
+&#125;
+</code></pre>
+<h3 id="组件旋转动画"><a href="#组件旋转动画" class="headerlink" title="组件旋转动画"></a>组件旋转动画</h3><pre><code class="dart">//动画控制器
+late AnimationController _animationController;
+
+@override
+void initState() &#123;
+    super.initState();
+    //初始哈控制器，设置动画时长
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+      upperBound: 0.5,
+    );
+&#125;
+
+//旋转组件，包裹需要旋转的组件，设置旋转角度
+RotationTransition(
+    turns: Tween(
+        begin: 0.0,
+        end: 0.5,
+    ).animate(_animationController),
+        child: Icon(
+        defaultRightArrow,
+        size: 20,
+        color: widget.selectColor,
+    ),
+),
+
+//点击事件逻辑，启动动画执行
+if (widget.isShowNextMenu) &#123;
+    _animationController.reverse(from: 0.5);
+&#125; else &#123;
+    _animationController.forward(from: 0.0);
+&#125;
+</code></pre>
+<h1 id="Warp流式布局"><a href="#Warp流式布局" class="headerlink" title="Warp流式布局"></a>Warp流式布局</h1><pre><code class="dart">Wrap(
+   spacing: 8.0, // 主轴(水平)方向间距
+   runSpacing: 4.0, // 纵轴（垂直）方向间距
+   alignment: WrapAlignment.center, //沿主轴方向居中
+   children: &lt;Widget&gt;[
+     Chip(
+       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;A&#39;)),
+       label: Text(&#39;Hamilton&#39;),
+     ),
+     Chip(
+       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;M&#39;)),
+       label: Text(&#39;Lafayette&#39;),
+     ),
+     Chip(
+       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;H&#39;)),
+       label: Text(&#39;Mulligan&#39;),
+     ),
+     Chip(
+       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;J&#39;)),
+       label: Text(&#39;Laurens&#39;),
+     ),
+   ],
+)
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

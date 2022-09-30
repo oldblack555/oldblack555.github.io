@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SpringBoot - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="多数据源配置数据源信息配置spring:
+  datasource:
+      # 数据源一
+    olddm:
+      jdbc-url: jdbc:mysql://localhost:3,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="SpringBoot - Hexo"/>
+    <meta name="twitter:description" content="多数据源配置数据源信息配置spring:
+  datasource:
+      # 数据源一
+    olddm:
+      jdbc-url: jdbc:mysql://localhost:3,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Hexo"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="SpringBoot - Hexo"/>
+    <meta property="og:description" content="多数据源配置数据源信息配置spring:
+  datasource:
+      # 数据源一
+    olddm:
+      jdbc-url: jdbc:mysql://localhost:3,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">SpringBoot</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">SpringBoot</h1>
+        <div class="stuff">
+            <span>八月 09, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Spring/" rel="tag">Spring</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="多数据源配置"><a href="#多数据源配置" class="headerlink" title="多数据源配置"></a>多数据源配置</h1><h3 id="数据源信息配置"><a href="#数据源信息配置" class="headerlink" title="数据源信息配置"></a>数据源信息配置</h3><pre><code class="yml">spring:
+  datasource:
+      # 数据源一
+    olddm:
+      jdbc-url: jdbc:mysql://localhost:3306/olddm
+      uesrname: oldblack
+      password: YB520lly..
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据源二
+    dbuser:
+      jdbc-url: jdbc:mysql://localhost:3306/db_user
+      uesrname: oldblack
+      password: YB520lly..
+      driver-class-name: com.mysql.cj.jdbc.Driver
+</code></pre>
+<p>在application.yml文件中配置需要连接的数据源。如上配置了olddm和dbuser两个数据源。</p>
+<h3 id="产生同数据源对应的DataSourceBean"><a href="#产生同数据源对应的DataSourceBean" class="headerlink" title="产生同数据源对应的DataSourceBean"></a>产生同数据源对应的DataSourceBean</h3><pre><code class="java">@Configuration
+public class DataSourceConfig &#123;
+
+    @Bean
+    @ConfigurationProperties(prefix = &quot;spring.datasource.olddm&quot;)
+    public DataSource olddmDataSource() &#123;
+        return DataSourceBuilder.create().build();
+    &#125;
+
+    @Bean
+    @ConfigurationProperties(prefix = &quot;spring.datasource.dbuser&quot;)
+    public DataSource dbUserDataSource() &#123;
+        return DataSourceBuilder.create().build();
+    &#125;
+&#125;
+</code></pre>
+<p>使用@ConfigurationProperties注入不同的数据源信息，@Bean注解生产对应的Bean对象。</p>
+<h3 id="简单多数据源配置（使用JdbcTemplate）"><a href="#简单多数据源配置（使用JdbcTemplate）" class="headerlink" title="简单多数据源配置（使用JdbcTemplate）"></a>简单多数据源配置（使用JdbcTemplate）</h3><ul>
+<li>依赖</li>
+</ul>
+<pre><code class="kotlin">//jdbc
+implementation &#39;org.springframework.boot:spring-boot-starter-jdbc:2.7.3
+//数据库连接jar
+runtimeOnly &#39;mysql:mysql-connector-java&#39;
+</code></pre>
+<ul>
+<li>JdbcTemplateBean配置</li>
+</ul>
+<pre><code class="java">@Configuration
+public class JdbcTemplateConfig &#123;
+
+    @Bean
+    public JdbcTemplate olddmJdbcTemplate(
+            @Qualifier(&quot;olddmDataSource&quot;) DataSource dataSource) &#123;
+        return new JdbcTemplate(dataSource);
+    &#125;
+
+
+    @Bean
+    public JdbcTemplate dbUserJdbcTemplate(
+            @Qualifier(&quot;dbUserDataSource&quot;) DataSource dataSource) &#123;
+        return new JdbcTemplate(dataSource);
+    &#125;
+&#125;
+</code></pre>
+<p>@Qualifier(“olddmDataSource”)实现方法中参数需要的数据源Bean注入。也可以使用@Resource等注解在属性上注入。</p>
+<h3 id="Mybatis整合多数据源"><a href="#Mybatis整合多数据源" class="headerlink" title="Mybatis整合多数据源"></a>Mybatis整合多数据源</h3><ul>
+<li>依赖</li>
+</ul>
+<pre><code class="kotlin">//jdbc
+implementation &#39;org.springframework.boot:spring-boot-starter-jdbc:2.7.3
+//数据库连接jar
+runtimeOnly &#39;mysql:mysql-connector-java&#39;
+//mybatis plus
+implementation &#39;com.baomidou:mybatis-plus-boot-starter:3.5.2&#39;
+</code></pre>
+<ul>
+<li>配置mapper的位置、实体类位置</li>
+</ul>
+<pre><code class="yml">mybatis-plus:
+  mapper-locations:
+      # 数据源一的mapper位置
+    db-user: classpath:mapper/dbuser/*.xml
+    # 数据源二的mapper位置
+    olddm: classpath:mapper/olddm/*.xml
+  type-aliases-package: com.mds.domain
+</code></pre>
+<ul>
+<li>实现每个数据眼的Config，生成对应的SqlSessionFactory和SqlSessionTemplate</li>
+</ul>
+<pre><code class="java">@Configuration
+@MapperScan(
+        basePackages = &quot;com.mds.dao.olddm&quot;,
+        sqlSessionFactoryRef = &quot;olddmSqlSessionFactory&quot;,
+        sqlSessionTemplateRef = &quot;olddmSqlSessionTemplate&quot;
+)
+public class OlddmDSConfig &#123;
+
+//    注入对应的数据源
+    private DataSource olddmDataSource;
+
+//    对应数据源的mapper映射文件位置
+    @Value(&quot;$&#123;mybatis-plus.mapper-locations.olddm&#125;&quot;)
+    private String olddmMapperLocation;
+
+    public OlddmDSConfig(@Qualifier(&quot;olddmDataSource&quot;)
+                         DataSource olddmDataSource) &#123;
+        this.olddmDataSource = olddmDataSource;
+    &#125;
+
+    @Bean
+    public SqlSessionFactory olddmSqlSessionFactory() throws Exception &#123;
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(this.olddmDataSource);
+//        加载映射文件
+        Resource[] resource = new PathMatchingResourcePatternResolver().getResources(
+                this.olddmMapperLocation
+        );
+        sqlSessionFactoryBean.setMapperLocations(
+                resource
+        );
+        return sqlSessionFactoryBean.getObject();
+    &#125;
+
+    @Bean
+    public SqlSessionTemplate olddmSqlSessionTemplate() throws Exception &#123;
+        return new SqlSessionTemplate(olddmSqlSessionFactory());
+    &#125;
+
+&#125;
+</code></pre>
+<pre><code class="java">@Configuration
+@MapperScan(
+        basePackages = &quot;com.mds.dao.dbuser&quot;,
+        sqlSessionFactoryRef = &quot;dbUserSqlSessionFactory&quot;,
+        sqlSessionTemplateRef = &quot;dbUserSqlSessionTemplate&quot;
+)
+public class UserDSConfig &#123;
+
+    private DataSource dbUserDataSource;
+
+    @Value(&quot;$&#123;mybatis-plus.mapper-locations.db-user&#125;&quot;)
+    private String dbUserMapperLocation;
+
+    public UserDSConfig(@Qualifier(&quot;dbUserDataSource&quot;)
+                        DataSource dbUserDataSource) &#123;
+        this.dbUserDataSource = dbUserDataSource;
+    &#125;
+
+    @Bean
+    public SqlSessionFactory dbUserSqlSessionFactory() throws Exception &#123;
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(this.dbUserDataSource);
+        Resource[] resource = new PathMatchingResourcePatternResolver().getResources(
+                this.dbUserMapperLocation
+        );
+        sqlSessionFactoryBean.setMapperLocations(
+                resource
+        );
+        return sqlSessionFactoryBean.getObject();
+    &#125;
+
+    @Bean
+    public SqlSessionTemplate dbUserSqlSessionTemplate() throws Exception &#123;
+        return new SqlSessionTemplate(dbUserSqlSessionFactory());
+    &#125;
+
+&#125;
+</code></pre>
+<h1 id="集成Mail"><a href="#集成Mail" class="headerlink" title="集成Mail"></a>集成Mail</h1><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
+    &lt;version&gt;2.7.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="配置mail属性"><a href="#配置mail属性" class="headerlink" title="配置mail属性"></a>配置mail属性</h3><pre><code class="yml">spring:
+  mail:
+    host: smtp.office365.com
+    username: oldblacklly@outlook.com
+    password: YB520lly..
+    port: 587
+    default-encoding: utf-8
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            socketFactory:
+              class: com.sun.mail.util.MailSSLSocketFactory
+              fallback: false
+</code></pre>
+<h3 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h3><pre><code class="java">@Service
+public class MailService &#123;
+
+    //邮件发送类
+    @Resource
+    private JavaMailSender javaMailSender;
+
+    //邮件发送者
+    @Value(&quot;$&#123;spring.mail.username&#125;&quot;)
+    private String username;
+
+    public SaResult sendCode(String toEmail) &#123;
+       Assert.isTrue(RegxUtil.isTrueMail(toEmail), &quot;Email address not true&quot;);
+
+        //设置message
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject(&quot;验证码&quot;);
+        message.setText(code);
+        message.setTo(toEmail);
+        message.setFrom(username);
+        
+        //发送邮件
+        javaMailSender.send(message);
+        
+        return SaResult.ok(&quot;验证码发送成功&quot;);
+    &#125;
+
+&#125;
+</code></pre>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

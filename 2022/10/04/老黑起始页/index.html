@@ -16,16 +16,16 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="介绍老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。 项目架构 项目结构123456789101112131415161718192021.├── assets│   └── images----------------">
+    <meta name="description" content="介绍老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。 项目架构 项目结构123456789101112131415161718192021.├── assets│   └── images----------------">
 <meta property="og:type" content="article">
 <meta property="og:title" content="老黑起始页">
-<meta property="og:url" content="http://example.com/2022/09/25/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/index.html">
+<meta property="og:url" content="http://example.com/2022/10/04/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="介绍老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。 项目架构 项目结构123456789101112131415161718192021.├── assets│   └── images----------------">
+<meta property="og:description" content="介绍老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。 项目架构 项目结构123456789101112131415161718192021.├── assets│   └── images----------------">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/.com//image-20220925234712193.png">
-<meta property="article:published_time" content="2022-09-25T15:26:46.876Z">
-<meta property="article:modified_time" content="2022-10-04T13:59:19.434Z">
+<meta property="article:published_time" content="2022-10-04T15:05:20.000Z">
+<meta property="article:modified_time" content="2022-10-04T15:07:05.687Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="起始页">
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-25 23:26" pubdate>
-          2022年9月25日 晚上
+        <time datetime="2022-10-04 23:05" pubdate>
+          2022年10月4日 晚上
         </time>
       </span>
     
@@ -268,7 +268,7 @@
                 
                 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。</p>
 <h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><p><img src="/.com//image-20220925234712193.png" srcset="/img/loading.gif" lazyload alt="image-20220925234712193"></p>
-<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh">.<br>├── assets<br>│   └── images----------------本地图片资源文件夹<br>├── fonts---------------------字体资源文件夹<br>├── lib-----------------------项目核心代码目录<br>│   ├── controller------------系统状态信息目录<br>│   ├── core------------------核心目录<br>│   │   ├── error-------------异常<br>│   │   └── orders------------指令集合<br>│   ├── handle----------------全局异常捕获处理<br>│   ├── provider--------------执行器<br>│   │   ├── order-------------指令执行器<br>│   │   └── others------------系统状态更新执行器，负责指令更新状态<br>│   ├── resource--------------系统默认属性目录<br>│   ├── ui--------------------UI目录<br>│   │   └── terminal----------终端UI<br>│   └── util------------------工具类<br>├── <span class="hljs-built_in">test</span>----------------------测试目录<br>├── web-----------------------原生web文件目录<br>    ├── assets<br>    └── icons<br></code></pre></td></tr></table></figure>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh">.<br>├── assets<br>│   └── images----------------本地图片资源文件夹<br>├── fonts---------------------字体资源文件夹<br>├── lib-----------------------项目核心代码目录<br>│   ├── controller------------系统状态信息目录<br>│   ├── core------------------核心目录<br>│   │   ├── error-------------异常<br>│   │   └── orders------------指令集合<br>│   ├── handle----------------全局异常捕获处理<br>│   ├── provider--------------执行器<br>│   │   ├── order-------------指令执行器<br>│   │   └── others------------系统状态更新执行器，负责指令更新状态<br>│   ├── resource--------------系统默认属性目录<br>│   ├── ui--------------------UI目录<br>│   │   └── terminal----------终端UI<br>│   └── util------------------工具类<br>├── <span class="hljs-built_in">test</span>----------------------测试目录<br>├── web-----------------------原生web文件目录<br>    ├── assets<br>    └── icons<br></code></pre></td></tr></table></figure>
 
 <h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><p>辅助参数：–help，负责提示指令参数及作用，或者收藏的标签页等。</p>
 <ul>
@@ -358,7 +358,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>老黑起始页</div>
-      <div>http://example.com/2022/09/25/老黑起始页/</div>
+      <div>http://example.com/2022/10/04/老黑起始页/</div>
     </div>
     <div class="license-meta">
       
@@ -370,7 +370,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月25日</div>
+          <div>2022年10月4日</div>
         </div>
       
       
@@ -402,18 +402,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/26/English/" title="英语笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">英语笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/21/Gradle/" title="Gradle">
-                        <span class="hidden-mobile">Gradle</span>
+                      <a href="/2022/09/26/English/" title="英语笔记">
+                        <span class="hidden-mobile">英语笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

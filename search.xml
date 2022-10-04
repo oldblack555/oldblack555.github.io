@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>老黑起始页</title>
+      <link href="/2022/10/04/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/"/>
+      <url>/2022/10/04/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/</url>
+      
+        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。</p><h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><p><img src="/.com//image-20220925234712193.png" alt="image-20220925234712193"></p><h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh">.<br>├── assets<br>│   └── images----------------本地图片资源文件夹<br>├── fonts---------------------字体资源文件夹<br>├── lib-----------------------项目核心代码目录<br>│   ├── controller------------系统状态信息目录<br>│   ├── core------------------核心目录<br>│   │   ├── error-------------异常<br>│   │   └── orders------------指令集合<br>│   ├── handle----------------全局异常捕获处理<br>│   ├── provider--------------执行器<br>│   │   ├── order-------------指令执行器<br>│   │   └── others------------系统状态更新执行器，负责指令更新状态<br>│   ├── resource--------------系统默认属性目录<br>│   ├── ui--------------------UI目录<br>│   │   └── terminal----------终端UI<br>│   └── util------------------工具类<br>├── <span class="hljs-built_in">test</span>----------------------测试目录<br>├── web-----------------------原生web文件目录<br>    ├── assets<br>    └── icons<br></code></pre></td></tr></table></figure><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><p>辅助参数：–help，负责提示指令参数及作用，或者收藏的标签页等。</p><ul><li><p>config</p><p>系统属性设置指令，如背景色、透明度、字体大小等。参数及说明如下：</p><table><thead><tr><th>参数</th><th>解释</th></tr></thead><tbody><tr><td>-bg</td><td>设置背景颜色，可选颜色[red、black、blue、green、pink、purple、white、orange、yellow]。</td></tr><tr><td>-ba</td><td>设置背景透明度，取值范围[0-1]。</td></tr><tr><td>-se</td><td>设置默认的搜索引擎。可使用引擎[chrome、bing、baidu]。</td></tr><tr><td>-fs</td><td>设置字体大小，最小字体为10，默认为20。</td></tr><tr><td>-fc</td><td>设置字体颜色，可选颜色同bg参数</td></tr><tr><td>-blur</td><td>设置背景模糊效果，非负数，默认为10</td></tr></tbody></table></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web </tag>
+            
+            <tag> 起始页 </tag>
+            
+            <tag> Terminal </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>英语笔记</title>
       <link href="/2022/09/26/English/"/>
       <url>/2022/09/26/English/</url>
@@ -21,35 +50,6 @@
         <tags>
             
             <tag> 博客 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>老黑起始页</title>
-      <link href="/2022/09/25/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/"/>
-      <url>/2022/09/25/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/</url>
-      
-        <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。</p><h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><p><img src="/.com//image-20220925234712193.png" alt="image-20220925234712193"></p><h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh">.<br>├── assets<br>│   └── images----------------本地图片资源文件夹<br>├── fonts---------------------字体资源文件夹<br>├── lib-----------------------项目核心代码目录<br>│   ├── controller------------系统状态信息目录<br>│   ├── core------------------核心目录<br>│   │   ├── error-------------异常<br>│   │   └── orders------------指令集合<br>│   ├── handle----------------全局异常捕获处理<br>│   ├── provider--------------执行器<br>│   │   ├── order-------------指令执行器<br>│   │   └── others------------系统状态更新执行器，负责指令更新状态<br>│   ├── resource--------------系统默认属性目录<br>│   ├── ui--------------------UI目录<br>│   │   └── terminal----------终端UI<br>│   └── util------------------工具类<br>├── <span class="hljs-built_in">test</span>----------------------测试目录<br>├── web-----------------------原生web文件目录<br>    ├── assets<br>    └── icons<br></code></pre></td></tr></table></figure><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><p>辅助参数：–help，负责提示指令参数及作用，或者收藏的标签页等。</p><ul><li><p>config</p><p>系统属性设置指令，如背景色、透明度、字体大小等。参数及说明如下：</p><table><thead><tr><th>参数</th><th>解释</th></tr></thead><tbody><tr><td>-bg</td><td>设置背景颜色，可选颜色[red、black、blue、green、pink、purple、white、orange、yellow]。</td></tr><tr><td>-ba</td><td>设置背景透明度，取值范围[0-1]。</td></tr><tr><td>-se</td><td>设置默认的搜索引擎。可使用引擎[chrome、bing、baidu]。</td></tr><tr><td>-fs</td><td>设置字体大小，最小字体为10，默认为20。</td></tr><tr><td>-fc</td><td>设置字体颜色，可选颜色同bg参数</td></tr><tr><td>-blur</td><td>设置背景模糊效果，非负数，默认为10</td></tr></tbody></table></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Web </tag>
-            
-            <tag> 起始页 </tag>
-            
-            <tag> Terminal </tag>
             
         </tags>
       

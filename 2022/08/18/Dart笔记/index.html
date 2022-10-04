@@ -16,21 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="List集合list声明var list &#x3D; [];&#x2F;&#x2F;不限定长度、类型 var list &#x3D; List();&#x2F;&#x2F;不限定长度、类型 var list &#x3D; List(2);&#x2F;&#x2F;限定长度，不限定类型 List&lt;int&gt; list &#x3D; List();&#x2F;&#x2F;不限定长度、限定类型  list方法 list倒序排列  var list &#x3D; List(); var reversedList &#x3D; lis">
+    <meta name="description" content="类Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 Null 以外的所有的类都继承自Object类。 成员变量123456789101112class User&amp;#123;	&#x2F;&#x2F;不允许为null的公开成员变量，允许使用操作符&amp;#x27;.&amp;#x27;进行访问和修改	String name&#x3D;&quot;&quot;;    &#x2F;&#x2F;允许为null的公开成员变量，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Dart笔记（草稿）">
 <meta property="og:url" content="http://example.com/2022/08/18/Dart%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="List集合list声明var list &#x3D; [];&#x2F;&#x2F;不限定长度、类型 var list &#x3D; List();&#x2F;&#x2F;不限定长度、类型 var list &#x3D; List(2);&#x2F;&#x2F;限定长度，不限定类型 List&lt;int&gt; list &#x3D; List();&#x2F;&#x2F;不限定长度、限定类型  list方法 list倒序排列  var list &#x3D; List(); var reversedList &#x3D; lis">
+<meta property="og:description" content="类Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 Null 以外的所有的类都继承自Object类。 成员变量123456789101112class User&amp;#123;	&#x2F;&#x2F;不允许为null的公开成员变量，允许使用操作符&amp;#x27;.&amp;#x27;进行访问和修改	String name&#x3D;&quot;&quot;;    &#x2F;&#x2F;允许为null的公开成员变量，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-18T11:59:08.799Z">
-<meta property="article:modified_time" content="2022-09-27T12:07:46.473Z">
+<meta property="article:modified_time" content="2022-10-04T15:53:00.714Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="dart">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>Dart笔记（草稿） - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -184,7 +185,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Dart笔记（草稿）"></span>
           
         </div>
 
@@ -207,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          389 字
+          1.6k 字
         
       </span>
     
@@ -218,7 +219,7 @@
         
         
         
-          4 分钟
+          14 分钟
         
       </span>
     
@@ -256,37 +257,42 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Dart笔记（草稿）</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><h3 id="list声明"><a href="#list声明" class="headerlink" title="list声明"></a>list声明</h3><pre><code class="dart">var list = [];//不限定长度、类型
-var list = List();//不限定长度、类型
-var list = List(2);//限定长度，不限定类型
-List&lt;int&gt; list = List();//不限定长度、限定类型
-</code></pre>
+                <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 <code>Null</code> 以外的所有的类都继承自Object类。</p>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//不允许为null的公开成员变量，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>	<span class="hljs-built_in">String</span> name=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//允许为null的公开成员变量，默认值为null，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">int?</span> age;<br>    <span class="hljs-comment">//允许为null的私有成员变量，默认值为null，不允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">String?</span> _address;<br>    <span class="hljs-comment">//使用final关键字声明变量，只初始化一次</span><br>    <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> school=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//使用late关键字声明变量，允许延迟初始化</span><br>    <span class="hljs-keyword">late</span> <span class="hljs-built_in">String</span> _emial;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>如果你没有声明构造函数，那么 Dart 会自动生成一个无参数的构造函数并且该构造函数会调用其父类的无参数构造方法。</p>
+<p>子类不会继承父类的构造函数，如果子类没有声明构造函数，那么只会有一个默认无参数的构造函数。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-built_in">String</span> name=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-built_in">int?</span> age;<br>    <span class="hljs-built_in">String?</span> _address;<br>    <span class="hljs-comment">//不允许为null的成员变量</span><br>    <span class="hljs-built_in">String</span> city;<br>    <br>    <span class="hljs-comment">//构造函数中必须初始化为不允许为null和final声明未初始化的变量</span><br>    User(<span class="hljs-built_in">String</span> city)&#123;<br>        <span class="hljs-keyword">this</span>.city = city;<br>    &#125;<br>    <br>    <span class="hljs-comment">//使用糖语法简化变量初始化</span><br>    User(<span class="hljs-keyword">this</span>.ciry,<span class="hljs-keyword">this</span>._address);<br>    <br>    <span class="hljs-comment">//可选参数，可选参数不允许私有变量</span><br>    User(<span class="hljs-keyword">this</span>.city,&#123;<span class="hljs-keyword">this</span>.age&#125;);<br>    <br>   	<span class="hljs-comment">//可选参数，不允许为null的变量需要加关键字required</span><br>    User(&#123;<span class="hljs-keyword">required</span> <span class="hljs-keyword">this</span>.city,<span class="hljs-keyword">this</span>.age&#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="命名式构造函数"><a href="#命名式构造函数" class="headerlink" title="命名式构造函数"></a>命名式构造函数</h3><p>可以为一个类声明多个命名式构造函数来表达更明确的意图</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-built_in">String</span> name;<br>    <span class="hljs-built_in">int</span> age;<br>    <span class="hljs-built_in">String?</span> address;<br>    <span class="hljs-built_in">String?</span> _city;<br>    <br>    <span class="hljs-comment">//必须包含不允许为null和final声明未初始化的变量</span><br>    User.init(<span class="hljs-built_in">String</span> name,<span class="hljs-built_in">int</span> age)<br>        :<span class="hljs-keyword">this</span>.name=name,<br>    	<span class="hljs-keyword">this</span>.age=age;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="调用父类的构造函数"><a href="#调用父类的构造函数" class="headerlink" title="调用父类的构造函数"></a>调用父类的构造函数</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//使用super关键字和&#x27;:&#x27;操作符</span><br>Son():<span class="hljs-keyword">super</span>();<br>Son.init():<span class="hljs-keyword">super</span>.init();<br></code></pre></td></tr></table></figure>
+
+<h1 id="List集合"><a href="#List集合" class="headerlink" title="List集合"></a>List集合</h1><h3 id="list声明"><a href="#list声明" class="headerlink" title="list声明"></a>list声明</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> list = [];<span class="hljs-comment">//不限定长度、类型</span><br><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">List</span>();<span class="hljs-comment">//不限定长度、类型</span><br><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">List</span>(<span class="hljs-number">2</span>);<span class="hljs-comment">//限定长度，不限定类型</span><br><span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">int</span>&gt; list = <span class="hljs-built_in">List</span>();<span class="hljs-comment">//不限定长度、限定类型</span><br></code></pre></td></tr></table></figure>
+
 <h3 id="list方法"><a href="#list方法" class="headerlink" title="list方法"></a>list方法</h3><ul>
 <li>list倒序排列</li>
 </ul>
-<pre><code class="dart">var list = List();
-var reversedList = list.reversed;
-</code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">List</span>();<br><span class="hljs-keyword">var</span> reversedList = list.reversed;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>list生成新集合</li>
 </ul>
-<pre><code class="dart">var list = List();
-var listTwo = list.map((e)=&gt;opretion(e)).toList();
-</code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">List</span>();<br><span class="hljs-keyword">var</span> listTwo = list.map((e)=&gt;opretion(e)).toList();<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>list去重</li>
 </ul>
-<pre><code class="dart">var list = List();
-//利用set的唯一性
-list = list.toSet().toList();
-</code></pre>
-<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><h3 id="Json转Map"><a href="#Json转Map" class="headerlink" title="Json转Map"></a>Json转Map</h3><pre><code class="dart">Map&lt;dynamic,dynamic&gt; map = Map.castFrom(jsonDecode(data));
-</code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">List</span>();<br><span class="hljs-comment">//利用set的唯一性</span><br>list = list.toSet().toList();<br></code></pre></td></tr></table></figure>
+
+<h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h1><h3 id="Json转Map"><a href="#Json转Map" class="headerlink" title="Json转Map"></a>Json转Map</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">dynamic</span>,<span class="hljs-built_in">dynamic</span>&gt; map = <span class="hljs-built_in">Map</span>.castFrom(jsonDecode(data));<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -295,6 +301,34 @@ list = list.toSet().toList();
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/dart/" class="category-chain-item">dart</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/dart/">#dart</a>
+      
+    </div>
   
 </div>
 
@@ -304,7 +338,7 @@ list = list.toSet().toList();
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Dart笔记（草稿）</div>
       <div>http://example.com/2022/08/18/Dart笔记/</div>
     </div>
     <div class="license-meta">
@@ -349,9 +383,9 @@ list = list.toSet().toList();
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/18/Java%E7%AC%94%E8%AE%B0/" title="">
+                      <a href="/2022/08/18/Java%E7%AC%94%E8%AE%B0/" title="Java笔记（草稿）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Java笔记（草稿）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

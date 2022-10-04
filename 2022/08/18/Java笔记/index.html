@@ -16,21 +16,22 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="数组转ListArrays工具类&#x2F;&#x2F;基本数据类型 int[] array &#x3D; &amp;#123;1,2,3&amp;#125;; List list &#x3D; Arrays.stream(array).boxed().collect(Collectors.toList());  &#x2F;&#x2F;对象类型 &#x2F;&#x2F;不允许增删操作 String[] array &#x3D; &amp;#123;&quot;Hello&quot;,&quot;World&amp;">
+    <meta name="description" content="数组转ListArrays工具类123456789101112&#x2F;&#x2F;基本数据类型int[] array &#x3D; &amp;#123;1,2,3&amp;#125;;List list &#x3D; Arrays.stream(array).boxed().collect(Collectors.toList());&#x2F;&#x2F;对象类型&#x2F;&#x2F;不允许增删操作String[] array &#x3D; &amp;#123;&quot;Hello&quot;,&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Java笔记（草稿）">
 <meta property="og:url" content="http://example.com/2022/08/18/Java%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数组转ListArrays工具类&#x2F;&#x2F;基本数据类型 int[] array &#x3D; &amp;#123;1,2,3&amp;#125;; List list &#x3D; Arrays.stream(array).boxed().collect(Collectors.toList());  &#x2F;&#x2F;对象类型 &#x2F;&#x2F;不允许增删操作 String[] array &#x3D; &amp;#123;&quot;Hello&quot;,&quot;World&amp;">
+<meta property="og:description" content="数组转ListArrays工具类123456789101112&#x2F;&#x2F;基本数据类型int[] array &#x3D; &amp;#123;1,2,3&amp;#125;;List list &#x3D; Arrays.stream(array).boxed().collect(Collectors.toList());&#x2F;&#x2F;对象类型&#x2F;&#x2F;不允许增删操作String[] array &#x3D; &amp;#123;&quot;Hello&quot;,&amp;qu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-18T13:53:32.702Z">
-<meta property="article:modified_time" content="2022-09-17T15:23:15.793Z">
+<meta property="article:modified_time" content="2022-10-04T15:16:10.735Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>Java笔记（草稿） - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -184,7 +185,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Java笔记（草稿）"></span>
           
         </div>
 
@@ -207,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.4k 字
         
       </span>
     
@@ -256,81 +257,25 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Java笔记（草稿）</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="数组转List"><a href="#数组转List" class="headerlink" title="数组转List"></a>数组转List</h1><h3 id="Arrays工具类"><a href="#Arrays工具类" class="headerlink" title="Arrays工具类"></a><strong>Arrays工具类</strong></h3><pre><code class="java">//基本数据类型
-int[] array = &#123;1,2,3&#125;;
-List list = Arrays.stream(array).boxed().collect(Collectors.toList());
+                <h1 id="数组转List"><a href="#数组转List" class="headerlink" title="数组转List"></a>数组转List</h1><h3 id="Arrays工具类"><a href="#Arrays工具类" class="headerlink" title="Arrays工具类"></a><strong>Arrays工具类</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//基本数据类型</span><br><span class="hljs-type">int</span>[] array = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>&#125;;<br><span class="hljs-type">List</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> Arrays.stream(array).boxed().collect(Collectors.toList());<br><br><span class="hljs-comment">//对象类型</span><br><span class="hljs-comment">//不允许增删操作</span><br>String[] array = &#123;<span class="hljs-string">&quot;Hello&quot;</span>,<span class="hljs-string">&quot;World&quot;</span>&#125;;<br><span class="hljs-type">List</span> <span class="hljs-variable">list</span> <span class="hljs-operator">=</span> Arrays.asList(array);<br><br><span class="hljs-comment">//对象类型</span><br>String[] array = &#123;<span class="hljs-string">&quot;Hello&quot;</span>,<span class="hljs-string">&quot;World&quot;</span>&#125;;<br>List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(array));<br></code></pre></td></tr></table></figure>
 
-//对象类型
-//不允许增删操作
-String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
-List list = Arrays.asList(array);
+<h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a><strong>Collections工具类</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//对象类型</span><br>String[] array = &#123;<span class="hljs-string">&quot;Hello&quot;</span>,<span class="hljs-string">&quot;World&quot;</span>&#125;;<br>List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>Collections.addAll(list,array);<br></code></pre></td></tr></table></figure>
 
-//对象类型
-String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
-List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList(array));
-</code></pre>
-<h3 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a><strong>Collections工具类</strong></h3><pre><code class="java">//对象类型
-String[] array = &#123;&quot;Hello&quot;,&quot;World&quot;&#125;;
-List&lt;String&gt; list = new ArrayList&lt;&gt;();
-Collections.addAll(list,array);
-</code></pre>
-<h1 id="List转数组"><a href="#List转数组" class="headerlink" title="List转数组"></a>List转数组</h1><h3 id="转对象类型"><a href="#转对象类型" class="headerlink" title="转对象类型"></a><strong>转对象类型</strong></h3><pre><code class="java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-Integer[] array = list.toArray(new Integer[0]);
-</code></pre>
-<h3 id="转基本类型"><a href="#转基本类型" class="headerlink" title="转基本类型"></a><strong>转基本类型</strong></h3><pre><code class="java">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-//Java8特性stream流的mapToInt()
-int[] array = list.stream().mapToInt(Integer::valueOf).toArray();
-</code></pre>
-<h1 id="Java8特性Stream流"><a href="#Java8特性Stream流" class="headerlink" title="Java8特性Stream流"></a>Java8特性Stream流</h1><h3 id="min-、max"><a href="#min-、max" class="headerlink" title="min()、max()"></a>min()、max()</h3><pre><code class="java">//使用Comparator指定比较对象，返回所有元素中的最小值
-DmInfo nextDm = search.stream().min(Comparator.comparing(DmInfo::getId)).get();
+<h1 id="List转数组"><a href="#List转数组" class="headerlink" title="List转数组"></a>List转数组</h1><h3 id="转对象类型"><a href="#转对象类型" class="headerlink" title="转对象类型"></a><strong>转对象类型</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>Integer[] array = list.toArray(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>[<span class="hljs-number">0</span>]);<br></code></pre></td></tr></table></figure>
 
-//使用Comparator指定比较对象，返回所有元素中的最小值
-DmInfo nextDm = search.stream().max(Comparator.comparing(DmInfo::getId)).get();
-</code></pre>
-<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><pre><code class="java">Collection&lt;String&gt; list = Arrays.asList(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
- 
-// 使用distinct进行简单过滤，对于复杂对象的过滤需要使用filter和Predicate接口结合进行
-List&lt;String&gt; distinctElements = list.stream().distinct().collect(Collectors.toList());
-</code></pre>
-<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><pre><code class="java">//定义过滤的对象
-class Person
-&#123;
-    public Person(Integer id, String fname, String lname) &#123;
-        this.id = id;
-        this.fname = fname;
-        this.lname = lname;
-    &#125;
- 
-    private Integer id;
-    private String fname;
-    private String lname;
-&#125;
+<h3 id="转基本类型"><a href="#转基本类型" class="headerlink" title="转基本类型"></a><strong>转基本类型</strong></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><span class="hljs-comment">//Java8特性stream流的mapToInt()</span><br><span class="hljs-type">int</span>[] array = list.stream().mapToInt(Integer::valueOf).toArray();<br></code></pre></td></tr></table></figure>
 
-//创建过滤对象
-Person lokesh = new Person(1, &quot;Lokesh&quot;, &quot;Gupta&quot;);
-Person brian = new Person(2, &quot;Brian&quot;, &quot;Clooney&quot;);
-Person alex = new Person(3, &quot;Alex&quot;, &quot;Kolen&quot;);
-         
-//创建list集合
-Collection&lt;Person&gt; list = Arrays.asList(lokesh,brian,alex,lokesh,brian,lokesh);
+<h1 id="Java8特性Stream流"><a href="#Java8特性Stream流" class="headerlink" title="Java8特性Stream流"></a>Java8特性Stream流</h1><h3 id="min-、max"><a href="#min-、max" class="headerlink" title="min()、max()"></a>min()、max()</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//使用Comparator指定比较对象，返回所有元素中的最小值</span><br><span class="hljs-type">DmInfo</span> <span class="hljs-variable">nextDm</span> <span class="hljs-operator">=</span> search.stream().min(Comparator.comparing(DmInfo::getId)).get();<br><br><span class="hljs-comment">//使用Comparator指定比较对象，返回所有元素中的最小值</span><br><span class="hljs-type">DmInfo</span> <span class="hljs-variable">nextDm</span> <span class="hljs-operator">=</span> search.stream().max(Comparator.comparing(DmInfo::getId)).get();<br></code></pre></td></tr></table></figure>
 
-//使用filter对list过滤，使用 Predicate的接口来处理复杂对象
-List&lt;Person&gt; distinctElements = list.stream().filter(distinctByKey(p -&gt; p.getId())).collect(Collectors.toList());
+<h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Collection&lt;String&gt; list = Arrays.asList(<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>, <span class="hljs-string">&quot;D&quot;</span>, <span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>);<br> <br><span class="hljs-comment">// 使用distinct进行简单过滤，对于复杂对象的过滤需要使用filter和Predicate接口结合进行</span><br>List&lt;String&gt; distinctElements = list.stream().distinct().collect(Collectors.toList());<br></code></pre></td></tr></table></figure>
 
-//定义Predictate接口，指定过滤规则
-//putIfAbsent(key,value)方法说明
-//如果所指定的 key 已经在 HashMap 中存在，返回和这个 key 值对应的 value, 如果所指定的 key 不在 HashMap 中存在，则返回 null。
-public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, Object&gt; keyExtractor)
-&#123;
-    Map&lt;Object, Boolean&gt; map = new ConcurrentHashMap&lt;&gt;();
-    return t -&gt; map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
-&#125;
-</code></pre>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//定义过滤的对象</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span><br>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Person</span><span class="hljs-params">(Integer id, String fname, String lname)</span> &#123;<br>        <span class="hljs-built_in">this</span>.id = id;<br>        <span class="hljs-built_in">this</span>.fname = fname;<br>        <span class="hljs-built_in">this</span>.lname = lname;<br>    &#125;<br> <br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> String fname;<br>    <span class="hljs-keyword">private</span> String lname;<br>&#125;<br><br><span class="hljs-comment">//创建过滤对象</span><br><span class="hljs-type">Person</span> <span class="hljs-variable">lokesh</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Lokesh&quot;</span>, <span class="hljs-string">&quot;Gupta&quot;</span>);<br><span class="hljs-type">Person</span> <span class="hljs-variable">brian</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;Brian&quot;</span>, <span class="hljs-string">&quot;Clooney&quot;</span>);<br><span class="hljs-type">Person</span> <span class="hljs-variable">alex</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Person</span>(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;Alex&quot;</span>, <span class="hljs-string">&quot;Kolen&quot;</span>);<br>         <br><span class="hljs-comment">//创建list集合</span><br>Collection&lt;Person&gt; list = Arrays.asList(lokesh,brian,alex,lokesh,brian,lokesh);<br><br><span class="hljs-comment">//使用filter对list过滤，使用 Predicate的接口来处理复杂对象</span><br>List&lt;Person&gt; distinctElements = list.stream().filter(distinctByKey(p -&gt; p.getId())).collect(Collectors.toList());<br><br><span class="hljs-comment">//定义Predictate接口，指定过滤规则</span><br><span class="hljs-comment">//putIfAbsent(key,value)方法说明</span><br><span class="hljs-comment">//如果所指定的 key 已经在 HashMap 中存在，返回和这个 key 值对应的 value, 如果所指定的 key 不在 HashMap 中存在，则返回 null。</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; Predicate&lt;T&gt; <span class="hljs-title function_">distinctByKey</span><span class="hljs-params">(Function&lt;? <span class="hljs-built_in">super</span> T, Object&gt; keyExtractor)</span><br>&#123;<br>	Map&lt;Object, Boolean&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ConcurrentHashMap</span>&lt;&gt;();<br>	<span class="hljs-keyword">return</span> t -&gt; map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == <span class="hljs-literal">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h1 id="浅谈泛型"><a href="#浅谈泛型" class="headerlink" title="浅谈泛型"></a>浅谈泛型</h1>
                 
               </div>
@@ -339,6 +284,34 @@ public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, 
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
   
 </div>
 
@@ -348,7 +321,7 @@ public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, 
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Java笔记（草稿）</div>
       <div>http://example.com/2022/08/18/Java笔记/</div>
     </div>
     <div class="license-meta">
@@ -403,8 +376,8 @@ public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, 
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/18/Dart%E7%AC%94%E8%AE%B0/" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2022/08/18/Dart%E7%AC%94%E8%AE%B0/" title="Dart笔记（草稿）">
+                        <span class="hidden-mobile">Dart笔记（草稿）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

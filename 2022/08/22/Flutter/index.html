@@ -16,21 +16,23 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="图像加载Image.asset()加载本地图片Image.asset(     &#39;$&amp;#123;girdMenu[index][&#39;img&#39;]&amp;#125;&#39;,&#x2F;&#x2F;图片地址     fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式     width: double.infinity, &#x2F;&#x2F;图片宽度     height: double.infinity, &#x2F;&#x2F;图">
+    <meta name="description" content="图像加载Image.asset()加载本地图片123456Image.asset(	&amp;#x27;$&amp;#123;girdMenu[index][&amp;#x27;img&amp;#x27;]&amp;#125;&amp;#x27;,&#x2F;&#x2F;图片地址	fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式	width: double.infinity, &#x2F;&#x2F;图片宽度	height: double.infinity, &#x2F;&#x2F;图片高度)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Flutter笔记（草稿）">
 <meta property="og:url" content="http://example.com/2022/08/22/Flutter/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="图像加载Image.asset()加载本地图片Image.asset(     &#39;$&amp;#123;girdMenu[index][&#39;img&#39;]&amp;#125;&#39;,&#x2F;&#x2F;图片地址     fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式     width: double.infinity, &#x2F;&#x2F;图片宽度     height: double.infinity, &#x2F;&#x2F;图">
+<meta property="og:description" content="图像加载Image.asset()加载本地图片123456Image.asset(	&amp;#x27;$&amp;#123;girdMenu[index][&amp;#x27;img&amp;#x27;]&amp;#125;&amp;#x27;,&#x2F;&#x2F;图片地址	fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式	width: double.infinity, &#x2F;&#x2F;图片宽度	height: double.infinity, &#x2F;&#x2F;图片高度)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-22T13:18:37.250Z">
-<meta property="article:modified_time" content="2022-09-18T15:18:13.461Z">
+<meta property="article:modified_time" content="2022-10-04T15:14:30.175Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="dart">
+<meta property="article:tag" content="flutter">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>Flutter笔记（草稿） - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -184,7 +186,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="Flutter笔记（草稿）"></span>
           
         </div>
 
@@ -207,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.3k 字
         
       </span>
     
@@ -218,7 +220,7 @@
         
         
         
-          26 分钟
+          28 分钟
         
       </span>
     
@@ -256,161 +258,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">Flutter笔记（草稿）</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="图像加载"><a href="#图像加载" class="headerlink" title="图像加载"></a>图像加载</h1><h3 id="Image-asset-加载本地图片"><a href="#Image-asset-加载本地图片" class="headerlink" title="Image.asset()加载本地图片"></a>Image.asset()加载本地图片</h3><pre><code class="dart">Image.asset(
-    &#39;$&#123;girdMenu[index][&#39;img&#39;]&#125;&#39;,//图片地址
-    fit: BoxFit.cover, //图片适应方式
-    width: double.infinity, //图片宽度
-    height: double.infinity, //图片高度
-)
-</code></pre>
-<h3 id="Image-network-加载网络图片"><a href="#Image-network-加载网络图片" class="headerlink" title="Image.network()加载网络图片"></a>Image.network()加载网络图片</h3><pre><code class="dart">Image.network(
-    &#39;$&#123;girdMenu[index][&#39;img&#39;]&#125;&#39;,//图片地址
-    fit: BoxFit.cover, //图片适应方式
-    width: double.infinity, //图片宽度
-    height: double.infinity, //图片高度
-)
-</code></pre>
-<h3 id="FadeInImage带展位图的图片展示组件"><a href="#FadeInImage带展位图的图片展示组件" class="headerlink" title="FadeInImage带展位图的图片展示组件"></a>FadeInImage带展位图的图片展示组件</h3><h5 id="FadeInImage-assetNetwork指定本地的图片作为展位图"><a href="#FadeInImage-assetNetwork指定本地的图片作为展位图" class="headerlink" title="FadeInImage.assetNetwork指定本地的图片作为展位图"></a>FadeInImage.assetNetwork指定本地的图片作为展位图</h5><pre><code class="dart">FadeInImage.assetNetwork(
-    placeholder: &#39;assets/waiting.png&#39;,//展位图
-    image: &#39;https://example.com/image.png&#39;
-)
-</code></pre>
-<h5 id="FadeInImage-memoryNetwork指定内存中的图片作为展位图"><a href="#FadeInImage-memoryNetwork指定内存中的图片作为展位图" class="headerlink" title="FadeInImage.memoryNetwork指定内存中的图片作为展位图"></a>FadeInImage.memoryNetwork指定内存中的图片作为展位图</h5><pre><code class="dart">FadeInImage.memoryNetwork(
-    placeholder: localImageBytes,
-    image: &#39;https://example.com/image.png&#39;
-)
-</code></pre>
-<h1 id="Container组件"><a href="#Container组件" class="headerlink" title="Container组件"></a>Container组件</h1><h3 id="Container设置背景图"><a href="#Container设置背景图" class="headerlink" title="Container设置背景图"></a>Container设置背景图</h3><pre><code class="dart">Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(backgroundImg),
-          fit: BoxFit.cover,
-        ),
-      ),
-);
-</code></pre>
-<h3 id="Container设置圆角"><a href="#Container设置圆角" class="headerlink" title="Container设置圆角"></a>Container设置圆角</h3><pre><code class="dart">Container(
-    clipBehavior: Clip.antiAlias,
-    //设置圆角
-    decoration: const BoxDecoration(
-    borderRadius: BorderRadius.all(
-        Radius.circular(20),
-        ),
-    ),
-)
-</code></pre>
-<h3 id="Container设置阴影"><a href="#Container设置阴影" class="headerlink" title="Container设置阴影"></a>Container设置阴影</h3><pre><code class="dart">Container(
-    decoration: new BoxDecoration(
-    boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 20.0.wDp)],
-    color: Colors.white,
-),
-</code></pre>
-<h1 id="Card组件"><a href="#Card组件" class="headerlink" title="Card组件"></a>Card组件</h1><h3 id="Card设置圆角"><a href="#Card设置圆角" class="headerlink" title="Card设置圆角"></a>Card设置圆角</h3><pre><code class="dart">Card(
-    elevation: 3,
-    shadowColor: primaryColor,
-    //设置圆角
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(radius),
-      ),
-    ),
-)
-</code></pre>
-<h1 id="正则表达式使用"><a href="#正则表达式使用" class="headerlink" title="正则表达式使用"></a>正则表达式使用</h1><pre><code class="dart">//定义匹配模板，dart中使用(r表达式)的形式作为匹配模板，与&quot;$变量&quot;区分
-static const String _httpSvgReg =
-      r&quot;^(((http|https)\:\/\/)[\S]+(\.(svg|SVG))[\s\S]*)$&quot;;
-//创建模板类
-RegExp httpSvg = RegExp(_httpSvgReg);
+                <h1 id="图像加载"><a href="#图像加载" class="headerlink" title="图像加载"></a>图像加载</h1><h3 id="Image-asset-加载本地图片"><a href="#Image-asset-加载本地图片" class="headerlink" title="Image.asset()加载本地图片"></a>Image.asset()加载本地图片</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dart">Image.asset(<br>	<span class="hljs-string">&#x27;<span class="hljs-subst">$&#123;girdMenu[index][<span class="hljs-string">&#x27;img&#x27;</span>]&#125;</span>&#x27;</span>,<span class="hljs-comment">//图片地址</span><br>	fit: BoxFit.cover, <span class="hljs-comment">//图片适应方式</span><br>	width: <span class="hljs-built_in">double</span>.infinity, <span class="hljs-comment">//图片宽度</span><br>	height: <span class="hljs-built_in">double</span>.infinity, <span class="hljs-comment">//图片高度</span><br>)<br></code></pre></td></tr></table></figure>
 
-//匹配字符串，返回值为true or false
-httpSvg.hasMatch(image);
-</code></pre>
-<h1 id="Flutter动画"><a href="#Flutter动画" class="headerlink" title="Flutter动画"></a>Flutter动画</h1><h3 id="数值变化"><a href="#数值变化" class="headerlink" title="数值变化"></a>数值变化</h3><pre><code class="dart">//动画控制器
-late AnimationController _animationController;
-//数值动画
-late Animation&lt;double&gt; _valueAnimation;
+<h3 id="Image-network-加载网络图片"><a href="#Image-network-加载网络图片" class="headerlink" title="Image.network()加载网络图片"></a>Image.network()加载网络图片</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dart">Image.network(<br>	<span class="hljs-string">&#x27;<span class="hljs-subst">$&#123;girdMenu[index][<span class="hljs-string">&#x27;img&#x27;</span>]&#125;</span>&#x27;</span>,<span class="hljs-comment">//图片地址</span><br>	fit: BoxFit.cover, <span class="hljs-comment">//图片适应方式</span><br>	width: <span class="hljs-built_in">double</span>.infinity, <span class="hljs-comment">//图片宽度</span><br>	height: <span class="hljs-built_in">double</span>.infinity, <span class="hljs-comment">//图片高度</span><br>)<br></code></pre></td></tr></table></figure>
 
-@override
-void initState() &#123;
-    //初始化动画控制器
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    //初始化数值动画，确定数值变化范围，以及添加事件监听刷新UI
-    _valueAnimation = Tween&lt;double&gt;(begin: 0.0, end: 0.75)
-        .animate(_animationController)
-      ..addListener(() &#123;
-        setState(() &#123;&#125;);
-      &#125;);
-    //启动动画
-    _animationController.forward();
-    super.initState();
-&#125;
-</code></pre>
-<h3 id="组件旋转动画"><a href="#组件旋转动画" class="headerlink" title="组件旋转动画"></a>组件旋转动画</h3><pre><code class="dart">//动画控制器
-late AnimationController _animationController;
+<h3 id="FadeInImage带展位图的图片展示组件"><a href="#FadeInImage带展位图的图片展示组件" class="headerlink" title="FadeInImage带展位图的图片展示组件"></a>FadeInImage带展位图的图片展示组件</h3><h5 id="FadeInImage-assetNetwork指定本地的图片作为展位图"><a href="#FadeInImage-assetNetwork指定本地的图片作为展位图" class="headerlink" title="FadeInImage.assetNetwork指定本地的图片作为展位图"></a>FadeInImage.assetNetwork指定本地的图片作为展位图</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart">FadeInImage.assetNetwork(<br>    placeholder: <span class="hljs-string">&#x27;assets/waiting.png&#x27;</span>,<span class="hljs-comment">//展位图</span><br>    image: <span class="hljs-string">&#x27;https://example.com/image.png&#x27;</span><br>)<br></code></pre></td></tr></table></figure>
 
-@override
-void initState() &#123;
-    super.initState();
-    //初始哈控制器，设置动画时长
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 300),
-      upperBound: 0.5,
-    );
-&#125;
+<h5 id="FadeInImage-memoryNetwork指定内存中的图片作为展位图"><a href="#FadeInImage-memoryNetwork指定内存中的图片作为展位图" class="headerlink" title="FadeInImage.memoryNetwork指定内存中的图片作为展位图"></a>FadeInImage.memoryNetwork指定内存中的图片作为展位图</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart">FadeInImage.memoryNetwork(<br>    placeholder: localImageBytes,<br>    image: <span class="hljs-string">&#x27;https://example.com/image.png&#x27;</span><br>)<br></code></pre></td></tr></table></figure>
 
-//旋转组件，包裹需要旋转的组件，设置旋转角度
-RotationTransition(
-    turns: Tween(
-        begin: 0.0,
-        end: 0.5,
-    ).animate(_animationController),
-        child: Icon(
-        defaultRightArrow,
-        size: 20,
-        color: widget.selectColor,
-    ),
-),
+<h1 id="Container组件"><a href="#Container组件" class="headerlink" title="Container组件"></a>Container组件</h1><h3 id="Container设置背景图"><a href="#Container设置背景图" class="headerlink" title="Container设置背景图"></a>Container设置背景图</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dart">Container(<br>      decoration: BoxDecoration(<br>        image: DecorationImage(<br>          image: AssetImage(backgroundImg),<br>          fit: BoxFit.cover,<br>        ),<br>      ),<br>);<br></code></pre></td></tr></table></figure>
 
-//点击事件逻辑，启动动画执行
-if (widget.isShowNextMenu) &#123;
-    _animationController.reverse(from: 0.5);
-&#125; else &#123;
-    _animationController.forward(from: 0.0);
-&#125;
-</code></pre>
-<h1 id="Warp流式布局"><a href="#Warp流式布局" class="headerlink" title="Warp流式布局"></a>Warp流式布局</h1><pre><code class="dart">Wrap(
-   spacing: 8.0, // 主轴(水平)方向间距
-   runSpacing: 4.0, // 纵轴（垂直）方向间距
-   alignment: WrapAlignment.center, //沿主轴方向居中
-   children: &lt;Widget&gt;[
-     Chip(
-       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;A&#39;)),
-       label: Text(&#39;Hamilton&#39;),
-     ),
-     Chip(
-       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;M&#39;)),
-       label: Text(&#39;Lafayette&#39;),
-     ),
-     Chip(
-       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;H&#39;)),
-       label: Text(&#39;Mulligan&#39;),
-     ),
-     Chip(
-       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(&#39;J&#39;)),
-       label: Text(&#39;Laurens&#39;),
-     ),
-   ],
-)
-</code></pre>
+<h3 id="Container设置圆角"><a href="#Container设置圆角" class="headerlink" title="Container设置圆角"></a>Container设置圆角</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dart">Container(<br>	clipBehavior: Clip.antiAlias,<br>    <span class="hljs-comment">//设置圆角</span><br>	decoration: <span class="hljs-keyword">const</span> BoxDecoration(<br>	borderRadius: BorderRadius.all(<br>		Radius.circular(<span class="hljs-number">20</span>),<br>		),<br>	),<br>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Container设置阴影"><a href="#Container设置阴影" class="headerlink" title="Container设置阴影"></a>Container设置阴影</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dart">Container(<br>	decoration: <span class="hljs-keyword">new</span> BoxDecoration(<br>	boxShadow: [BoxShadow(color: Colors.grey, blurRadius: <span class="hljs-number">20.0</span>.wDp)],<br>	color: Colors.white,<br>),<br></code></pre></td></tr></table></figure>
+
+<h1 id="Card组件"><a href="#Card组件" class="headerlink" title="Card组件"></a>Card组件</h1><h3 id="Card设置圆角"><a href="#Card设置圆角" class="headerlink" title="Card设置圆角"></a>Card设置圆角</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dart">Card(<br>	elevation: <span class="hljs-number">3</span>,<br>	shadowColor: primaryColor,<br>    <span class="hljs-comment">//设置圆角</span><br>    shape: RoundedRectangleBorder(<br>      borderRadius: BorderRadius.all(<br>        Radius.circular(radius),<br>      ),<br>    ),<br>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="正则表达式使用"><a href="#正则表达式使用" class="headerlink" title="正则表达式使用"></a>正则表达式使用</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//定义匹配模板，dart中使用(r表达式)的形式作为匹配模板，与&quot;$变量&quot;区分</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">String</span> _httpSvgReg =<br>      <span class="hljs-string">r&quot;^(((http|https)\:\/\/)[\S]+(\.(svg|SVG))[\s\S]*)$&quot;</span>;<br><span class="hljs-comment">//创建模板类</span><br><span class="hljs-built_in">RegExp</span> httpSvg = <span class="hljs-built_in">RegExp</span>(_httpSvgReg);<br><br><span class="hljs-comment">//匹配字符串，返回值为true or false</span><br>httpSvg.hasMatch(image);<br></code></pre></td></tr></table></figure>
+
+<h1 id="Flutter动画"><a href="#Flutter动画" class="headerlink" title="Flutter动画"></a>Flutter动画</h1><h3 id="数值变化"><a href="#数值变化" class="headerlink" title="数值变化"></a>数值变化</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//动画控制器</span><br><span class="hljs-keyword">late</span> AnimationController _animationController;<br><span class="hljs-comment">//数值动画</span><br><span class="hljs-keyword">late</span> Animation&lt;<span class="hljs-built_in">double</span>&gt; _valueAnimation;<br><br><span class="hljs-meta">@override</span><br><span class="hljs-keyword">void</span> initState() &#123;<br>    <span class="hljs-comment">//初始化动画控制器</span><br>	_animationController = AnimationController(<br>      vsync: <span class="hljs-keyword">this</span>,<br>      duration: <span class="hljs-keyword">const</span> <span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">1</span>),<br>    );<br>    <span class="hljs-comment">//初始化数值动画，确定数值变化范围，以及添加事件监听刷新UI</span><br>    _valueAnimation = Tween&lt;<span class="hljs-built_in">double</span>&gt;(begin: <span class="hljs-number">0.0</span>, end: <span class="hljs-number">0.75</span>)<br>        .animate(_animationController)<br>      ..addListener(() &#123;<br>        setState(() &#123;&#125;);<br>      &#125;);<br>    <span class="hljs-comment">//启动动画</span><br>    _animationController.forward();<br>    <span class="hljs-keyword">super</span>.initState();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="组件旋转动画"><a href="#组件旋转动画" class="headerlink" title="组件旋转动画"></a>组件旋转动画</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//动画控制器</span><br><span class="hljs-keyword">late</span> AnimationController _animationController;<br><br><span class="hljs-meta">@override</span><br><span class="hljs-keyword">void</span> initState() &#123;<br>    <span class="hljs-keyword">super</span>.initState();<br>    <span class="hljs-comment">//初始哈控制器，设置动画时长</span><br>    _animationController = AnimationController(<br>      vsync: <span class="hljs-keyword">this</span>,<br>      duration: <span class="hljs-keyword">const</span> <span class="hljs-built_in">Duration</span>(milliseconds: <span class="hljs-number">300</span>),<br>      upperBound: <span class="hljs-number">0.5</span>,<br>    );<br>&#125;<br><br><span class="hljs-comment">//旋转组件，包裹需要旋转的组件，设置旋转角度</span><br>RotationTransition(<br>	turns: Tween(<br>		begin: <span class="hljs-number">0.0</span>,<br>		end: <span class="hljs-number">0.5</span>,<br>	).animate(_animationController),<br>		child: Icon(<br>		defaultRightArrow,<br>		size: <span class="hljs-number">20</span>,<br>		color: widget.selectColor,<br>	),<br>),<br><br><span class="hljs-comment">//点击事件逻辑，启动动画执行</span><br><span class="hljs-keyword">if</span> (widget.isShowNextMenu) &#123;<br>	_animationController.reverse(from: <span class="hljs-number">0.5</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>	_animationController.forward(from: <span class="hljs-number">0.0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="Warp流式布局"><a href="#Warp流式布局" class="headerlink" title="Warp流式布局"></a>Warp流式布局</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs dart">Wrap(<br>   spacing: <span class="hljs-number">8.0</span>, <span class="hljs-comment">// 主轴(水平)方向间距</span><br>   runSpacing: <span class="hljs-number">4.0</span>, <span class="hljs-comment">// 纵轴（垂直）方向间距</span><br>   alignment: WrapAlignment.center, <span class="hljs-comment">//沿主轴方向居中</span><br>   children: &lt;Widget&gt;[<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;A&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Hamilton&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;M&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Lafayette&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;H&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Mulligan&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;J&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Laurens&#x27;</span>),<br>     ),<br>   ],<br>)<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -419,6 +295,36 @@ if (widget.isShowNextMenu) &#123;
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/flutter/" class="category-chain-item">flutter</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/dart/">#dart</a>
+      
+        <a href="/tags/flutter/">#flutter</a>
+      
+    </div>
   
 </div>
 
@@ -428,7 +334,7 @@ if (widget.isShowNextMenu) &#123;
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
+      <div>Flutter笔记（草稿）</div>
       <div>http://example.com/2022/08/22/Flutter/</div>
     </div>
     <div class="license-meta">
@@ -473,9 +379,9 @@ if (widget.isShowNextMenu) &#123;
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/22/Android%E5%BC%80%E5%8F%91%E6%97%A5%E5%B8%B8/" title="">
+                      <a href="/2022/08/22/Android%E5%BC%80%E5%8F%91%E6%97%A5%E5%B8%B8/" title="Android开发（草稿）">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Android开发（草稿）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

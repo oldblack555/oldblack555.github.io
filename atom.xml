@@ -49,14 +49,14 @@
     <link href="http://example.com/2022/09/25/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/"/>
     <id>http://example.com/2022/09/25/%E8%80%81%E9%BB%91%E8%B5%B7%E5%A7%8B%E9%A1%B5/</id>
     <published>2022-09-25T15:26:46.876Z</published>
-    <updated>2022-09-30T12:19:13.758Z</updated>
+    <updated>2022-10-04T13:09:23.454Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>The Old Black Start Page is a lightweight and simple browser start page for terminal enthusiasts. Its core is instruction set that provides basic services for users. For example, “search fate” can use default search engine to search for fate-related content. Or “search -e bing fate” specifies a search engine to search for related content.</p><h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><p><img src="/home/oldblack/.config/Typora/typora-user-images/image-20220925234712193.png" alt="image-20220925234712193"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可快速进行搜索。项目处于属于个人喜好，偏自娱自乐，可能存在许多不足之处，还请大佬们指导哈。</p><h1 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h1><p><img src="/home/oldblack/.config/Typora/typora-user-images/image-20220925234712193.png" alt="image-20220925234712193"></p><h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><pre><code class="sh">.├── android├── assets│   └── images----------------本地图片资源文件夹├── fonts---------------------字体资源文件夹├── lib-----------------------项目核心代码目录│   ├── controller------------系统状态信息目录│   ├── core------------------核心目录│   │   ├── error-------------异常│   │   └── orders------------指令集合│   ├── handle----------------全局异常捕获处理│   ├── provider--------------执行器│   │   ├── order-------------指令执行器│   │   └── others------------系统状态更新执行器，负责指令更新状态│   ├── resource--------------系统默认属性目录│   ├── ui--------------------UI目录│   │   └── terminal----------终端UI│   └── util------------------工具类├── test----------------------测试目录├── web-----------------------原生web文件目录    ├── assets    └── icons</code></pre><h1 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h1><p>辅助参数：–help，负责提示指令参数及作用，或者收藏的标签页等。</p><ul><li><p>config</p><p>系统属性设置指令，如背景色、透明度、字体大小等。参数及说明如下：</p><table><thead><tr><th>参数</th><th>解释</th></tr></thead><tbody><tr><td>-bg</td><td>设置背景颜色，可选颜色[red、black、blue、green、pink、purple、white、orange、yellow]。</td></tr><tr><td>-ba</td><td>设置背景透明度，取值范围[0-1]。</td></tr><tr><td>-se</td><td>设置默认的搜索引擎。可使用引擎[chrome、bing、baidu]。</td></tr><tr><td>-fs</td><td>设置字体大小，最小字体为10，默认为20。</td></tr><tr><td>-fc</td><td>设置字体颜色，可选颜色同bg参数</td></tr><tr><td>-blur</td><td>设置背景模糊效果，非负数，默认为10</td></tr></tbody></table></li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;The Old Black Start Page is a lightweight and simple browser start pag</summary>
+    <summary type="html">&lt;h1 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h1&gt;&lt;p&gt;老黑起始页是一个仿终端的web起始页，模拟终端命令，通过简单的命令实现一般起始页的功能。如常规的搜索功能，使用search命令加搜索内容便可</summary>
       
     
     
@@ -452,15 +452,28 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Git</title>
     <link href="http://example.com/2022/08/08/Git/"/>
     <id>http://example.com/2022/08/08/Git/</id>
     <published>2022-08-08T07:52:40.347Z</published>
-    <updated>2022-08-08T08:54:03.890Z</updated>
+    <updated>2022-10-04T12:50:20.194Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="仓库初始化"><a href="#仓库初始化" class="headerlink" title="仓库初始化"></a>仓库初始化</h1><pre><code class="sh">git init</code></pre><h1 id="本地仓库关联远程库"><a href="#本地仓库关联远程库" class="headerlink" title="本地仓库关联远程库"></a>本地仓库关联远程库</h1><pre><code class="sh">git remote add origin url</code></pre><h1 id="推送并关联分支"><a href="#推送并关联分支" class="headerlink" title="推送并关联分支"></a>推送并关联分支</h1><pre><code class="sh">git push -u origin main</code></pre><h1 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h1><pre><code class="sh">git push origin master</code></pre><h1 id="拉取远程仓库"><a href="#拉取远程仓库" class="headerlink" title="拉取远程仓库"></a>拉取远程仓库</h1><pre><code class="sh">git pull origin main</code></pre><h1 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h1><pre><code class="sh">git clone url</code></pre><h1 id="配置全局用户名和邮箱"><a href="#配置全局用户名和邮箱" class="headerlink" title="配置全局用户名和邮箱"></a>配置全局用户名和邮箱</h1><pre><code class="sh">git config --global user.name &quot;username&quot;git config --global user.email &quot;emial&quot;</code></pre><h1 id="Github使用"><a href="#Github使用" class="headerlink" title="Github使用"></a>Github使用</h1><ul><li>在项目根目录初始化本地仓库</li></ul><pre><code class="sh">git init</code></pre><ul><li>生成ssh key</li></ul><pre><code class="sh">ssh-keygen -t rsa -C &quot;github邮箱&quot;</code></pre><ul><li>登录Github，打开SSH Keys，案图片步骤设置公钥</li></ul><p><img src="https://upload-images.jianshu.io/upload_images/4361839-bface2f431355599.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp"></p><ul><li>测试ssh key是否成功</li></ul><pre><code class="sh">ssh -T git@github.com</code></pre><ul><li>关联github仓库</li></ul><pre><code class="sh">git remote add origin url</code></pre><ul><li>推送本地代码</li></ul><pre><code class="sh">git add filegit commit -m &quot;提交说明&quot;//提交并关联分支（第一次使用）git push -u origin main//提交git push origin main</code></pre><ul><li>拉取github仓库代码</li></ul><pre><code class="sh">git pull origin main</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;仓库初始化&quot;&gt;&lt;a href=&quot;#仓库初始化&quot; class=&quot;headerlink&quot; title=&quot;仓库初始化&quot;&gt;&lt;/a&gt;仓库初始化&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git init
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;本地仓库关联远程</summary>
+      
     
     
     
+    <category term="Git" scheme="http://example.com/categories/Git/"/>
     
+    
+    <category term="Git" scheme="http://example.com/tags/Git/"/>
     
   </entry>
   

@@ -5,12 +5,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> - Hexo</title>
+    <title>Git - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="仓库初始化git init
+
+本地仓库关联远程库git remote add origin url
+
+推送并关联分支git push -u origin main
+
+推送分支git push ori,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -18,16 +24,28 @@
     
     
     <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content=" - Hexo"/>
-    
+    <meta name="twitter:title" content="Git - Hexo"/>
+    <meta name="twitter:description" content="仓库初始化git init
+
+本地仓库关联远程库git remote add origin url
+
+推送并关联分支git push -u origin main
+
+推送分支git push ori,"/>
     
     
     
     
     <meta property="og:site_name" content="Hexo"/>
     <meta property="og:type" content="object"/>
-    <meta property="og:title" content=" - Hexo"/>
-    
+    <meta property="og:title" content="Git - Hexo"/>
+    <meta property="og:description" content="仓库初始化git init
+
+本地仓库关联远程库git remote add origin url
+
+推送并关联分支git push -u origin main
+
+推送分支git push ori,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -45,7 +63,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">Git</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -60,14 +78,70 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">Git</h1>
         <div class="stuff">
             <span>八月 08, 2022</span>
             
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
 
         </div>
         <div class="content markdown">
-            
+            <h1 id="仓库初始化"><a href="#仓库初始化" class="headerlink" title="仓库初始化"></a>仓库初始化</h1><pre><code class="sh">git init
+</code></pre>
+<h1 id="本地仓库关联远程库"><a href="#本地仓库关联远程库" class="headerlink" title="本地仓库关联远程库"></a>本地仓库关联远程库</h1><pre><code class="sh">git remote add origin url
+</code></pre>
+<h1 id="推送并关联分支"><a href="#推送并关联分支" class="headerlink" title="推送并关联分支"></a>推送并关联分支</h1><pre><code class="sh">git push -u origin main
+</code></pre>
+<h1 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h1><pre><code class="sh">git push origin master
+</code></pre>
+<h1 id="拉取远程仓库"><a href="#拉取远程仓库" class="headerlink" title="拉取远程仓库"></a>拉取远程仓库</h1><pre><code class="sh">git pull origin main
+</code></pre>
+<h1 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h1><pre><code class="sh">git clone url
+</code></pre>
+<h1 id="配置全局用户名和邮箱"><a href="#配置全局用户名和邮箱" class="headerlink" title="配置全局用户名和邮箱"></a>配置全局用户名和邮箱</h1><pre><code class="sh">git config --global user.name &quot;username&quot;
+git config --global user.email &quot;emial&quot;
+</code></pre>
+<h1 id="Github使用"><a href="#Github使用" class="headerlink" title="Github使用"></a>Github使用</h1><ul>
+<li>在项目根目录初始化本地仓库</li>
+</ul>
+<pre><code class="sh">git init
+</code></pre>
+<ul>
+<li>生成ssh key</li>
+</ul>
+<pre><code class="sh">ssh-keygen -t rsa -C &quot;github邮箱&quot;
+</code></pre>
+<ul>
+<li>登录Github，打开SSH Keys，案图片步骤设置公钥</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/4361839-bface2f431355599.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/format/webp"></p>
+<ul>
+<li>测试ssh key是否成功</li>
+</ul>
+<pre><code class="sh">ssh -T git@github.com
+</code></pre>
+<ul>
+<li>关联github仓库</li>
+</ul>
+<pre><code class="sh">git remote add origin url
+</code></pre>
+<ul>
+<li>推送本地代码</li>
+</ul>
+<pre><code class="sh">git add file
+git commit -m &quot;提交说明&quot;
+//提交并关联分支（第一次使用）
+git push -u origin main
+//提交
+git push origin main
+</code></pre>
+<ul>
+<li>拉取github仓库代码</li>
+</ul>
+<pre><code class="sh">git pull origin main
+</code></pre>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">

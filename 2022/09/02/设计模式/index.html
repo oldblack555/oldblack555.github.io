@@ -209,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          4.1k 字
         
       </span>
     
@@ -220,7 +220,7 @@
         
         
         
-          32 分钟
+          34 分钟
         
       </span>
     
@@ -276,185 +276,14 @@
 <li>定义抽象计算类，封装操作数，定义计算结果的抽象方法。</li>
 <li>定义不同操作类，继承抽象计算类，使得操作数和计算方法复用。</li>
 </ol>
-<pre><code class="java">/**
- * 简单计算功能封装，定义操作数和计算方法，
- * 由子类继承该抽象类，实现不同的计算功能
- * @author oldblack
- */
-public abstract class BaseOperation &#123;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 简单计算功能封装，定义操作数和计算方法，</span><br><span class="hljs-comment"> * 由子类继承该抽象类，实现不同的计算功能</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> oldblack</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">BaseOperation</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">double</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getNum1</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> num1;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNum1</span><span class="hljs-params">(<span class="hljs-type">double</span> num1)</span> &#123;<br>        <span class="hljs-built_in">this</span>.num1 = num1;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getNum2</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> num2;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setNum2</span><span class="hljs-params">(<span class="hljs-type">double</span> num2)</span> &#123;<br>        <span class="hljs-built_in">this</span>.num2 = num2;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 运算并返回相应运算操作的结果</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 运算结果</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-type">double</span> <span class="hljs-title function_">result</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-comment">// 加法的具体实现类</span><br><span class="hljs-keyword">import</span> com.dp.factory.BaseOperation;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 重写父类计算方法</span><br><span class="hljs-comment"> * 定义加法计算</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> oldblack</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OperationAdd</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseOperation</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">result</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> getNum1() + getNum2();<br>    &#125;<br>&#125;<br><br><br><span class="hljs-comment">// 除法的具体实现类</span><br><span class="hljs-keyword">import</span> com.dp.factory.BaseOperation;<br><span class="hljs-keyword">import</span> com.dp.factory.config.ErrorMsg;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 重写父类计算方法</span><br><span class="hljs-comment"> * 定义除法运算</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> oldblack</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OperationDivision</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BaseOperation</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">result</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//检查是否除零运算</span><br>        <span class="hljs-keyword">assert</span> <span class="hljs-title function_">getNum2</span><span class="hljs-params">()</span> != <span class="hljs-number">0</span> : ErrorMsg.DIVISION_ERROR.getMsg();<br>        <span class="hljs-keyword">return</span> getNum1() / getNum2();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    private double num1 = 0;
-    private double num2 = 0;
-
-
-
-    public double getNum1() &#123;
-        return num1;
-    &#125;
-
-    public void setNum1(double num1) &#123;
-        this.num1 = num1;
-    &#125;
-
-    public double getNum2() &#123;
-        return num2;
-    &#125;
-
-    public void setNum2(double num2) &#123;
-        this.num2 = num2;
-    &#125;
-
-    /**
-     * 运算并返回相应运算操作的结果
-     * @return 运算结果
-     */
-    public abstract double result();
-&#125;
-
-// 加法的具体实现类
-import com.dp.factory.BaseOperation;
-
-/**
- * 重写父类计算方法
- * 定义加法计算
- * @author oldblack
- */
-public class OperationAdd extends BaseOperation &#123;
-    @Override
-    public double result() &#123;
-        return getNum1() + getNum2();
-    &#125;
-&#125;
-
-
-// 除法的具体实现类
-import com.dp.factory.BaseOperation;
-import com.dp.factory.config.ErrorMsg;
-
-/**
- * 重写父类计算方法
- * 定义除法运算
- * @author oldblack
- */
-public class OperationDivision extends BaseOperation &#123;
-    @Override
-    public double result() &#123;
-        //检查是否除零运算
-        assert getNum2() != 0 : ErrorMsg.DIVISION_ERROR.getMsg();
-        return getNum1() / getNum2();
-    &#125;
-&#125;
-</code></pre>
 <p>面向对象的三个基本特性：<em><strong>封装、继承、多态</strong></em>，通过上述思想实现的简单计算，将运算的操作公共特性封装为基类，不同子类通过继承重写抽象方法，实现基类的多态，这样的好处在于，新增减法运算时，只需定义子类重写result方法实现相应的功能，提高代码复用。那么，又出现了新的问题：如何创建这些操作对象，不至于每个对象都去创建一次来实现计算功能。为此，引入<em><strong>工厂模式</strong></em>，工厂根据所需返回不同的计算对象，代码简单如下：</p>
-<pre><code class="java">/**
- * 枚举计算功能，加减乘除等
- * @author oldblack
- */
-public enum OperationEnum &#123;
-    //加法
-    ADD,
-    //减法
-    SUBTRACT,
-    //乘法
-    MULTIPLICATION,
-    //除法
-    DIVISION,
-    ;
-&#125;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 枚举计算功能，加减乘除等</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> oldblack</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> <span class="hljs-title class_">OperationEnum</span> &#123;<br>    <span class="hljs-comment">//加法</span><br>    ADD,<br>    <span class="hljs-comment">//减法</span><br>    SUBTRACT,<br>    <span class="hljs-comment">//乘法</span><br>    MULTIPLICATION,<br>    <span class="hljs-comment">//除法</span><br>    DIVISION,<br>    ;<br>&#125;<br><br><br><span class="hljs-keyword">import</span> com.dp.factory.config.OperationEnum;<br><span class="hljs-keyword">import</span> com.dp.factory.operation.OperationAdd;<br><span class="hljs-keyword">import</span> com.dp.factory.operation.OperationDivision;<br><span class="hljs-keyword">import</span> com.dp.factory.operation.OperationMulti;<br><span class="hljs-keyword">import</span> com.dp.factory.operation.OperationSub;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 简单的工厂实现</span><br><span class="hljs-comment"> * 返回不同的计算功能，通过枚举返回相应对象</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> oldblack</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OperationFactory</span> &#123;<br>    <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> BaseOperation <span class="hljs-title function_">build</span><span class="hljs-params">(OperationEnum operation)</span> &#123;<br>        <span class="hljs-comment">//使用父类声明对象，用子类实例化对象，使得result方法为子类重写的方法</span><br>        BaseOperation baseOperation;<br>        <span class="hljs-keyword">switch</span> (operation) &#123;<br>            <span class="hljs-keyword">case</span> SUBTRACT:<br>                baseOperation = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OperationSub</span>();<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> MULTIPLICATION:<br>                baseOperation = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OperationMulti</span>();<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> DIVISION:<br>                baseOperation = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OperationDivision</span>();<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">default</span>:<br>                baseOperation = <span class="hljs-keyword">new</span> <span class="hljs-title class_">OperationAdd</span>();<br>        &#125;<br>        <span class="hljs-keyword">return</span> baseOperation;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-
-import com.dp.factory.config.OperationEnum;
-import com.dp.factory.operation.OperationAdd;
-import com.dp.factory.operation.OperationDivision;
-import com.dp.factory.operation.OperationMulti;
-import com.dp.factory.operation.OperationSub;
-
-/**
- * 简单的工厂实现
- * 返回不同的计算功能，通过枚举返回相应对象
- *
- * @author oldblack
- */
-public class OperationFactory &#123;
-    
-    public static BaseOperation build(OperationEnum operation) &#123;
-        //使用父类声明对象，用子类实例化对象，使得result方法为子类重写的方法
-        BaseOperation baseOperation;
-        switch (operation) &#123;
-            case SUBTRACT:
-                baseOperation = new OperationSub();
-                break;
-            case MULTIPLICATION:
-                baseOperation = new OperationMulti();
-                break;
-            case DIVISION:
-                baseOperation = new OperationDivision();
-                break;
-            default:
-                baseOperation = new OperationAdd();
-        &#125;
-        return baseOperation;
-    &#125;
-
-&#125;
-</code></pre>
 <p>测试代码如下：</p>
-<pre><code class="java">import com.dp.factory.BaseOperation;
-import com.dp.factory.OperationFactory;
-import com.dp.factory.config.OperationEnum;
-import org.junit.jupiter.api.Test;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.dp.factory.BaseOperation;<br><span class="hljs-keyword">import</span> com.dp.factory.OperationFactory;<br><span class="hljs-keyword">import</span> com.dp.factory.config.OperationEnum;<br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FactoryTest</span> &#123;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operationAddTest</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">BaseOperation</span> <span class="hljs-variable">operationAdd</span> <span class="hljs-operator">=</span> OperationFactory.build(OperationEnum.ADD);<br>        operationAdd.setNum1(<span class="hljs-number">20</span>);<br>        operationAdd.setNum2(<span class="hljs-number">10</span>);<br>        System.out.println(operationAdd.result());<br>    &#125;<br>    <span class="hljs-comment">//结果：30.0</span><br>    <br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operationSubtractTest</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">BaseOperation</span> <span class="hljs-variable">operationSub</span> <span class="hljs-operator">=</span> OperationFactory.build(OperationEnum.SUBTRACT);<br>        operationSub.setNum1(<span class="hljs-number">20</span>);<br>        operationSub.setNum2(<span class="hljs-number">10</span>);<br>        System.out.println(operationSub.result());<br>    &#125;<br>    <span class="hljs-comment">//结果：10.0</span><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operationMultiplicationTest</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">BaseOperation</span> <span class="hljs-variable">operationMulti</span> <span class="hljs-operator">=</span> OperationFactory.build(OperationEnum.MULTIPLICATION);<br>        operationMulti.setNum1(<span class="hljs-number">20</span>);<br>        operationMulti.setNum2(<span class="hljs-number">10</span>);<br>        System.out.println(operationMulti.result());<br>    &#125;<br>	<span class="hljs-comment">//结果：200.0</span><br>    <br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operationDivisionTest</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">BaseOperation</span> <span class="hljs-variable">operationDivision</span> <span class="hljs-operator">=</span> OperationFactory.build(OperationEnum.DIVISION);<br>        operationDivision.setNum1(<span class="hljs-number">20</span>);<br>        operationDivision.setNum2(<span class="hljs-number">10</span>);<br>        System.out.println(operationDivision.result());<br>    &#125;<br>    <br>    <span class="hljs-comment">//结果：2.0</span><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">operationDivisionZeroTest</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">BaseOperation</span> <span class="hljs-variable">operationDivision</span> <span class="hljs-operator">=</span> OperationFactory.build(OperationEnum.DIVISION);<br>        operationDivision.setNum1(<span class="hljs-number">20</span>);<br>        operationDivision.setNum2(<span class="hljs-number">0</span>);<br>        System.out.println(operationDivision.result());<br>    &#125;<br>    <span class="hljs-comment">//结果：java.lang.AssertionError: 除零错误</span><br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-public class FactoryTest &#123;
-
-    @Test
-    public void operationAddTest() &#123;
-        BaseOperation operationAdd = OperationFactory.build(OperationEnum.ADD);
-        operationAdd.setNum1(20);
-        operationAdd.setNum2(10);
-        System.out.println(operationAdd.result());
-    &#125;
-    //结果：30.0
-    
-
-    @Test
-    public void operationSubtractTest()&#123;
-        BaseOperation operationSub = OperationFactory.build(OperationEnum.SUBTRACT);
-        operationSub.setNum1(20);
-        operationSub.setNum2(10);
-        System.out.println(operationSub.result());
-    &#125;
-    //结果：10.0
-
-    @Test
-    public void operationMultiplicationTest()&#123;
-        BaseOperation operationMulti = OperationFactory.build(OperationEnum.MULTIPLICATION);
-        operationMulti.setNum1(20);
-        operationMulti.setNum2(10);
-        System.out.println(operationMulti.result());
-    &#125;
-    //结果：200.0
-    
-    @Test
-    public void operationDivisionTest()&#123;
-        BaseOperation operationDivision = OperationFactory.build(OperationEnum.DIVISION);
-        operationDivision.setNum1(20);
-        operationDivision.setNum2(10);
-        System.out.println(operationDivision.result());
-    &#125;
-    
-    //结果：2.0
-
-    @Test
-    public void operationDivisionZeroTest()&#123;
-        BaseOperation operationDivision = OperationFactory.build(OperationEnum.DIVISION);
-        operationDivision.setNum1(20);
-        operationDivision.setNum2(0);
-        System.out.println(operationDivision.result());
-    &#125;
-    //结果：java.lang.AssertionError: 除零错误
-
-&#125;
-</code></pre>
 <p>通过<em><strong>工厂模式</strong></em>，我们只需要调用result方法获取计算结果即可，工厂会根据需求返回对应的计算实例，无需考虑具体具体实现，因为子类已经复写计算过程，父类负责返回结果即可，工厂负责实例化对应的子类。<em><strong>工厂模式</strong></em>极大减少业务调用时的逻辑判断，调用这只需按需使用即可。<strong>工厂模式核心在于生产和返回实例，不进行其他的业务操作。</strong>不足之处在于工厂类中存在条件判断，没有解决判断的问题<strong>（解决办法：工厂方法模式）</strong>。</p>
 <h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1>
                 

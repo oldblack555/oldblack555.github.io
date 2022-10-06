@@ -16,19 +16,19 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。 SpringBoot集成Sa-Token建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0 implementation &#39;cn.dev33:sa-toke">
+    <meta name="description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。 SpringBoot集成Sa-Token建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0 1implementation &amp;#x27;cn.dev33:sa-to">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sa-Token">
 <meta property="og:url" content="http://example.com/2022/09/20/Sa-Token/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。 SpringBoot集成Sa-Token建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0 implementation &#39;cn.dev33:sa-toke">
+<meta property="og:description" content="Sa-Token介绍Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。 SpringBoot集成Sa-Token建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0 1implementation &amp;#x27;cn.dev33:sa-to">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://oss.dev33.cn/sa-token/doc/g/g3--kickout.gif">
 <meta property="article:published_time" content="2022-09-20T06:09:18.017Z">
 <meta property="article:modified_time" content="2022-09-30T12:13:20.413Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="博客">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="博客">
 <meta property="article:tag" content="SpringBoot">
 <meta property="article:tag" content="Token">
 <meta property="article:tag" content="Permission">
@@ -214,7 +214,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7k 字
+          7.3k 字
         
       </span>
     
@@ -225,7 +225,7 @@
         
         
         
-          59 分钟
+          61 分钟
         
       </span>
     
@@ -270,232 +270,52 @@
                 
                 <h1 id="Sa-Token介绍"><a href="#Sa-Token介绍" class="headerlink" title="Sa-Token介绍"></a>Sa-Token介绍</h1><p><strong>Sa-Token</strong> 是一个轻量级 Java 权限认证框架，主要解决：<strong>登录认证</strong>、<strong>权限认证</strong>、<strong>单点登录</strong>、<strong>OAuth2.0</strong>、<strong>分布式Session会话</strong>、<strong>微服务网关鉴权</strong> 等一系列权限相关问题。</p>
 <h1 id="SpringBoot集成Sa-Token"><a href="#SpringBoot集成Sa-Token" class="headerlink" title="SpringBoot集成Sa-Token"></a>SpringBoot集成Sa-Token</h1><p><em>建议：jdk&gt;&#x3D;1.8；springboot&gt;&#x3D;2.0</em></p>
-<pre><code class="kotlin">implementation &#39;cn.dev33:sa-token-spring-boot-starter:1.31.0&#39;
-</code></pre>
-<h1 id="Application-yml配置token信息（可选，不配置则使用默认配置）"><a href="#Application-yml配置token信息（可选，不配置则使用默认配置）" class="headerlink" title="Application.yml配置token信息（可选，不配置则使用默认配置）"></a>Application.yml配置token信息（可选，不配置则使用默认配置）</h1><pre><code class="sh">sa-token:
-  #  token 名称
-  token-name: sa_token
-  #  token 超时时间
-  timeout: 60
-  #  是否允许多个登录
-  is-concurrent: true
-  #  是否共享一个token
-  is-share: false
-  #  token风格
-  token-style: uuid
-  #  是否输出日志
-  is-log: false
-  # token 临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
-  activity-timeout: -1
-</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">implementation <span class="hljs-string">&#x27;cn.dev33:sa-token-spring-boot-starter:1.31.0&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="Application-yml配置token信息（可选，不配置则使用默认配置）"><a href="#Application-yml配置token信息（可选，不配置则使用默认配置）" class="headerlink" title="Application.yml配置token信息（可选，不配置则使用默认配置）"></a>Application.yml配置token信息（可选，不配置则使用默认配置）</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sh">sa-token:<br>  <span class="hljs-comment">#  token 名称</span><br>  token-name: sa_token<br>  <span class="hljs-comment">#  token 超时时间</span><br>  <span class="hljs-built_in">timeout</span>: 60<br>  <span class="hljs-comment">#  是否允许多个登录</span><br>  is-concurrent: <span class="hljs-literal">true</span><br>  <span class="hljs-comment">#  是否共享一个token</span><br>  is-share: <span class="hljs-literal">false</span><br>  <span class="hljs-comment">#  token风格</span><br>  token-style: uuid<br>  <span class="hljs-comment">#  是否输出日志</span><br>  is-log: <span class="hljs-literal">false</span><br>  <span class="hljs-comment"># token 临时有效期 (指定时间内无操作就视为token过期) 单位: 秒</span><br>  activity-timeout: -1<br></code></pre></td></tr></table></figure>
+
 <h1 id="简单登录认证"><a href="#简单登录认证" class="headerlink" title="简单登录认证"></a>简单登录认证</h1><p>主要使用StpUtil类中方法，实现核心是通过Cookie进行Token认证。</p>
-<h3 id="StpUtil-login-id-：登录生成Token"><a href="#StpUtil-login-id-：登录生成Token" class="headerlink" title="StpUtil.login(id)：登录生成Token"></a>StpUtil.login(id)：登录生成Token</h3><pre><code class="java">@RequestMapping(&quot;/login&quot;)
-public SaResult login(String username, String password) &#123;
-    if (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;
-        String id = UUID.randomUUID().toString().replaceAll(&quot;-&quot;, &quot;&quot;);
-        log.info(&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;, username, id);
-        //核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie，后端会进行登录判断。
-        //该方法的具体原理暂不介绍
-        StpUtil.login(id);
-        return SaResult.ok(&quot;LOGIN SUCCESS&quot;);
-    &#125;
-    return SaResult.ok(&quot;LOGIN FAILED&quot;);
-&#125;
-</code></pre>
-<h3 id="StpUtil-isLogin-：通过Cookie携带的Token登录判断"><a href="#StpUtil-isLogin-：通过Cookie携带的Token登录判断" class="headerlink" title="StpUtil.isLogin()：通过Cookie携带的Token登录判断"></a>StpUtil.isLogin()：通过Cookie携带的Token登录判断</h3><pre><code class="java">@RequestMapping(&quot;/login/check&quot;)
-public SaResult checkLogin() &#123;
-    //登录检查，
-    //方式一：会对请求中Cookie的Token进行验证，
-    //方式二：自定义header，tokenname = token
-    //登录返回true，否则返回false
-    return SaResult.ok(&quot;是否登录: &quot; + StpUtil.isLogin());
-&#125;
-</code></pre>
+<h3 id="StpUtil-login-id-：登录生成Token"><a href="#StpUtil-login-id-：登录生成Token" class="headerlink" title="StpUtil.login(id)：登录生成Token"></a>StpUtil.login(id)：登录生成Token</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">login</span><span class="hljs-params">(String username, String password)</span> &#123;<br>    <span class="hljs-keyword">if</span> (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> UUID.randomUUID().toString().replaceAll(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>        log.info(<span class="hljs-string">&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;</span>, username, id);<br>        <span class="hljs-comment">//核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie，后端会进行登录判断。</span><br>        <span class="hljs-comment">//该方法的具体原理暂不介绍</span><br>        StpUtil.login(id);<br>        <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;LOGIN SUCCESS&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;LOGIN FAILED&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="StpUtil-isLogin-：通过Cookie携带的Token登录判断"><a href="#StpUtil-isLogin-：通过Cookie携带的Token登录判断" class="headerlink" title="StpUtil.isLogin()：通过Cookie携带的Token登录判断"></a>StpUtil.isLogin()：通过Cookie携带的Token登录判断</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login/check&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">checkLogin</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//登录检查，</span><br>    <span class="hljs-comment">//方式一：会对请求中Cookie的Token进行验证，</span><br>    <span class="hljs-comment">//方式二：自定义header，tokenname = token</span><br>    <span class="hljs-comment">//登录返回true，否则返回false</span><br>    <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;是否登录: &quot;</span> + StpUtil.isLogin());<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>也可以使用StpUtil.checkLogin()进行判断，但是在未登录时会抛出NotLoginException。</p>
-<h3 id="StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"><a href="#StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可" class="headerlink" title="StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"></a>StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可</h3><pre><code class="java">StpUtil.checkLogin();
-</code></pre>
-<h3 id="StpUtil-getLoginIdDefaultNull-：获取登录ID"><a href="#StpUtil-getLoginIdDefaultNull-：获取登录ID" class="headerlink" title="StpUtil.getLoginIdDefaultNull()：获取登录ID"></a>StpUtil.getLoginIdDefaultNull()：获取登录ID</h3><pre><code class="java">@RequestMapping(&quot;/login/id&quot;)
-public SaResult getLoginId() &#123;
-    //获取登录的ID，
-    //方式一：会对请求中Cookie的Token进行验证，
-    //方式二：自定义header，tokenname = token
-    //已登录返回登录ID，否则返回NULL
-    return SaResult.data(&quot;当前登录ID: &quot; + StpUtil.getLoginIdDefaultNull());
-&#125;
-</code></pre>
-<h3 id="StpUtil-getTokenTimeout-：获取登录有效时长"><a href="#StpUtil-getTokenTimeout-：获取登录有效时长" class="headerlink" title="StpUtil.getTokenTimeout()：获取登录有效时长"></a>StpUtil.getTokenTimeout()：获取登录有效时长</h3><pre><code class="java">@RequestMapping(&quot;/login/token/timeout&quot;)
-public SaResult getTokenTimeout() &#123;
-    //获取登录有效时长，
-    //方式一：会对请求中Cookie的Token进行验证，
-    //方式二：自定义header，tokenname = token
-    //已登录返回登录有效时长，-1表示永久登录，否则返回-2表示未登录
-    return SaResult.data(&quot;当前token时间: &quot; + StpUtil.getTokenTimeout());
-&#125;
-</code></pre>
-<h3 id="StpUtil-getTokenInfo-：获取Token信息"><a href="#StpUtil-getTokenInfo-：获取Token信息" class="headerlink" title="StpUtil.getTokenInfo()：获取Token信息"></a>StpUtil.getTokenInfo()：获取Token信息</h3><pre><code class="java">@RequestMapping(&quot;/login/token/info&quot;)
-public SaResult getTokenInfo() &#123;
-    //获取Token详细信息，
-    //方式一：会对请求中Cookie的Token进行验证，
-    //方式二：自定义header，tokenname = token
-    //已登录返回登录详细信息，否则返回未登录的Token状态
-    return SaResult.data(&quot;当前token信息: &quot; + StpUtil.getTokenInfo());
-&#125;
-</code></pre>
-<h3 id="StpUtil-logout-：退出登录"><a href="#StpUtil-logout-：退出登录" class="headerlink" title="StpUtil.logout()：退出登录"></a>StpUtil.logout()：退出登录</h3><pre><code class="java">@RequestMapping(&quot;/logout&quot;)
-public SaResult logout() &#123;
-    log.info(&quot;当前注销的token is &#123;&#125;&quot;, StpUtil.getTokenInfo());
-    //退出登录，
-    //方式一：会对请求中Cookie的Token进行验证，
-    //方式二：自定义header，tokenname = token
-    //如果Token已登录，则会清楚相关信息。
-    StpUtil.logout();
-    return SaResult.ok(&quot;LOGOUT SUCCESS&quot;);
-&#125;
-</code></pre>
-<h3 id="Http请求样例"><a href="#Http请求样例" class="headerlink" title="Http请求样例"></a>Http请求样例</h3><pre><code class="http"># 登录
-GET http://localhost:8082/login?username=yb&amp;password=123456
-# 验证
-# 方式一：自定义header，携带tokenname（服务器设置的token名称）和value
-GET http://localhost:8082/login/check
-Content-Type: application/json
-sa_token: e26904c7-7a77-4e0f-b7e1-37f14323447d
-# 方式二：使用登录成功返回的Cookie进行提交
-GET http://localhost:8082/login/check
-Content-Type: application/json
-Cookie: sa_token=785b9582-9b4e-4c44-9662-457a61598381
-</code></pre>
+<h3 id="StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"><a href="#StpUtil-checkLogin-：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可" class="headerlink" title="StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可"></a>StpUtil.checkLogin()：检查用户是否登录，未登录抛出异常，通常检查登录的状态（登录、强制下线、被踢等），如果只需要结果使用前面的方法即可</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">StpUtil.checkLogin();<br></code></pre></td></tr></table></figure>
+
+<h3 id="StpUtil-getLoginIdDefaultNull-：获取登录ID"><a href="#StpUtil-getLoginIdDefaultNull-：获取登录ID" class="headerlink" title="StpUtil.getLoginIdDefaultNull()：获取登录ID"></a>StpUtil.getLoginIdDefaultNull()：获取登录ID</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login/id&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">getLoginId</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//获取登录的ID，</span><br>    <span class="hljs-comment">//方式一：会对请求中Cookie的Token进行验证，</span><br>    <span class="hljs-comment">//方式二：自定义header，tokenname = token</span><br>    <span class="hljs-comment">//已登录返回登录ID，否则返回NULL</span><br>    <span class="hljs-keyword">return</span> SaResult.data(<span class="hljs-string">&quot;当前登录ID: &quot;</span> + StpUtil.getLoginIdDefaultNull());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="StpUtil-getTokenTimeout-：获取登录有效时长"><a href="#StpUtil-getTokenTimeout-：获取登录有效时长" class="headerlink" title="StpUtil.getTokenTimeout()：获取登录有效时长"></a>StpUtil.getTokenTimeout()：获取登录有效时长</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login/token/timeout&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">getTokenTimeout</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//获取登录有效时长，</span><br>    <span class="hljs-comment">//方式一：会对请求中Cookie的Token进行验证，</span><br>    <span class="hljs-comment">//方式二：自定义header，tokenname = token</span><br>    <span class="hljs-comment">//已登录返回登录有效时长，-1表示永久登录，否则返回-2表示未登录</span><br>    <span class="hljs-keyword">return</span> SaResult.data(<span class="hljs-string">&quot;当前token时间: &quot;</span> + StpUtil.getTokenTimeout());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="StpUtil-getTokenInfo-：获取Token信息"><a href="#StpUtil-getTokenInfo-：获取Token信息" class="headerlink" title="StpUtil.getTokenInfo()：获取Token信息"></a>StpUtil.getTokenInfo()：获取Token信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login/token/info&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">getTokenInfo</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//获取Token详细信息，</span><br>    <span class="hljs-comment">//方式一：会对请求中Cookie的Token进行验证，</span><br>    <span class="hljs-comment">//方式二：自定义header，tokenname = token</span><br>    <span class="hljs-comment">//已登录返回登录详细信息，否则返回未登录的Token状态</span><br>    <span class="hljs-keyword">return</span> SaResult.data(<span class="hljs-string">&quot;当前token信息: &quot;</span> + StpUtil.getTokenInfo());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="StpUtil-logout-：退出登录"><a href="#StpUtil-logout-：退出登录" class="headerlink" title="StpUtil.logout()：退出登录"></a>StpUtil.logout()：退出登录</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/logout&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">logout</span><span class="hljs-params">()</span> &#123;<br>    log.info(<span class="hljs-string">&quot;当前注销的token is &#123;&#125;&quot;</span>, StpUtil.getTokenInfo());<br>    <span class="hljs-comment">//退出登录，</span><br>    <span class="hljs-comment">//方式一：会对请求中Cookie的Token进行验证，</span><br>    <span class="hljs-comment">//方式二：自定义header，tokenname = token</span><br>    <span class="hljs-comment">//如果Token已登录，则会清楚相关信息。</span><br>    StpUtil.logout();<br>    <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;LOGOUT SUCCESS&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="Http请求样例"><a href="#Http请求样例" class="headerlink" title="Http请求样例"></a>Http请求样例</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs http"># 登录<br>GET http://localhost:8082/login?username=yb&amp;password=123456<br># 验证<br># 方式一：自定义header，携带tokenname（服务器设置的token名称）和value<br>GET http://localhost:8082/login/check<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json<br>sa_token: e26904c7-7a77-4e0f-b7e1-37f14323447d<br># 方式二：使用登录成功返回的Cookie进行提交<br>GET http://localhost:8082/login/check<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>sa_token=785b9582-9b4e-4c44-9662-457a61598381<br></code></pre></td></tr></table></figure>
+
 <h1 id="简单权限认证"><a href="#简单权限认证" class="headerlink" title="简单权限认证"></a>简单权限认证</h1><h3 id="实现StpInterface接口"><a href="#实现StpInterface接口" class="headerlink" title="实现StpInterface接口"></a>实现StpInterface接口</h3><p>StpInterface提供id和权限、角色绑定方法。用户登录时，通过实现的StpInterface接口，将用户id和数据库或者其他提供用户权限、角色进行list的自动绑定。</p>
-<pre><code class="java">@Component
-public class PermissionAuthImpl implements StpInterface &#123;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PermissionAuthImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">StpInterface</span> &#123;<br><br>    <span class="hljs-comment">// 对用户id和加载的权限列表绑定，限定用户的权限</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title function_">getPermissionList</span><span class="hljs-params">(Object loginId, String loginType)</span> &#123;<br>        <span class="hljs-comment">// 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        list.add(<span class="hljs-string">&quot;101&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;user-add&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;user-delete&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;user-update&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;user-get&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;article-get&quot;</span>);<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-comment">// 对用户id和加载的角色列表绑定，限定用户的角色</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title function_">getRoleList</span><span class="hljs-params">(Object loginId, String loginType)</span> &#123;<br>        <span class="hljs-comment">// 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        list.add(<span class="hljs-string">&quot;admin&quot;</span>);<br>        list.add(<span class="hljs-string">&quot;super-admin&quot;</span>);<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    // 对用户id和加载的权限列表绑定，限定用户的权限
-    @Override
-    public List&lt;String&gt; getPermissionList(Object loginId, String loginType) &#123;
-        // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        list.add(&quot;101&quot;);
-        list.add(&quot;user-add&quot;);
-        list.add(&quot;user-delete&quot;);
-        list.add(&quot;user-update&quot;);
-        list.add(&quot;user-get&quot;);
-        list.add(&quot;article-get&quot;);
-        return list;
-    &#125;
-
-    // 对用户id和加载的角色列表绑定，限定用户的角色
-    @Override
-    public List&lt;String&gt; getRoleList(Object loginId, String loginType) &#123;
-        // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
-        List&lt;String&gt; list = new ArrayList&lt;&gt;();
-        list.add(&quot;admin&quot;);
-        list.add(&quot;super-admin&quot;);
-        return list;
-    &#125;
-&#125;
-</code></pre>
 <h3 id="权限、角色绑定"><a href="#权限、角色绑定" class="headerlink" title="权限、角色绑定"></a>权限、角色绑定</h3><p>当用户登录时，调用StpUtil.login(id)方法，会自动使用实现的StpInterface接口进行对应的权限绑定。</p>
-<pre><code class="java">@RequestMapping(&quot;/login&quot;)
-public SaResult login(String username, String password) &#123;
-    if (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;
-        String id = UUID.randomUUID().toString().replaceAll(&quot;-&quot;, &quot;&quot;);
-        log.info(&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;, username, id);
-        //核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie或者自定义的header，后端会进行登录判断。
-        //该方法的具体原理暂不介绍
-        //login方法会自动绑定角色和权限。
-        StpUtil.login(id);
-        return SaResult.ok(&quot;LOGIN SUCCESS&quot;);
-    &#125;
-    return SaResult.ok(&quot;LOGIN FAILED&quot;);
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/login&quot;)</span><br><span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">login</span><span class="hljs-params">(String username, String password)</span> &#123;<br>    <span class="hljs-keyword">if</span> (USER_MAP.containsKey(username) &amp;&amp; password.equals(USER_MAP.get(username))) &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> UUID.randomUUID().toString().replaceAll(<span class="hljs-string">&quot;-&quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>        log.info(<span class="hljs-string">&quot;[ &#123;&#125; id is &#123;&#125; ]&quot;</span>, username, id);<br>        <span class="hljs-comment">//核心步骤，登录成功后会在Cookie设置Token，前端只要保存并在发起请求时带Token的Cookie或者自定义的header，后端会进行登录判断。</span><br>        <span class="hljs-comment">//该方法的具体原理暂不介绍</span><br>        <span class="hljs-comment">//login方法会自动绑定角色和权限。</span><br>        StpUtil.login(id);<br>        <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;LOGIN SUCCESS&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;LOGIN FAILED&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h3 id="权限认证"><a href="#权限认证" class="headerlink" title="权限认证"></a>权限认证</h3><p>前提：http请求中需要携带有token的Cookie或者自定义的header中tokenname和value</p>
-<pre><code class="java">// 获取：当前账号所拥有的权限集合
-StpUtil.getPermissionList();
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取：当前账号所拥有的权限集合</span><br>StpUtil.getPermissionList();<br><br><span class="hljs-comment">// 判断：当前账号是否含有指定权限, 返回true或false</span><br>StpUtil.hasPermission(<span class="hljs-string">&quot;user-update&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定权限, 如果验证未通过，则抛出异常: NotPermissionException </span><br>StpUtil.checkPermission(<span class="hljs-string">&quot;user-update&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定权限 [指定多个，必须全部验证通过]</span><br>StpUtil.checkPermissionAnd(<span class="hljs-string">&quot;user-update&quot;</span>, <span class="hljs-string">&quot;user-delete&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定权限 [指定多个，只要其一验证通过即可]</span><br>StpUtil.checkPermissionOr(<span class="hljs-string">&quot;user-update&quot;</span>, <span class="hljs-string">&quot;user-delete&quot;</span>);    <br><br></code></pre></td></tr></table></figure>
 
-// 判断：当前账号是否含有指定权限, 返回true或false
-StpUtil.hasPermission(&quot;user-update&quot;);        
-
-// 校验：当前账号是否含有指定权限, 如果验证未通过，则抛出异常: NotPermissionException 
-StpUtil.checkPermission(&quot;user-update&quot;);        
-
-// 校验：当前账号是否含有指定权限 [指定多个，必须全部验证通过]
-StpUtil.checkPermissionAnd(&quot;user-update&quot;, &quot;user-delete&quot;);        
-
-// 校验：当前账号是否含有指定权限 [指定多个，只要其一验证通过即可]
-StpUtil.checkPermissionOr(&quot;user-update&quot;, &quot;user-delete&quot;);    
-</code></pre>
 <h3 id="角色认证"><a href="#角色认证" class="headerlink" title="角色认证"></a>角色认证</h3><p>前提：http请求中需要携带有token的Cookie或者自定义的header中tokenname和value</p>
-<pre><code class="java">// 获取：当前账号所拥有的角色集合
-StpUtil.getRoleList();
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 获取：当前账号所拥有的角色集合</span><br>StpUtil.getRoleList();<br><br><span class="hljs-comment">// 判断：当前账号是否拥有指定角色, 返回true或false</span><br>StpUtil.hasRole(<span class="hljs-string">&quot;super-admin&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定角色标识, 如果验证未通过，则抛出异常: NotRoleException</span><br>StpUtil.checkRole(<span class="hljs-string">&quot;super-admin&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定角色标识 [指定多个，必须全部验证通过]</span><br>StpUtil.checkRoleAnd(<span class="hljs-string">&quot;super-admin&quot;</span>, <span class="hljs-string">&quot;shop-admin&quot;</span>);        <br><br><span class="hljs-comment">// 校验：当前账号是否含有指定角色标识 [指定多个，只要其一验证通过即可] </span><br>StpUtil.checkRoleOr(<span class="hljs-string">&quot;super-admin&quot;</span>, <span class="hljs-string">&quot;shop-admin&quot;</span>);        <br></code></pre></td></tr></table></figure>
 
-// 判断：当前账号是否拥有指定角色, 返回true或false
-StpUtil.hasRole(&quot;super-admin&quot;);        
-
-// 校验：当前账号是否含有指定角色标识, 如果验证未通过，则抛出异常: NotRoleException
-StpUtil.checkRole(&quot;super-admin&quot;);        
-
-// 校验：当前账号是否含有指定角色标识 [指定多个，必须全部验证通过]
-StpUtil.checkRoleAnd(&quot;super-admin&quot;, &quot;shop-admin&quot;);        
-
-// 校验：当前账号是否含有指定角色标识 [指定多个，只要其一验证通过即可] 
-StpUtil.checkRoleOr(&quot;super-admin&quot;, &quot;shop-admin&quot;);        
-</code></pre>
 <h3 id="权限通配符："><a href="#权限通配符：" class="headerlink" title="权限通配符：*****"></a>权限通配符：*****</h3><p>使用权限统配符可以简化匹配规则（角色也试用），如</p>
-<pre><code class="sh">user* 匹配 user-list、user-add、user-delete等
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">user* 匹配 user-list、user-add、user-delete等<br><br>* 匹配所有的角色和权限。<br></code></pre></td></tr></table></figure>
 
-* 匹配所有的角色和权限。
-</code></pre>
 <h1 id="强制下线"><a href="#强制下线" class="headerlink" title="强制下线"></a>强制下线</h1><p><img src="https://oss.dev33.cn/sa-token/doc/g/g3--kickout.gif" srcset="/img/loading.gif" lazyload alt="强制下线"></p>
-<h3 id="方式一：强制注销"><a href="#方式一：强制注销" class="headerlink" title="方式一：强制注销"></a>方式一：强制注销</h3><pre><code class="java">StpUtil.logout(10001);                    // 强制指定账号注销下线 
-StpUtil.logout(10001, &quot;PC&quot;);              // 强制指定账号指定端注销下线 
-StpUtil.logoutByTokenValue(&quot;token&quot;);      // 强制指定 Token 注销下线 
-</code></pre>
-<h3 id="方式二：踢人下线"><a href="#方式二：踢人下线" class="headerlink" title="方式二：踢人下线"></a>方式二：踢人下线</h3><pre><code class="java">StpUtil.kickout(10001);                    // 将指定账号踢下线 
-StpUtil.kickout(10001, &quot;PC&quot;);              // 将指定账号指定端踢下线
-StpUtil.kickoutByTokenValue(&quot;token&quot;);      // 将指定 Token 踢下线
-</code></pre>
-<h1 id="注解方式权限认证"><a href="#注解方式权限认证" class="headerlink" title="注解方式权限认证"></a>注解方式权限认证</h1><h3 id="配置连接器"><a href="#配置连接器" class="headerlink" title="配置连接器"></a>配置连接器</h3><pre><code class="java">@Configuration
-public class SaTokenConfigure implements WebMvcConfigurer &#123;
-    // 注册 Sa-Token 拦截器，打开注解式鉴权功能 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) &#123;
-        // 注册 Sa-Token 拦截器，打开注解式鉴权功能 
-        registry.addInterceptor(new SaInterceptor()).addPathPatterns(&quot;/**&quot;);    
-    &#125;
-&#125;
-</code></pre>
-<h3 id="权限检查注解（可类可方法）"><a href="#权限检查注解（可类可方法）" class="headerlink" title="权限检查注解（可类可方法）"></a>权限检查注解（可类可方法）</h3><pre><code class="java">// 登录认证：只有登录之后才能进入该方法 
-@SaCheckLogin
+<h3 id="方式一：强制注销"><a href="#方式一：强制注销" class="headerlink" title="方式一：强制注销"></a>方式一：强制注销</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">StpUtil.logout(<span class="hljs-number">10001</span>);                    <span class="hljs-comment">// 强制指定账号注销下线 </span><br>StpUtil.logout(<span class="hljs-number">10001</span>, <span class="hljs-string">&quot;PC&quot;</span>);              <span class="hljs-comment">// 强制指定账号指定端注销下线 </span><br>StpUtil.logoutByTokenValue(<span class="hljs-string">&quot;token&quot;</span>);      <span class="hljs-comment">// 强制指定 Token 注销下线 </span><br></code></pre></td></tr></table></figure>
 
-// 角色认证：必须具有指定角色才能进入该方法 
-@SaCheckRole(&quot;super-admin&quot;)
+<h3 id="方式二：踢人下线"><a href="#方式二：踢人下线" class="headerlink" title="方式二：踢人下线"></a>方式二：踢人下线</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">StpUtil.kickout(<span class="hljs-number">10001</span>);                    <span class="hljs-comment">// 将指定账号踢下线 </span><br>StpUtil.kickout(<span class="hljs-number">10001</span>, <span class="hljs-string">&quot;PC&quot;</span>);              <span class="hljs-comment">// 将指定账号指定端踢下线</span><br>StpUtil.kickoutByTokenValue(<span class="hljs-string">&quot;token&quot;</span>);      <span class="hljs-comment">// 将指定 Token 踢下线</span><br></code></pre></td></tr></table></figure>
 
-// 权限认证：必须具有指定权限才能进入该方法 
-@SaCheckPermission(&quot;user-add&quot;)
+<h1 id="注解方式权限认证"><a href="#注解方式权限认证" class="headerlink" title="注解方式权限认证"></a>注解方式权限认证</h1><h3 id="配置连接器"><a href="#配置连接器" class="headerlink" title="配置连接器"></a>配置连接器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SaTokenConfigure</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">WebMvcConfigurer</span> &#123;<br>    <span class="hljs-comment">// 注册 Sa-Token 拦截器，打开注解式鉴权功能 </span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span> &#123;<br>        <span class="hljs-comment">// 注册 Sa-Token 拦截器，打开注解式鉴权功能 </span><br>        registry.addInterceptor(<span class="hljs-keyword">new</span> <span class="hljs-title class_">SaInterceptor</span>()).addPathPatterns(<span class="hljs-string">&quot;/**&quot;</span>);    <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-//校验模式
-//SaMode.AND, 标注一组权限，会话必须全部具有才可通过校验。
-//SaMode.OR, 标注一组权限，会话只要具有其一即可通过校验。
-@SaCheckPermission(value = &#123;&quot;user-add&quot;, &quot;user-all&quot;, &quot;user-delete&quot;&#125;, mode = SaMode.OR)
+<h3 id="权限检查注解（可类可方法）"><a href="#权限检查注解（可类可方法）" class="headerlink" title="权限检查注解（可类可方法）"></a>权限检查注解（可类可方法）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 登录认证：只有登录之后才能进入该方法 </span><br><span class="hljs-meta">@SaCheckLogin</span><br><br><span class="hljs-comment">// 角色认证：必须具有指定角色才能进入该方法 </span><br><span class="hljs-meta">@SaCheckRole(&quot;super-admin&quot;)</span><br><br><span class="hljs-comment">// 权限认证：必须具有指定权限才能进入该方法 </span><br><span class="hljs-meta">@SaCheckPermission(&quot;user-add&quot;)</span><br><br><span class="hljs-comment">//校验模式</span><br><span class="hljs-comment">//SaMode.AND, 标注一组权限，会话必须全部具有才可通过校验。</span><br><span class="hljs-comment">//SaMode.OR, 标注一组权限，会话只要具有其一即可通过校验。</span><br><span class="hljs-meta">@SaCheckPermission(value = &#123;&quot;user-add&quot;, &quot;user-all&quot;, &quot;user-delete&quot;&#125;, mode = SaMode.OR)</span><br><br><span class="hljs-comment">//角色权限双重 “or校验”</span><br><span class="hljs-comment">//写法一：orRole = &quot;admin&quot;，代表需要拥有角色 admin 。</span><br><span class="hljs-comment">//写法二：orRole = &#123;&quot;admin&quot;, &quot;manager&quot;, &quot;staff&quot;&#125;，代表具有三个角色其一即可。</span><br><span class="hljs-comment">//写法三：orRole = &#123;&quot;admin, manager, staff&quot;&#125;，代表必须同时具有三个角色。</span><br><span class="hljs-meta">@SaCheckPermission(value = &quot;user-add&quot;, orRole = &quot;admin&quot;)</span> <br><br><span class="hljs-comment">// 二级认证：必须二级认证之后才能进入该方法 </span><br><span class="hljs-meta">@SaCheckSafe()</span> <br><br><span class="hljs-comment">// Http Basic 认证：只有通过 Basic 认证后才能进入该方法 </span><br><span class="hljs-meta">@SaCheckBasic(account = &quot;sa:123456&quot;)</span><br><br><span class="hljs-comment">// 校验当前账号是否被封禁 comment 服务，如果已被封禁会抛出异常，无法进入方法 </span><br><span class="hljs-meta">@SaCheckDisable(&quot;comment&quot;)</span> <br><br><span class="hljs-comment">//可以游客访问 </span><br><span class="hljs-meta">@SaIgnore</span><br></code></pre></td></tr></table></figure>
 
-//角色权限双重 “or校验”
-//写法一：orRole = &quot;admin&quot;，代表需要拥有角色 admin 。
-//写法二：orRole = &#123;&quot;admin&quot;, &quot;manager&quot;, &quot;staff&quot;&#125;，代表具有三个角色其一即可。
-//写法三：orRole = &#123;&quot;admin, manager, staff&quot;&#125;，代表必须同时具有三个角色。
-@SaCheckPermission(value = &quot;user-add&quot;, orRole = &quot;admin&quot;) 
-
-// 二级认证：必须二级认证之后才能进入该方法 
-@SaCheckSafe() 
-
-// Http Basic 认证：只有通过 Basic 认证后才能进入该方法 
-@SaCheckBasic(account = &quot;sa:123456&quot;)
-
-// 校验当前账号是否被封禁 comment 服务，如果已被封禁会抛出异常，无法进入方法 
-@SaCheckDisable(&quot;comment&quot;) 
-
-//可以游客访问 
-@SaIgnore
-</code></pre>
 
                 
               </div>
@@ -529,9 +349,9 @@ public class SaTokenConfigure implements WebMvcConfigurer &#123;
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
-      
         <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
       
         <a href="/tags/SpringBoot/">#SpringBoot</a>
       

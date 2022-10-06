@@ -16,21 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Redis安装ubuntu安装redissudo apt update #安装redis服务 sudo apt install redis-server #重启redis服务 sudo systemctl restart redis-server.service  Redis设置密码sudo vim &#x2F;etc&#x2F;redis&#x2F;redis.conf #查找requirepass，将password改为自">
+    <meta name="description" content="Redis安装ubuntu安装redis12345sudo apt update#安装redis服务sudo apt install redis-server#重启redis服务sudo systemctl restart redis-server.service  Redis设置密码123sudo vim &#x2F;etc&#x2F;redis&#x2F;redis.conf#查找requirepass，将password">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="http://example.com/2022/08/26/Redis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Redis安装ubuntu安装redissudo apt update #安装redis服务 sudo apt install redis-server #重启redis服务 sudo systemctl restart redis-server.service  Redis设置密码sudo vim &#x2F;etc&#x2F;redis&#x2F;redis.conf #查找requirepass，将password改为自">
+<meta property="og:description" content="Redis安装ubuntu安装redis12345sudo apt update#安装redis服务sudo apt install redis-server#重启redis服务sudo systemctl restart redis-server.service  Redis设置密码123sudo vim &#x2F;etc&#x2F;redis&#x2F;redis.conf#查找requirepass，将password">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.redis.com.cn/images/pubsub1.png">
 <meta property="og:image" content="https://www.redis.com.cn/images/pubsub2.png">
 <meta property="article:published_time" content="2022-08-26T12:17:15.167Z">
 <meta property="article:modified_time" content="2022-09-30T12:12:25.877Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="博客">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="数据库">
+<meta property="article:tag" content="博客">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.redis.com.cn/images/pubsub1.png">
@@ -225,7 +225,7 @@
         
         
         
-          108 分钟
+          112 分钟
         
       </span>
     
@@ -268,175 +268,39 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><h3 id="ubuntu安装redis"><a href="#ubuntu安装redis" class="headerlink" title="ubuntu安装redis"></a>ubuntu安装redis</h3><pre><code class="sh">sudo apt update
-#安装redis服务
-sudo apt install redis-server
-#重启redis服务
-sudo systemctl restart redis-server.service
-</code></pre>
-<h1 id="Redis设置密码"><a href="#Redis设置密码" class="headerlink" title="Redis设置密码"></a>Redis设置密码</h1><pre><code class="sh">sudo vim /etc/redis/redis.conf
-#查找requirepass，将password改为自己的密码，保存退出，重启服务
-requirepass password
-</code></pre>
-<h1 id="Redis开启远程链接"><a href="#Redis开启远程链接" class="headerlink" title="Redis开启远程链接"></a>Redis开启远程链接</h1><pre><code class="sh">sudo vim /etc/redis/redis.conf
-# 查找bind 127.0.0.1；将其注释或者改为如下
-bind 0.0.0.0
-</code></pre>
-<h1 id="Redis-cli连接"><a href="#Redis-cli连接" class="headerlink" title="Redis-cli连接"></a>Redis-cli连接</h1><pre><code class="sh">//无密码连接
-redis-cli -h host -p port
-//如：redis-cli -h localhost -p 6379
+                <h1 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h1><h3 id="ubuntu安装redis"><a href="#ubuntu安装redis" class="headerlink" title="ubuntu安装redis"></a>ubuntu安装redis</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt update<br><span class="hljs-comment">#安装redis服务</span><br>sudo apt install redis-server<br><span class="hljs-comment">#重启redis服务</span><br>sudo systemctl restart redis-server.service<br></code></pre></td></tr></table></figure>
 
-//有密码连接
-redis-cli -h host -p port -a password
-//如：redis-cli -h localhost -p 6379 -a &quot;password&quot;
-</code></pre>
-<h1 id="问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe"><a href="#问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe" class="headerlink" title="问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe."></a>问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe.</h1><pre><code class="sh">//解决方式一: --no-auth-warning参数
-//不进行验证警告
-redis-cli -h localhost -p 6379 -a &quot;password&quot; --no-auth-warning
+<h1 id="Redis设置密码"><a href="#Redis设置密码" class="headerlink" title="Redis设置密码"></a>Redis设置密码</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo vim /etc/redis/redis.conf<br><span class="hljs-comment">#查找requirepass，将password改为自己的密码，保存退出，重启服务</span><br>requirepass password<br></code></pre></td></tr></table></figure>
 
-//解决方式二: 无密码登录后使用auth password验证
-redis-cli -h localhost -p 6379
-auth password
-</code></pre>
-<h1 id="Java连接Redis"><a href="#Java连接Redis" class="headerlink" title="Java连接Redis"></a>Java连接Redis</h1><h3 id="导入Jedis依赖（Gradle）"><a href="#导入Jedis依赖（Gradle）" class="headerlink" title="导入Jedis依赖（Gradle）"></a>导入Jedis依赖（Gradle）</h3><pre><code class="kotlin">implementation(&quot;redis.clients:jedis:4.2.3&quot;)
-</code></pre>
-<h3 id="Jedis连接Redis"><a href="#Jedis连接Redis" class="headerlink" title="Jedis连接Redis"></a>Jedis连接Redis</h3><pre><code class="java">//Jedis创建连接对象，指定host和port，只指定host不一定连接成功
-try (Jedis jedis = new Jedis(&quot;localhost&quot;, 6379)) &#123;
-    //如果存在auth验证，则使用下行代码，否则删除即可
-    jedis.auth(&quot;YB520lly..&quot;);
-    //测试ping
-    logger.info(&quot;Redis ping status: &#123;&#125;&quot;, jedis.ping());
-&#125; catch (Exception e) &#123;
-    logger.info(&quot;Redis连接失败: &#123;&#125;&quot;, e.getMessage());
-&#125;
-</code></pre>
-<h3 id="JedisPool连接Redis"><a href="#JedisPool连接Redis" class="headerlink" title="JedisPool连接Redis"></a>JedisPool连接Redis</h3><pre><code class="java">JedisPoolConfig config = new JedisPoolConfig();
-config.setMaxTotal(3);
-config.setMaxIdle(2);
-config.setMinIdle(1);
+<h1 id="Redis开启远程链接"><a href="#Redis开启远程链接" class="headerlink" title="Redis开启远程链接"></a>Redis开启远程链接</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo vim /etc/redis/redis.conf<br><span class="hljs-comment"># 查找bind 127.0.0.1；将其注释或者改为如下</span><br><span class="hljs-built_in">bind</span> 0.0.0.0<br></code></pre></td></tr></table></figure>
 
-try (JedisPool jedisPool = new JedisPool(config, &quot;localhost&quot;, 6379, 300, &quot;YB520lly..&quot;)) &#123;
-    Jedis jedis = jedisPool.getResource();
-    logger.info(&quot;Redis ping status: &#123;&#125;&quot;, jedis.ping());
-&#125; catch (Exception e) &#123;
-    logger.info(&quot;&#123;&#125;&quot;, e.getMessage());
-&#125;
-</code></pre>
+<h1 id="Redis-cli连接"><a href="#Redis-cli连接" class="headerlink" title="Redis-cli连接"></a>Redis-cli连接</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">//无密码连接<br>redis-cli -h host -p port<br>//如：redis-cli -h localhost -p 6379<br><br>//有密码连接<br>redis-cli -h host -p port -a password<br>//如：redis-cli -h localhost -p 6379 -a <span class="hljs-string">&quot;password&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe"><a href="#问题【Redis密码连接】：Warning-Using-a-password-with-‘-a’-or-‘-u’-option-on-the-command-line-interface-may-not-be-safe" class="headerlink" title="问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe."></a>问题【Redis密码连接】：Warning: Using a password with ‘-a’ or ‘-u’ option on the command line interface may not be safe.</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">//解决方式一: --no-auth-warning参数<br>//不进行验证警告<br>redis-cli -h localhost -p 6379 -a <span class="hljs-string">&quot;password&quot;</span> --no-auth-warning<br><br>//解决方式二: 无密码登录后使用auth password验证<br>redis-cli -h localhost -p 6379<br>auth password<br></code></pre></td></tr></table></figure>
+
+<h1 id="Java连接Redis"><a href="#Java连接Redis" class="headerlink" title="Java连接Redis"></a>Java连接Redis</h1><h3 id="导入Jedis依赖（Gradle）"><a href="#导入Jedis依赖（Gradle）" class="headerlink" title="导入Jedis依赖（Gradle）"></a>导入Jedis依赖（Gradle）</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">implementation(<span class="hljs-string">&quot;redis.clients:jedis:4.2.3&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="Jedis连接Redis"><a href="#Jedis连接Redis" class="headerlink" title="Jedis连接Redis"></a>Jedis连接Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//Jedis创建连接对象，指定host和port，只指定host不一定连接成功</span><br><span class="hljs-keyword">try</span> (<span class="hljs-type">Jedis</span> <span class="hljs-variable">jedis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Jedis</span>(<span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-number">6379</span>)) &#123;<br>    <span class="hljs-comment">//如果存在auth验证，则使用下行代码，否则删除即可</span><br>	jedis.auth(<span class="hljs-string">&quot;YB520lly..&quot;</span>);<br>    <span class="hljs-comment">//测试ping</span><br>	logger.info(<span class="hljs-string">&quot;Redis ping status: &#123;&#125;&quot;</span>, jedis.ping());<br>&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>	logger.info(<span class="hljs-string">&quot;Redis连接失败: &#123;&#125;&quot;</span>, e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="JedisPool连接Redis"><a href="#JedisPool连接Redis" class="headerlink" title="JedisPool连接Redis"></a>JedisPool连接Redis</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">JedisPoolConfig</span> <span class="hljs-variable">config</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JedisPoolConfig</span>();<br>config.setMaxTotal(<span class="hljs-number">3</span>);<br>config.setMaxIdle(<span class="hljs-number">2</span>);<br>config.setMinIdle(<span class="hljs-number">1</span>);<br><br><span class="hljs-keyword">try</span> (<span class="hljs-type">JedisPool</span> <span class="hljs-variable">jedisPool</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JedisPool</span>(config, <span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-number">6379</span>, <span class="hljs-number">300</span>, <span class="hljs-string">&quot;YB520lly..&quot;</span>)) &#123;<br>	<span class="hljs-type">Jedis</span> <span class="hljs-variable">jedis</span> <span class="hljs-operator">=</span> jedisPool.getResource();<br>	logger.info(<span class="hljs-string">&quot;Redis ping status: &#123;&#125;&quot;</span>, jedis.ping());<br>&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>	logger.info(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>, e.getMessage());<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h3 id="Springboot集成Redis"><a href="#Springboot集成Redis" class="headerlink" title="Springboot集成Redis"></a>Springboot集成Redis</h3><ul>
 <li>导入依赖</li>
 </ul>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-    &lt;version&gt;2.7.3&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>设置Redis信息</li>
 </ul>
-<pre><code class="yml">spring:
-  redis:
-    host: localhost
-    port: 6379
-    password: YB520lly..
-    timeout: 3000
-    jedis:
-      pool:
-        max-active: 10
-        max-wait: -1
-        max-idle: 10
-        min-idle: 0
-    database: 0
-</code></pre>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">redis:</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">6379</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">YB520lly..</span><br>    <span class="hljs-attr">timeout:</span> <span class="hljs-number">3000</span><br>    <span class="hljs-attr">jedis:</span><br>      <span class="hljs-attr">pool:</span><br>        <span class="hljs-attr">max-active:</span> <span class="hljs-number">10</span><br>        <span class="hljs-attr">max-wait:</span> <span class="hljs-number">-1</span><br>        <span class="hljs-attr">max-idle:</span> <span class="hljs-number">10</span><br>        <span class="hljs-attr">min-idle:</span> <span class="hljs-number">0</span><br>    <span class="hljs-attr">database:</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>创建RedisConfig</li>
 </ul>
-<pre><code class="java">@Configuration
-public class RedisConfig &#123;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RedisConfig</span> &#123;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;spring.redis.host&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String host;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;spring.redis.password&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String password;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;spring.redis.database&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer database;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;spring.redis.port&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer port;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.redis.jedis.pool&quot;)</span><br>    <span class="hljs-keyword">public</span> JedisPoolConfig <span class="hljs-title function_">jedisPoolConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JedisPoolConfig</span>();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedisConnectionFactory <span class="hljs-title function_">redisConnectionFactory</span><span class="hljs-params">(JedisPoolConfig jedisPoolConfig)</span> &#123;<br>        <span class="hljs-type">RedisStandaloneConfiguration</span> <span class="hljs-variable">redisStandaloneConfiguration</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RedisStandaloneConfiguration</span>();<br><span class="hljs-comment">//        设置主机、端口、数据库、验证密码等</span><br>        redisStandaloneConfiguration.setHostName(host);<br>        redisStandaloneConfiguration.setPort(port);<br>        redisStandaloneConfiguration.setDatabase(database);<br>        redisStandaloneConfiguration.setPassword(password);<br><br>        JedisClientConfiguration.<span class="hljs-type">JedisPoolingClientConfigurationBuilder</span> <span class="hljs-variable">jedisPoolingClientConfigurationBuilder</span><br>                <span class="hljs-operator">=</span> (JedisClientConfiguration.JedisPoolingClientConfigurationBuilder) JedisClientConfiguration.builder();<br>        jedisPoolingClientConfigurationBuilder.poolConfig(jedisPoolConfig);<br>        <span class="hljs-type">JedisClientConfiguration</span> <span class="hljs-variable">jedisClientConfiguration</span> <span class="hljs-operator">=</span> jedisPoolingClientConfigurationBuilder.build();<br><br><span class="hljs-comment">//        创建Jedis连接工厂</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JedisConnectionFactory</span>(redisStandaloneConfiguration, jedisClientConfiguration);<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="hljs-title function_">redisTemplate</span><span class="hljs-params">(RedisConnectionFactory redisConnectionFactory)</span> &#123;<br>        RedisTemplate&lt;String, Object&gt; redisTemplate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RedisTemplate</span>&lt;&gt;();<br>        redisTemplate.setConnectionFactory(redisConnectionFactory);<br><span class="hljs-comment">//        配置redis的key序列化方式</span><br>        <span class="hljs-type">StringRedisSerializer</span> <span class="hljs-variable">stringRedisSerializer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringRedisSerializer</span>();<br>        redisTemplate.setKeySerializer(stringRedisSerializer);<br>        redisTemplate.setHashKeySerializer(stringRedisSerializer);<br><span class="hljs-comment">//        配置redis的value序列化方式</span><br>        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Jackson2JsonRedisSerializer</span>&lt;&gt;(Object.class);<br>        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);<br>        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);<br><br>        redisTemplate.afterPropertiesSet();<br>        <span class="hljs-keyword">return</span> redisTemplate;<br>    &#125;<br><br><span class="hljs-comment">//    封装RedisTemplate，可省略</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> OBRedisClient <span class="hljs-title function_">obRedisClient</span><span class="hljs-params">(RedisTemplate&lt;String, Object&gt; redisTemplate)</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">OBRedisClientImpl</span>(redisTemplate);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-    @Value(&quot;$&#123;spring.redis.host&#125;&quot;)
-    private String host;
+<h1 id="Redis-Config：查看、配置redis信息"><a href="#Redis-Config：查看、配置redis信息" class="headerlink" title="Redis Config：查看、配置redis信息"></a>Redis Config：查看、配置redis信息</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sh">//查看redis的配置信息<br>config get configname<br><br>//如查看ip绑定：<br>config get <span class="hljs-built_in">bind</span><br>//1) <span class="hljs-string">&quot;bind&quot;</span><br>//2) <span class="hljs-string">&quot;127.0.0.1 ::1&quot;</span><br><br>//查看redis安装目录<br>config get <span class="hljs-built_in">dir</span><br><br>//设置redis配置信息<br>config <span class="hljs-built_in">set</span> configname configvalue<br><br>//如设置超时时间(默认值为300)：<br>config <span class="hljs-built_in">set</span> <span class="hljs-built_in">timeout</span> 400<br>//OK<br>//查看超时时间<br>config get <span class="hljs-built_in">timeout</span><br>//1) <span class="hljs-string">&quot;timeout&quot;</span><br>//2) <span class="hljs-string">&quot;400&quot;</span><br></code></pre></td></tr></table></figure>
 
-    @Value(&quot;$&#123;spring.redis.password&#125;&quot;)
-    private String password;
-
-    @Value(&quot;$&#123;spring.redis.database&#125;&quot;)
-    private Integer database;
-
-    @Value(&quot;$&#123;spring.redis.port&#125;&quot;)
-    private Integer port;
-
-    @Bean
-    @ConfigurationProperties(prefix = &quot;spring.redis.jedis.pool&quot;)
-    public JedisPoolConfig jedisPoolConfig() &#123;
-        return new JedisPoolConfig();
-    &#125;
-
-    @Bean
-    public RedisConnectionFactory redisConnectionFactory(JedisPoolConfig jedisPoolConfig) &#123;
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-//        设置主机、端口、数据库、验证密码等
-        redisStandaloneConfiguration.setHostName(host);
-        redisStandaloneConfiguration.setPort(port);
-        redisStandaloneConfiguration.setDatabase(database);
-        redisStandaloneConfiguration.setPassword(password);
-
-        JedisClientConfiguration.JedisPoolingClientConfigurationBuilder jedisPoolingClientConfigurationBuilder
-                = (JedisClientConfiguration.JedisPoolingClientConfigurationBuilder) JedisClientConfiguration.builder();
-        jedisPoolingClientConfigurationBuilder.poolConfig(jedisPoolConfig);
-        JedisClientConfiguration jedisClientConfiguration = jedisPoolingClientConfigurationBuilder.build();
-
-//        创建Jedis连接工厂
-        return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration);
-    &#125;
-
-    @Bean
-    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) &#123;
-        RedisTemplate&lt;String, Object&gt; redisTemplate = new RedisTemplate&lt;&gt;();
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
-//        配置redis的key序列化方式
-        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-        redisTemplate.setKeySerializer(stringRedisSerializer);
-        redisTemplate.setHashKeySerializer(stringRedisSerializer);
-//        配置redis的value序列化方式
-        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer&lt;&gt;(Object.class);
-        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
-        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
-
-        redisTemplate.afterPropertiesSet();
-        return redisTemplate;
-    &#125;
-
-//    封装RedisTemplate，可省略
-    @Bean
-    public OBRedisClient obRedisClient(RedisTemplate&lt;String, Object&gt; redisTemplate)&#123;
-        return new OBRedisClientImpl(redisTemplate);
-    &#125;
-
-&#125;
-</code></pre>
-<h1 id="Redis-Config：查看、配置redis信息"><a href="#Redis-Config：查看、配置redis信息" class="headerlink" title="Redis Config：查看、配置redis信息"></a>Redis Config：查看、配置redis信息</h1><pre><code class="sh">//查看redis的配置信息
-config get configname
-
-//如查看ip绑定：
-config get bind
-//1) &quot;bind&quot;
-//2) &quot;127.0.0.1 ::1&quot;
-
-//查看redis安装目录
-config get dir
-
-//设置redis配置信息
-config set configname configvalue
-
-//如设置超时时间(默认值为300)：
-config set timeout 400
-//OK
-//查看超时时间
-config get timeout
-//1) &quot;timeout&quot;
-//2) &quot;400&quot;
-</code></pre>
 <h3 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h3><table>
 <thead>
 <tr>
@@ -517,11 +381,8 @@ config get timeout
 <td>Redis HyperLogLog 可以接受多个元素作为输入，并给出输入元素的基数估算值</td>
 </tr>
 </tbody></table>
-<h1 id="Key操作"><a href="#Key操作" class="headerlink" title="Key操作"></a>Key操作</h1><h3 id="Keys-pattern：查找指定pattern的key"><a href="#Keys-pattern：查找指定pattern的key" class="headerlink" title="Keys pattern：查找指定pattern的key"></a>Keys pattern：查找指定pattern的key</h3><pre><code>//返回所有匹配pattern的key；*表示返回所有的key
-keys pattern
-//keys str?
-//keys *
-</code></pre>
+<h1 id="Key操作"><a href="#Key操作" class="headerlink" title="Key操作"></a>Key操作</h1><h3 id="Keys-pattern：查找指定pattern的key"><a href="#Keys-pattern：查找指定pattern的key" class="headerlink" title="Keys pattern：查找指定pattern的key"></a>Keys pattern：查找指定pattern的key</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回所有匹配pattern的key；*表示返回所有的key<br>keys pattern<br><span class="hljs-regexp">//</span>keys str?<br><span class="hljs-regexp">//</span>keys *<br></code></pre></td></tr></table></figure>
+
 <h5 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h5><table>
 <thead>
 <tr>
@@ -556,369 +417,139 @@ keys pattern
 <td>str[1-3]匹配：str1、str2、str3</td>
 </tr>
 </tbody></table>
-<h3 id="Set-Key：设置Key"><a href="#Set-Key：设置Key" class="headerlink" title="Set Key：设置Key"></a>Set Key：设置Key</h3><pre><code class="sh">//设置键值对，成功返回OK
-set keyname value
-</code></pre>
-<h3 id="Del-Key：删除Key"><a href="#Del-Key：删除Key" class="headerlink" title="Del Key：删除Key"></a>Del Key：删除Key</h3><pre><code class="sh">//删除存在的Key,成功返回1，否则返回0
-del kename
+<h3 id="Set-Key：设置Key"><a href="#Set-Key：设置Key" class="headerlink" title="Set Key：设置Key"></a>Set Key：设置Key</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">//设置键值对，成功返回OK<br><span class="hljs-built_in">set</span> keyname value<br></code></pre></td></tr></table></figure>
 
-//如：del key_one
-//(integer) 1
+<h3 id="Del-Key：删除Key"><a href="#Del-Key：删除Key" class="headerlink" title="Del Key：删除Key"></a>Del Key：删除Key</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">//删除存在的Key,成功返回1，否则返回0<br>del kename<br><br>//如：del key_one<br>//(<span class="hljs-built_in">integer</span>) 1<br><br>//如：del key_two<br>//(<span class="hljs-built_in">integer</span>) 0<br></code></pre></td></tr></table></figure>
 
-//如：del key_two
-//(integer) 0
-</code></pre>
-<h3 id="Dump-Key：序列化Key"><a href="#Dump-Key：序列化Key" class="headerlink" title="Dump Key：序列化Key"></a>Dump Key：序列化Key</h3><pre><code class="sh">//序列化给定的Key，并返回被序列化的值。前提key存在
-dump keyname
-//redis存在key_one &quot;Hello World&quot;的键值对
-//如：dump key_one
-//&quot;\x00\x0bHello World\t\x00\x14\x9aE0\xcaT\xb9a&quot;
+<h3 id="Dump-Key：序列化Key"><a href="#Dump-Key：序列化Key" class="headerlink" title="Dump Key：序列化Key"></a>Dump Key：序列化Key</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">//序列化给定的Key，并返回被序列化的值。前提key存在<br>dump keyname<br>//redis存在key_one <span class="hljs-string">&quot;Hello World&quot;</span>的键值对<br>//如：dump key_one<br>//<span class="hljs-string">&quot;\x00\x0bHello World\t\x00\x14\x9aE0\xcaT\xb9a&quot;</span><br><br>//redis不存在key_two<br>//如：dump key_two<br>//(nil)<br></code></pre></td></tr></table></figure>
 
-//redis不存在key_two
-//如：dump key_two
-//(nil)
-</code></pre>
-<h3 id="Exists-key：检查Key是否存在"><a href="#Exists-key：检查Key是否存在" class="headerlink" title="Exists key：检查Key是否存在"></a>Exists key：检查Key是否存在</h3><pre><code>//如果存在则返回一，否则返回0
-exists keyname
-//如：exists key_one
-//(integer) 1
+<h3 id="Exists-key：检查Key是否存在"><a href="#Exists-key：检查Key是否存在" class="headerlink" title="Exists key：检查Key是否存在"></a>Exists key：检查Key是否存在</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>如果存在则返回一，否则返回<span class="hljs-number">0</span><br>exists keyname<br><span class="hljs-regexp">//</span>如：exists key_one<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">1</span><br><br><span class="hljs-regexp">//</span>如：exists key_two<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：exists key_two
-//(integer) 0
-</code></pre>
-<h3 id="Expire-key：设置key的过期时间"><a href="#Expire-key：设置key的过期时间" class="headerlink" title="Expire key：设置key的过期时间"></a>Expire key：设置key的过期时间</h3><pre><code class="sh">//指定key的生存时间，单位秒
-expire keyname seconds
-//如：expire user 1
-//(integer) 1
-//一秒后查看该键，返回空
-//hgetall user
-//(empty array)
-//删除改键，返回0，说明超时已经删除，数据库中不存在改键
-//del user
-//(integer) 0
-</code></pre>
-<h3 id="Pexpire-key：设置key的过期时间（毫秒）"><a href="#Pexpire-key：设置key的过期时间（毫秒）" class="headerlink" title="Pexpire key：设置key的过期时间（毫秒）"></a>Pexpire key：设置key的过期时间（毫秒）</h3><pre><code class="sh">//指定key的生存时间，单位秒
-pexpire keyname milliseconds
-//如：pexpire yb 1000
-//(integer) 1
-//一秒后查看该键，返回空
-//get yb
-//(nil)
-//删除改键，返回0，说明超时已经删除，数据库中不存在改键
-//del yb
-//(integer) 0
-</code></pre>
-<h3 id="Rename-key：修改key的名称（等价删除）"><a href="#Rename-key：修改key的名称（等价删除）" class="headerlink" title="Rename key：修改key的名称（等价删除）"></a>Rename key：修改key的名称（等价删除）</h3><pre><code class="sh">//如果newkey存在，则newkey的值会覆盖oldkey的值，等价于删除oldkey
-rename oldkey newkey
-//如：rename lly yb
-//OK
-//获取原来的键值
-//get lly
-//(nil)
-//获取新的键值
-//get yb
-//&quot;I Love YB&quot;
-</code></pre>
-<h3 id="Renamenx-key：修改key的名称"><a href="#Renamenx-key：修改key的名称" class="headerlink" title="Renamenx key：修改key的名称"></a>Renamenx key：修改key的名称</h3><pre><code class="sh">//如果newkey存在，则重命名失败
-renamenx oldkey newkey
-//如：renamenx lly yb
-//(integer) 0
-//获取原来的键值，不变
-//get lly
-//&quot;Hello&quot;
-//获取新的键值，不变
-//get yb
-//&quot;123&quot;
-</code></pre>
-<h3 id="Type-key：返回-key-所储存的值的类型"><a href="#Type-key：返回-key-所储存的值的类型" class="headerlink" title="Type key：返回 key 所储存的值的类型"></a>Type key：返回 key 所储存的值的类型</h3><pre><code class="sh">type keyname
-//如：type yb
-//string
-</code></pre>
-<h3 id="TTL-key：返回key的生存时间（秒）"><a href="#TTL-key：返回key的生存时间（秒）" class="headerlink" title="TTL key：返回key的生存时间（秒）"></a>TTL key：返回key的生存时间（秒）</h3><pre><code class="sh">//返回-1表示永久性，否则以秒为单位返回生存时间
-ttl keyname
-//如：ttl yb
-//(integer) -1
-//(integer) 8
-</code></pre>
-<h3 id="PTTL-key：返回key的生存时间（毫秒）"><a href="#PTTL-key：返回key的生存时间（毫秒）" class="headerlink" title="PTTL key：返回key的生存时间（毫秒）"></a>PTTL key：返回key的生存时间（毫秒）</h3><pre><code>//返回-2表示永久性，否则以毫秒为单位返回生存时间
-pttl keyname
-//如：pttl yb
-//(integer) -2
-//(integer) 8000
-</code></pre>
-<h3 id="Move-key：移动key到指定数据库"><a href="#Move-key：移动key到指定数据库" class="headerlink" title="Move key：移动key到指定数据库"></a>Move key：移动key到指定数据库</h3><pre><code class="sh">//返回1移动成功；0移动失败
-move keyname databasenum
-//如：当前数据库为0
-//move yb 1
-//(integer) 1
-</code></pre>
+<h3 id="Expire-key：设置key的过期时间"><a href="#Expire-key：设置key的过期时间" class="headerlink" title="Expire key：设置key的过期时间"></a>Expire key：设置key的过期时间</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">//指定key的生存时间，单位秒<br>expire keyname seconds<br>//如：expire user 1<br>//(<span class="hljs-built_in">integer</span>) 1<br>//一秒后查看该键，返回空<br>//hgetall user<br>//(empty array)<br>//删除改键，返回0，说明超时已经删除，数据库中不存在改键<br>//del user<br>//(<span class="hljs-built_in">integer</span>) 0<br></code></pre></td></tr></table></figure>
+
+<h3 id="Pexpire-key：设置key的过期时间（毫秒）"><a href="#Pexpire-key：设置key的过期时间（毫秒）" class="headerlink" title="Pexpire key：设置key的过期时间（毫秒）"></a>Pexpire key：设置key的过期时间（毫秒）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">//指定key的生存时间，单位秒<br>pexpire keyname milliseconds<br>//如：pexpire yb 1000<br>//(<span class="hljs-built_in">integer</span>) 1<br>//一秒后查看该键，返回空<br>//get yb<br>//(nil)<br>//删除改键，返回0，说明超时已经删除，数据库中不存在改键<br>//del yb<br>//(<span class="hljs-built_in">integer</span>) 0<br></code></pre></td></tr></table></figure>
+
+<h3 id="Rename-key：修改key的名称（等价删除）"><a href="#Rename-key：修改key的名称（等价删除）" class="headerlink" title="Rename key：修改key的名称（等价删除）"></a>Rename key：修改key的名称（等价删除）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果newkey存在，则newkey的值会覆盖oldkey的值，等价于删除oldkey<br>rename oldkey newkey<br>//如：rename lly yb<br>//OK<br>//获取原来的键值<br>//get lly<br>//(nil)<br>//获取新的键值<br>//get yb<br>//<span class="hljs-string">&quot;I Love YB&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Renamenx-key：修改key的名称"><a href="#Renamenx-key：修改key的名称" class="headerlink" title="Renamenx key：修改key的名称"></a>Renamenx key：修改key的名称</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果newkey存在，则重命名失败<br>renamenx oldkey newkey<br>//如：renamenx lly yb<br>//(<span class="hljs-built_in">integer</span>) 0<br>//获取原来的键值，不变<br>//get lly<br>//<span class="hljs-string">&quot;Hello&quot;</span><br>//获取新的键值，不变<br>//get yb<br>//<span class="hljs-string">&quot;123&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Type-key：返回-key-所储存的值的类型"><a href="#Type-key：返回-key-所储存的值的类型" class="headerlink" title="Type key：返回 key 所储存的值的类型"></a>Type key：返回 key 所储存的值的类型</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">type</span> keyname<br>//如：<span class="hljs-built_in">type</span> yb<br>//string<br></code></pre></td></tr></table></figure>
+
+<h3 id="TTL-key：返回key的生存时间（秒）"><a href="#TTL-key：返回key的生存时间（秒）" class="headerlink" title="TTL key：返回key的生存时间（秒）"></a>TTL key：返回key的生存时间（秒）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">//返回-1表示永久性，否则以秒为单位返回生存时间<br>ttl keyname<br>//如：ttl yb<br>//(<span class="hljs-built_in">integer</span>) -1<br>//(<span class="hljs-built_in">integer</span>) 8<br></code></pre></td></tr></table></figure>
+
+<h3 id="PTTL-key：返回key的生存时间（毫秒）"><a href="#PTTL-key：返回key的生存时间（毫秒）" class="headerlink" title="PTTL key：返回key的生存时间（毫秒）"></a>PTTL key：返回key的生存时间（毫秒）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回-<span class="hljs-number">2</span>表示永久性，否则以毫秒为单位返回生存时间<br>pttl keyname<br><span class="hljs-regexp">//</span>如：pttl yb<br><span class="hljs-regexp">//</span>(integer) -<span class="hljs-number">2</span><br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">8000</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Move-key：移动key到指定数据库"><a href="#Move-key：移动key到指定数据库" class="headerlink" title="Move key：移动key到指定数据库"></a>Move key：移动key到指定数据库</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">//返回1移动成功；0移动失败<br>move keyname databasenum<br>//如：当前数据库为0<br>//move yb 1<br>//(<span class="hljs-built_in">integer</span>) 1<br></code></pre></td></tr></table></figure>
+
 <h1 id="String：字符串"><a href="#String：字符串" class="headerlink" title="String：字符串"></a>String：字符串</h1><h3 id="String介绍"><a href="#String介绍" class="headerlink" title="String介绍"></a>String介绍</h3><ul>
 <li>最大容量：512Mb</li>
 </ul>
-<h3 id="设置字符串，如果存在则覆盖原有的值"><a href="#设置字符串，如果存在则覆盖原有的值" class="headerlink" title="设置字符串，如果存在则覆盖原有的值"></a>设置字符串，如果存在则覆盖原有的值</h3><pre><code class="sh">set key value
-//set str1 &quot;Hello World&quot;
-//set str2 HelloWorld
-</code></pre>
-<h3 id="设置key值为value，前提key不存在"><a href="#设置key值为value，前提key不存在" class="headerlink" title="设置key值为value，前提key不存在"></a>设置key值为value，前提key不存在</h3><pre><code>setnx key value
-//setnx str4 &quot;Hello World&quot;
-//setnx str1 &quot;Hello World&quot;
-</code></pre>
-<h3 id="设置key值为value，指定到期时间（秒）"><a href="#设置key值为value，指定到期时间（秒）" class="headerlink" title="设置key值为value，指定到期时间（秒）"></a>设置key值为value，指定到期时间（秒）</h3><pre><code>setex key seconds value
-//setex str3 10 &quot;Hello World&quot;
-</code></pre>
-<h3 id="设置key值为value，指定到期时间（毫秒）"><a href="#设置key值为value，指定到期时间（毫秒）" class="headerlink" title="设置key值为value，指定到期时间（毫秒）"></a>设置key值为value，指定到期时间（毫秒）</h3><pre><code>psetex key seconds value
-//setex str3 10 &quot;Hello World&quot;
-</code></pre>
-<h3 id="设置多个key和value，存在则覆盖"><a href="#设置多个key和value，存在则覆盖" class="headerlink" title="设置多个key和value，存在则覆盖"></a>设置多个key和value，存在则覆盖</h3><pre><code>mset key1 value1 key2 value2 ...
-//mset str5 &quot;A&quot; str6 &quot;B&quot;
-</code></pre>
-<h3 id="设置多个key和value，存在则不进行操作"><a href="#设置多个key和value，存在则不进行操作" class="headerlink" title="设置多个key和value，存在则不进行操作"></a>设置多个key和value，存在则不进行操作</h3><pre><code>msetnx key1 value1 key2 value2 ...
-//mset str5 &quot;A&quot; str6 &quot;B&quot; str7 C
-</code></pre>
-<h3 id="获取字符串"><a href="#获取字符串" class="headerlink" title="获取字符串"></a>获取字符串</h3><pre><code class="sh">get key
-//get str1
-</code></pre>
-<h3 id="获取子串"><a href="#获取子串" class="headerlink" title="获取子串"></a>获取子串</h3><pre><code class="sh">//0：正序第一个字符，增量1；-1：逆序第一个字符，增量-1。
-getrange key start end
-//getrange str1 0 4
-//getrange str1 -5 -1
-</code></pre>
-<h3 id="设置新值，返回旧值"><a href="#设置新值，返回旧值" class="headerlink" title="设置新值，返回旧值"></a>设置新值，返回旧值</h3><pre><code class="sh">getset key value
-//getset str1 &quot;你好&quot;
-</code></pre>
-<h3 id="获取所有给定key的值"><a href="#获取所有给定key的值" class="headerlink" title="获取所有给定key的值"></a>获取所有给定key的值</h3><pre><code class="sh">mget key [key...]
-//mget str1 str2
-</code></pre>
-<h3 id="更新key指定位置的内容"><a href="#更新key指定位置的内容" class="headerlink" title="更新key指定位置的内容"></a>更新key指定位置的内容</h3><pre><code>//返回字符串值的长度。offest&gt;=0，返回字符串长度
-setrange key offest value
-//setrange str1 6 &quot;Redis&quot;
-</code></pre>
-<h3 id="获取key的值的长度"><a href="#获取key的值的长度" class="headerlink" title="获取key的值的长度"></a>获取key的值的长度</h3><pre><code>strlen key
-//strlen str1
-</code></pre>
-<h3 id="追加key的值"><a href="#追加key的值" class="headerlink" title="追加key的值"></a>追加key的值</h3><pre><code>//key存在，则在末尾追加value，否则和set key value一样；返回字符串长度
-append key value
-//append str1 A
-//append str8 D
-</code></pre>
-<h3 id="对数值字符串增加一（value为整数）"><a href="#对数值字符串增加一（value为整数）" class="headerlink" title="对数值字符串增加一（value为整数）"></a>对数值字符串增加一（value为整数）</h3><pre><code>//如果key不存在，则进行set key 0后在进行incr key；返回key的值
-incr key
-//incr num1
-</code></pre>
-<h3 id="对数值字符串增加指定数值（value和增量为整数）"><a href="#对数值字符串增加指定数值（value和增量为整数）" class="headerlink" title="对数值字符串增加指定数值（value和增量为整数）"></a>对数值字符串增加指定数值（value和增量为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行incrby key num；返回key的值
-incrby key num
-//incrby num1 10
-</code></pre>
-<h3 id="对数值字符串增加指定数值（浮点数）"><a href="#对数值字符串增加指定数值（浮点数）" class="headerlink" title="对数值字符串增加指定数值（浮点数）"></a>对数值字符串增加指定数值（浮点数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行incrbyfloat key floatnum；返回key的值
-incrbyfloat key floatnum
-//incrbyfloat num1 10.1
-</code></pre>
-<h3 id="对数值字符串增减一（value为整数）"><a href="#对数值字符串增减一（value为整数）" class="headerlink" title="对数值字符串增减一（value为整数）"></a>对数值字符串增减一（value为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行decr key；返回key的值
-decr key
-//decr num1
-</code></pre>
-<h3 id="对数值字符串增减指定数值（value和减少量为整数）"><a href="#对数值字符串增减指定数值（value和减少量为整数）" class="headerlink" title="对数值字符串增减指定数值（value和减少量为整数）"></a>对数值字符串增减指定数值（value和减少量为整数）</h3><pre><code class="sh">//如果key不存在，则进行set key 0后在进行decrby key num；返回key的值
-decrby key num
-//decrby num1 num
-</code></pre>
+<h3 id="设置字符串，如果存在则覆盖原有的值"><a href="#设置字符串，如果存在则覆盖原有的值" class="headerlink" title="设置字符串，如果存在则覆盖原有的值"></a>设置字符串，如果存在则覆盖原有的值</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">set</span> key value<br>//set str1 <span class="hljs-string">&quot;Hello World&quot;</span><br>//set str2 HelloWorld<br></code></pre></td></tr></table></figure>
+
+<h3 id="设置key值为value，前提key不存在"><a href="#设置key值为value，前提key不存在" class="headerlink" title="设置key值为value，前提key不存在"></a>设置key值为value，前提key不存在</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">setnx key value<br><span class="hljs-regexp">//</span>setnx str4 <span class="hljs-string">&quot;Hello World&quot;</span><br><span class="hljs-regexp">//</span>setnx str1 <span class="hljs-string">&quot;Hello World&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="设置key值为value，指定到期时间（秒）"><a href="#设置key值为value，指定到期时间（秒）" class="headerlink" title="设置key值为value，指定到期时间（秒）"></a>设置key值为value，指定到期时间（秒）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">setex key seconds value<br><span class="hljs-regexp">//</span>setex str3 <span class="hljs-number">10</span> <span class="hljs-string">&quot;Hello World&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="设置key值为value，指定到期时间（毫秒）"><a href="#设置key值为value，指定到期时间（毫秒）" class="headerlink" title="设置key值为value，指定到期时间（毫秒）"></a>设置key值为value，指定到期时间（毫秒）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">psetex key seconds value<br><span class="hljs-regexp">//</span>setex str3 <span class="hljs-number">10</span> <span class="hljs-string">&quot;Hello World&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="设置多个key和value，存在则覆盖"><a href="#设置多个key和value，存在则覆盖" class="headerlink" title="设置多个key和value，存在则覆盖"></a>设置多个key和value，存在则覆盖</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">mset key1 value1 key2 value2 ...<br><span class="hljs-regexp">//m</span>set str5 <span class="hljs-string">&quot;A&quot;</span> str6 <span class="hljs-string">&quot;B&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="设置多个key和value，存在则不进行操作"><a href="#设置多个key和value，存在则不进行操作" class="headerlink" title="设置多个key和value，存在则不进行操作"></a>设置多个key和value，存在则不进行操作</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">msetnx key1 value1 key2 value2 ...<br><span class="hljs-regexp">//m</span>set str5 <span class="hljs-string">&quot;A&quot;</span> str6 <span class="hljs-string">&quot;B&quot;</span> str7 C<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取字符串"><a href="#获取字符串" class="headerlink" title="获取字符串"></a>获取字符串</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">get key<br>//get str1<br></code></pre></td></tr></table></figure>
+
+<h3 id="获取子串"><a href="#获取子串" class="headerlink" title="获取子串"></a>获取子串</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">//0：正序第一个字符，增量1；-1：逆序第一个字符，增量-1。<br>getrange key start end<br>//getrange str1 0 4<br>//getrange str1 -5 -1<br></code></pre></td></tr></table></figure>
+
+<h3 id="设置新值，返回旧值"><a href="#设置新值，返回旧值" class="headerlink" title="设置新值，返回旧值"></a>设置新值，返回旧值</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">getset key value<br>//getset str1 <span class="hljs-string">&quot;你好&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="获取所有给定key的值"><a href="#获取所有给定key的值" class="headerlink" title="获取所有给定key的值"></a>获取所有给定key的值</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">mget key [key...]<br>//mget str1 str2<br></code></pre></td></tr></table></figure>
+
+<h3 id="更新key指定位置的内容"><a href="#更新key指定位置的内容" class="headerlink" title="更新key指定位置的内容"></a>更新key指定位置的内容</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回字符串值的长度。offest&gt;=<span class="hljs-number">0</span>，返回字符串长度<br>setrange key offest value<br><span class="hljs-regexp">//</span>setrange str1 <span class="hljs-number">6</span> <span class="hljs-string">&quot;Redis&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="获取key的值的长度"><a href="#获取key的值的长度" class="headerlink" title="获取key的值的长度"></a>获取key的值的长度</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gauss"><span class="hljs-built_in">strlen</span> <span class="hljs-built_in">key</span><br><span class="hljs-comment">//strlen str1</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="追加key的值"><a href="#追加key的值" class="headerlink" title="追加key的值"></a>追加key的值</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>key存在，则在末尾追加value，否则和set key value一样；返回字符串长度<br>append key value<br><span class="hljs-regexp">//</span>append str1 A<br><span class="hljs-regexp">//</span>append str8 D<br></code></pre></td></tr></table></figure>
+
+<h3 id="对数值字符串增加一（value为整数）"><a href="#对数值字符串增加一（value为整数）" class="headerlink" title="对数值字符串增加一（value为整数）"></a>对数值字符串增加一（value为整数）</h3><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sas">//如果<span class="hljs-keyword">key</span>不存在，则进行<span class="hljs-keyword">set</span> <span class="hljs-keyword">key</span> 0后在进行incr <span class="hljs-keyword">key</span>；返回<span class="hljs-keyword">key</span>的值<br>incr <span class="hljs-keyword">key</span><br>//incr num1<br></code></pre></td></tr></table></figure>
+
+<h3 id="对数值字符串增加指定数值（value和增量为整数）"><a href="#对数值字符串增加指定数值（value和增量为整数）" class="headerlink" title="对数值字符串增加指定数值（value和增量为整数）"></a>对数值字符串增加指定数值（value和增量为整数）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果key不存在，则进行<span class="hljs-built_in">set</span> key 0后在进行incrby key num；返回key的值<br>incrby key num<br>//incrby num1 10<br></code></pre></td></tr></table></figure>
+
+<h3 id="对数值字符串增加指定数值（浮点数）"><a href="#对数值字符串增加指定数值（浮点数）" class="headerlink" title="对数值字符串增加指定数值（浮点数）"></a>对数值字符串增加指定数值（浮点数）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果key不存在，则进行<span class="hljs-built_in">set</span> key 0后在进行incrbyfloat key floatnum；返回key的值<br>incrbyfloat key floatnum<br>//incrbyfloat num1 10.1<br></code></pre></td></tr></table></figure>
+
+<h3 id="对数值字符串增减一（value为整数）"><a href="#对数值字符串增减一（value为整数）" class="headerlink" title="对数值字符串增减一（value为整数）"></a>对数值字符串增减一（value为整数）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果key不存在，则进行<span class="hljs-built_in">set</span> key 0后在进行decr key；返回key的值<br>decr key<br>//decr num1<br></code></pre></td></tr></table></figure>
+
+<h3 id="对数值字符串增减指定数值（value和减少量为整数）"><a href="#对数值字符串增减指定数值（value和减少量为整数）" class="headerlink" title="对数值字符串增减指定数值（value和减少量为整数）"></a>对数值字符串增减指定数值（value和减少量为整数）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">//如果key不存在，则进行<span class="hljs-built_in">set</span> key 0后在进行decrby key num；返回key的值<br>decrby key num<br>//decrby num1 num<br></code></pre></td></tr></table></figure>
+
 <h1 id="Hashes：哈希"><a href="#Hashes：哈希" class="headerlink" title="Hashes：哈希"></a>Hashes：哈希</h1><h3 id="Hashes介绍"><a href="#Hashes介绍" class="headerlink" title="Hashes介绍"></a>Hashes介绍</h3><ul>
 <li>string类型的映射表（k-v）</li>
 <li>最大容量：(2^32) - 1个</li>
 <li>适合存储对象</li>
 </ul>
-<h3 id="设置hashes的键值对，存在则覆盖，可多个"><a href="#设置hashes的键值对，存在则覆盖，可多个" class="headerlink" title="设置hashes的键值对，存在则覆盖，可多个"></a>设置hashes的键值对，存在则覆盖，可多个</h3><pre><code class="sh">//返回修改或增加的field个数
-hset hasheskey field value [field value ...]
+<h3 id="设置hashes的键值对，存在则覆盖，可多个"><a href="#设置hashes的键值对，存在则覆盖，可多个" class="headerlink" title="设置hashes的键值对，存在则覆盖，可多个"></a>设置hashes的键值对，存在则覆盖，可多个</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">//返回修改或增加的field个数<br>hset hasheskey field value [field value ...]<br><br>//如：hset user name yb age 18 sex man <br>//(<span class="hljs-built_in">integer</span>) 3<br></code></pre></td></tr></table></figure>
 
-//如：hset user name yb age 18 sex man 
-//(integer) 3
-</code></pre>
-<h3 id="设置hashes的键值对，前提hasheskey不存在，只一个"><a href="#设置hashes的键值对，前提hasheskey不存在，只一个" class="headerlink" title="设置hashes的键值对，前提hasheskey不存在，只一个"></a>设置hashes的键值对，前提hasheskey不存在，只一个</h3><pre><code class="sh">//更新hashe的内容，如果hashekey不存在，则创建hashekey，再执行更新；如果hashekey中的field存在，则更新无效
-hsetnx hasheskey field value
+<h3 id="设置hashes的键值对，前提hasheskey不存在，只一个"><a href="#设置hashes的键值对，前提hasheskey不存在，只一个" class="headerlink" title="设置hashes的键值对，前提hasheskey不存在，只一个"></a>设置hashes的键值对，前提hasheskey不存在，只一个</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">//更新hashe的内容，如果hashekey不存在，则创建hashekey，再执行更新；如果hashekey中的field存在，则更新无效<br>hsetnx hasheskey field value<br><br>//如：hsetnx user like game<br>//(<span class="hljs-built_in">integer</span>) 1<br><br>//如：hsetnx user name lly<br>//(<span class="hljs-built_in">integer</span>) 0<br></code></pre></td></tr></table></figure>
 
-//如：hsetnx user like game
-//(integer) 1
+<h3 id="获取hashes的field"><a href="#获取hashes的field" class="headerlink" title="获取hashes的field"></a>获取hashes的field</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回给定字段的值，不存在为null<br>hget hasheskey field<br><br><span class="hljs-regexp">//</span>如：hget user name<br><span class="hljs-regexp">//</span><span class="hljs-string">&quot;yb&quot;</span><br><br><span class="hljs-regexp">//</span>如：hget user address<br><span class="hljs-regexp">//</span>(nil)<br></code></pre></td></tr></table></figure>
 
-//如：hsetnx user name lly
-//(integer) 0
-</code></pre>
-<h3 id="获取hashes的field"><a href="#获取hashes的field" class="headerlink" title="获取hashes的field"></a>获取hashes的field</h3><pre><code>//返回给定字段的值，不存在为null
-hget hasheskey field
+<h3 id="获取hashes的多个field"><a href="#获取hashes的多个field" class="headerlink" title="获取hashes的多个field"></a>获取hashes的多个field</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回指定的所有field内容，不存在返回null<br>hmget hasheskey filed [field...]<br><br><span class="hljs-regexp">//</span>如：hmget user name age sex like<br><span class="hljs-regexp">//</span><span class="hljs-number">1</span>) <span class="hljs-string">&quot;yb&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">2</span>) <span class="hljs-string">&quot;18&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">3</span>) <span class="hljs-string">&quot;man&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">4</span>) <span class="hljs-string">&quot;game&quot;</span><br></code></pre></td></tr></table></figure>
 
-//如：hget user name
-//&quot;yb&quot;
+<h3 id="获取hashes的全部value"><a href="#获取hashes的全部value" class="headerlink" title="获取hashes的全部value"></a>获取hashes的全部value</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回所有values<br>hvals hasheskey<br><br><span class="hljs-regexp">//</span>如：hvals user<br><span class="hljs-regexp">//</span><span class="hljs-number">1</span>) <span class="hljs-string">&quot;yb&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">2</span>) <span class="hljs-string">&quot;18&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">3</span>) <span class="hljs-string">&quot;man&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">4</span>) <span class="hljs-string">&quot;game&quot;</span><br></code></pre></td></tr></table></figure>
 
-//如：hget user address
-//(nil)
-</code></pre>
-<h3 id="获取hashes的多个field"><a href="#获取hashes的多个field" class="headerlink" title="获取hashes的多个field"></a>获取hashes的多个field</h3><pre><code>//返回指定的所有field内容，不存在返回null
-hmget hasheskey filed [field...]
+<h3 id="获取hashes的全部键值对内容"><a href="#获取hashes的全部键值对内容" class="headerlink" title="获取hashes的全部键值对内容"></a>获取hashes的全部键值对内容</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回hasheskey的全部内容<br>hgetall hasheskey<br><br><span class="hljs-regexp">//</span>如：hgetall user<br><span class="hljs-regexp">//</span><span class="hljs-number">1</span>) <span class="hljs-string">&quot;name&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">2</span>) <span class="hljs-string">&quot;yb&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">3</span>) <span class="hljs-string">&quot;age&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">4</span>) <span class="hljs-string">&quot;18&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">5</span>) <span class="hljs-string">&quot;sex&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">6</span>) <span class="hljs-string">&quot;man&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">7</span>) <span class="hljs-string">&quot;like&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">8</span>) <span class="hljs-string">&quot;game&quot;</span><br><br><span class="hljs-regexp">//</span>如：hgetall book<br><span class="hljs-regexp">//</span>(empty array)<br></code></pre></td></tr></table></figure>
 
-//如：hmget user name age sex like
-//1) &quot;yb&quot;
-//2) &quot;18&quot;
-//3) &quot;man&quot;
-//4) &quot;game&quot;
-</code></pre>
-<h3 id="获取hashes的全部value"><a href="#获取hashes的全部value" class="headerlink" title="获取hashes的全部value"></a>获取hashes的全部value</h3><pre><code>//返回所有values
-hvals hasheskey
+<h3 id="检查hasheskey或者hashes中field是否存在"><a href="#检查hasheskey或者hashes中field是否存在" class="headerlink" title="检查hasheskey或者hashes中field是否存在"></a>检查hasheskey或者hashes中field是否存在</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>如果field存在，返回<span class="hljs-number">1</span>；hasheskey或者field不存在，返回<span class="hljs-number">0</span><br>hexists hasheskey field<br><br><span class="hljs-regexp">//</span>如：hexists user name<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">1</span><br><br><span class="hljs-regexp">//</span>如：hexists book name<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：hvals user
-//1) &quot;yb&quot;
-//2) &quot;18&quot;
-//3) &quot;man&quot;
-//4) &quot;game&quot;
-</code></pre>
-<h3 id="获取hashes的全部键值对内容"><a href="#获取hashes的全部键值对内容" class="headerlink" title="获取hashes的全部键值对内容"></a>获取hashes的全部键值对内容</h3><pre><code>//返回hasheskey的全部内容
-hgetall hasheskey
+<h3 id="获取hashes中field值的长度"><a href="#获取hashes中field值的长度" class="headerlink" title="获取hashes中field值的长度"></a>获取hashes中field值的长度</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回field中的长度；hasheskey或field不存在返回<span class="hljs-number">0</span><br>hstrlen hasheskey field<br><br><span class="hljs-regexp">//</span>如：hstrlen user name<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">2</span><br><br><span class="hljs-regexp">//</span>如：hstrlen book name<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：hgetall user
-//1) &quot;name&quot;
-//2) &quot;yb&quot;
-//3) &quot;age&quot;
-//4) &quot;18&quot;
-//5) &quot;sex&quot;
-//6) &quot;man&quot;
-//7) &quot;like&quot;
-//8) &quot;game&quot;
+<h3 id="获取hashes的长度"><a href="#获取hashes的长度" class="headerlink" title="获取hashes的长度"></a>获取hashes的长度</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回field的个数，如果hasheskey不存在返回<span class="hljs-number">0</span><br>hlen hasheskey<br><br><span class="hljs-regexp">//</span>如：hlen user<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">4</span><br></code></pre></td></tr></table></figure>
 
-//如：hgetall book
-//(empty array)
-</code></pre>
-<h3 id="检查hasheskey或者hashes中field是否存在"><a href="#检查hasheskey或者hashes中field是否存在" class="headerlink" title="检查hasheskey或者hashes中field是否存在"></a>检查hasheskey或者hashes中field是否存在</h3><pre><code>//如果field存在，返回1；hasheskey或者field不存在，返回0
-hexists hasheskey field
+<h3 id="获取hashes的所有field的名称"><a href="#获取hashes的所有field的名称" class="headerlink" title="获取hashes的所有field的名称"></a>获取hashes的所有field的名称</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回所有field的名称，hasheskey不存在返回空表<br>hkeys hasheskey<br><br><span class="hljs-regexp">//</span>如：hkeys user<br><span class="hljs-regexp">//</span><span class="hljs-number">1</span>) <span class="hljs-string">&quot;name&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">2</span>) <span class="hljs-string">&quot;age&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">3</span>) <span class="hljs-string">&quot;sex&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">4</span>) <span class="hljs-string">&quot;like&quot;</span><br></code></pre></td></tr></table></figure>
 
-//如：hexists user name
-//(integer) 1
-
-//如：hexists book name
-//(integer) 0
-</code></pre>
-<h3 id="获取hashes中field值的长度"><a href="#获取hashes中field值的长度" class="headerlink" title="获取hashes中field值的长度"></a>获取hashes中field值的长度</h3><pre><code>//返回field中的长度；hasheskey或field不存在返回0
-hstrlen hasheskey field
-
-//如：hstrlen user name
-//(integer) 2
-
-//如：hstrlen book name
-//(integer) 0
-</code></pre>
-<h3 id="获取hashes的长度"><a href="#获取hashes的长度" class="headerlink" title="获取hashes的长度"></a>获取hashes的长度</h3><pre><code>//返回field的个数，如果hasheskey不存在返回0
-hlen hasheskey
-
-//如：hlen user
-//(integer) 4
-</code></pre>
-<h3 id="获取hashes的所有field的名称"><a href="#获取hashes的所有field的名称" class="headerlink" title="获取hashes的所有field的名称"></a>获取hashes的所有field的名称</h3><pre><code>//返回所有field的名称，hasheskey不存在返回空表
-hkeys hasheskey
-
-//如：hkeys user
-//1) &quot;name&quot;
-//2) &quot;age&quot;
-//3) &quot;sex&quot;
-//4) &quot;like&quot;
-</code></pre>
 <h1 id="List：列表"><a href="#List：列表" class="headerlink" title="List：列表"></a>List：列表</h1><h3 id="List介绍"><a href="#List介绍" class="headerlink" title="List介绍"></a>List介绍</h3><ul>
 <li>按插入顺序排序的字符串列表</li>
 <li>支持头插法和尾插发</li>
 <li>最大容量：(2^32) - 1个</li>
 </ul>
-<h3 id="lpush：设置List一个或多个元素（头插法，可重复插入）"><a href="#lpush：设置List一个或多个元素（头插法，可重复插入）" class="headerlink" title="lpush：设置List一个或多个元素（头插法，可重复插入）"></a><strong>lpush</strong>：设置List一个或多个元素（头插法，可重复插入）</h3><pre><code>//头插法从左至右依次插入，返回list长度
-lpush listkey element [element ...]
+<h3 id="lpush：设置List一个或多个元素（头插法，可重复插入）"><a href="#lpush：设置List一个或多个元素（头插法，可重复插入）" class="headerlink" title="lpush：设置List一个或多个元素（头插法，可重复插入）"></a><strong>lpush</strong>：设置List一个或多个元素（头插法，可重复插入）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>头插法从左至右依次插入，返回list长度<br>lpush listkey element [element ...]<br><br><span class="hljs-regexp">//</span>如：lpush names yb lly<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
 
-//如：lpush names yb lly
-//(integer) 2
-</code></pre>
-<h3 id="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"><a href="#lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"></a><strong>lpushx</strong>：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）</h3><pre><code>//头插法从左至右依次插入，返回list长度
-lpushx listkey element [element ...]
+<h3 id="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"><a href="#lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="lpushx：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）"></a><strong>lpushx</strong>：设置List一个或多个元素（头插法，可重复插入，当且仅当listkey存在）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>头插法从左至右依次插入，返回list长度<br>lpushx listkey element [element ...]<br><br><span class="hljs-regexp">//</span>如：lpushx names yb lly<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">8</span><br><br><span class="hljs-regexp">//</span>如：lpushx animals cat dog<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：lpushx names yb lly
-//(integer) 8
+<h3 id="rpush：设置List一个或多个元素（尾插法，可重复插入）"><a href="#rpush：设置List一个或多个元素（尾插法，可重复插入）" class="headerlink" title="rpush：设置List一个或多个元素（尾插法，可重复插入）"></a><strong>rpush</strong>：设置List一个或多个元素（尾插法，可重复插入）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>头插法从左至右依次插入，返回list长度<br>rpush listkey element [element ...]<br><br><span class="hljs-regexp">//</span>如：rpush names yb lly<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
 
-//如：lpushx animals cat dog
-//(integer) 0
-</code></pre>
-<h3 id="rpush：设置List一个或多个元素（尾插法，可重复插入）"><a href="#rpush：设置List一个或多个元素（尾插法，可重复插入）" class="headerlink" title="rpush：设置List一个或多个元素（尾插法，可重复插入）"></a><strong>rpush</strong>：设置List一个或多个元素（尾插法，可重复插入）</h3><pre><code>//头插法从左至右依次插入，返回list长度
-rpush listkey element [element ...]
+<h3 id="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"><a href="#rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"></a><strong>rpushx</strong>：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>头插法从左至右依次插入，返回list长度<br>rpushx listkey element [element ...]<br><br><span class="hljs-regexp">//</span>如：rpushx names yb lly<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">8</span><br><br><span class="hljs-regexp">//</span>如：rpushx animals cat dog<br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：rpush names yb lly
-//(integer) 2
-</code></pre>
-<h3 id="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"><a href="#rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）" class="headerlink" title="rpushx：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）"></a><strong>rpushx</strong>：设置List一个或多个元素（尾插法，可重复插入，当且仅当listkey存在）</h3><pre><code>//头插法从左至右依次插入，返回list长度
-rpushx listkey element [element ...]
+<h3 id="lset：指定位置添加元素（要求key存在）"><a href="#lset：指定位置添加元素（要求key存在）" class="headerlink" title="lset：指定位置添加元素（要求key存在）"></a><strong>lset</strong>：指定位置添加元素（要求key存在）</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tcl">//返回OK，index超出范围报错<br>//index：正向<span class="hljs-number">0</span>开始，逆向<span class="hljs-number">-1</span>开始<br><span class="hljs-keyword">lset</span> listkey index element<br></code></pre></td></tr></table></figure>
 
-//如：rpushx names yb lly
-//(integer) 8
+<h3 id="lpop：删除并返回list第一个元素"><a href="#lpop：删除并返回list第一个元素" class="headerlink" title="lpop：删除并返回list第一个元素"></a><strong>lpop</strong>：删除并返回list第一个元素</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回第一个元素，listkey不存在则返回null<br>lpop listkey<br></code></pre></td></tr></table></figure>
 
-//如：rpushx animals cat dog
-//(integer) 0
-</code></pre>
-<h3 id="lset：指定位置添加元素（要求key存在）"><a href="#lset：指定位置添加元素（要求key存在）" class="headerlink" title="lset：指定位置添加元素（要求key存在）"></a><strong>lset</strong>：指定位置添加元素（要求key存在）</h3><pre><code>//返回OK，index超出范围报错
-//index：正向0开始，逆向-1开始
-lset listkey index element
-</code></pre>
-<h3 id="lpop：删除并返回list第一个元素"><a href="#lpop：删除并返回list第一个元素" class="headerlink" title="lpop：删除并返回list第一个元素"></a><strong>lpop</strong>：删除并返回list第一个元素</h3><pre><code>//返回第一个元素，listkey不存在则返回null
-lpop listkey
-</code></pre>
-<h3 id="rpop：删除并返回list第一个元素"><a href="#rpop：删除并返回list第一个元素" class="headerlink" title="rpop：删除并返回list第一个元素"></a><strong>rpop</strong>：删除并返回list第一个元素</h3><pre><code>//返回第一个元素，listkey不存在则返回null
-rpop listkey
-</code></pre>
-<h3 id="llen：获取list长度"><a href="#llen：获取list长度" class="headerlink" title="llen：获取list长度"></a><strong>llen</strong>：获取list长度</h3><pre><code>//返回list长度，为空或不存在返回0
-llen listkey
-</code></pre>
-<h3 id="lrange：获取list指定区间的元素"><a href="#lrange：获取list指定区间的元素" class="headerlink" title="lrange：获取list指定区间的元素"></a><strong>lrange</strong>：获取list指定区间的元素</h3><pre><code>//返回指定区间元素，0表示第一个元素，-1表示最后一个元素
-lrange listkey start end
-</code></pre>
-<h3 id="lindex：获取list指定下标的元素"><a href="#lindex：获取list指定下标的元素" class="headerlink" title="lindex：获取list指定下标的元素"></a><strong>lindex</strong>：获取list指定下标的元素</h3><pre><code>//返回查询的元素，不存在返回null，index：0正向第一个数，-1逆向第一个数
-lindex listkey index
-</code></pre>
+<h3 id="rpop：删除并返回list第一个元素"><a href="#rpop：删除并返回list第一个元素" class="headerlink" title="rpop：删除并返回list第一个元素"></a><strong>rpop</strong>：删除并返回list第一个元素</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回第一个元素，listkey不存在则返回null<br>rpop listkey<br></code></pre></td></tr></table></figure>
+
+<h3 id="llen：获取list长度"><a href="#llen：获取list长度" class="headerlink" title="llen：获取list长度"></a><strong>llen</strong>：获取list长度</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回list长度，为空或不存在返回<span class="hljs-number">0</span><br>llen listkey<br></code></pre></td></tr></table></figure>
+
+<h3 id="lrange：获取list指定区间的元素"><a href="#lrange：获取list指定区间的元素" class="headerlink" title="lrange：获取list指定区间的元素"></a><strong>lrange</strong>：获取list指定区间的元素</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tcl">//返回指定区间元素，<span class="hljs-number">0</span>表示第一个元素，<span class="hljs-number">-1</span>表示最后一个元素<br><span class="hljs-keyword">lrange</span> listkey start end<br></code></pre></td></tr></table></figure>
+
+<h3 id="lindex：获取list指定下标的元素"><a href="#lindex：获取list指定下标的元素" class="headerlink" title="lindex：获取list指定下标的元素"></a><strong>lindex</strong>：获取list指定下标的元素</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tcl">//返回查询的元素，不存在返回null，index：<span class="hljs-number">0</span>正向第一个数，<span class="hljs-number">-1</span>逆向第一个数<br><span class="hljs-keyword">lindex</span> listkey index<br></code></pre></td></tr></table></figure>
+
 <h1 id="Set：集合"><a href="#Set：集合" class="headerlink" title="Set：集合"></a>Set：集合</h1><h3 id="Set介绍"><a href="#Set介绍" class="headerlink" title="Set介绍"></a>Set介绍</h3><ul>
 <li>string类型的无序集合</li>
 <li>集合成员唯一</li>
 <li>增删查时间为O(1)</li>
 <li>最大容量：(2^32) - 1个</li>
 </ul>
-<h3 id="sadd：添加set的成员"><a href="#sadd：添加set的成员" class="headerlink" title="sadd：添加set的成员"></a><strong>sadd</strong>：添加set的成员</h3><pre><code>//返回添加的数量，不包括已存在的成员
-sadd setkey value [value ...]
+<h3 id="sadd：添加set的成员"><a href="#sadd：添加set的成员" class="headerlink" title="sadd：添加set的成员"></a><strong>sadd</strong>：添加set的成员</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回添加的数量，不包括已存在的成员<br>sadd setkey value [value ...]<br><br><span class="hljs-regexp">//</span>如：sadd numbers <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">5</span><br><span class="hljs-regexp">//</span>sadd numbers <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span><br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
-//如：sadd numbers 1 2 3 4 5
-//(integer) 5
-//sadd numbers 1 2 3 4 5
-//(integer) 0
-</code></pre>
-<h3 id="smembers：查看所有set成员"><a href="#smembers：查看所有set成员" class="headerlink" title="smembers：查看所有set成员"></a><strong>smembers</strong>：查看所有set成员</h3><pre><code>//返回set的全部成员，不存在的set为空集
-smembers setkey
+<h3 id="smembers：查看所有set成员"><a href="#smembers：查看所有set成员" class="headerlink" title="smembers：查看所有set成员"></a><strong>smembers</strong>：查看所有set成员</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回set的全部成员，不存在的set为空集<br>smembers setkey<br><br><span class="hljs-regexp">//</span>如：smembers numbers<br><span class="hljs-regexp">//</span><span class="hljs-number">1</span>) <span class="hljs-string">&quot;1&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">2</span>) <span class="hljs-string">&quot;2&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">3</span>) <span class="hljs-string">&quot;3&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">4</span>) <span class="hljs-string">&quot;4&quot;</span><br><span class="hljs-regexp">//</span><span class="hljs-number">5</span>) <span class="hljs-string">&quot;5&quot;</span><br><br><span class="hljs-regexp">//</span>如：smembers animals<br><span class="hljs-regexp">//</span>(empty array)<br></code></pre></td></tr></table></figure>
 
-//如：smembers numbers
-//1) &quot;1&quot;
-//2) &quot;2&quot;
-//3) &quot;3&quot;
-//4) &quot;4&quot;
-//5) &quot;5&quot;
+<h3 id="sismember：判断是否为set的成员"><a href="#sismember：判断是否为set的成员" class="headerlink" title="sismember：判断是否为set的成员"></a><strong>sismember</strong>：判断是否为set的成员</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>是，返回<span class="hljs-number">1</span>；否或setkey不存在返回<span class="hljs-number">0</span><br>sismember setkey value<br><br><span class="hljs-regexp">//</span>如：sismember numbers <span class="hljs-number">5</span><br><span class="hljs-regexp">//</span>(integer) <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
-//如：smembers animals
-//(empty array)
-</code></pre>
-<h3 id="sismember：判断是否为set的成员"><a href="#sismember：判断是否为set的成员" class="headerlink" title="sismember：判断是否为set的成员"></a><strong>sismember</strong>：判断是否为set的成员</h3><pre><code>//是，返回1；否或setkey不存在返回0
-sismember setkey value
+<h3 id="spop：随机删除set指定数量成员，返回删除的成员"><a href="#spop：随机删除set指定数量成员，返回删除的成员" class="headerlink" title="spop：随机删除set指定数量成员，返回删除的成员"></a><strong>spop</strong>：随机删除set指定数量成员，返回删除的成员</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>被删除的元素，当key不存在时返回nil。<br>spop setkey [count]<br><br><span class="hljs-regexp">//</span>如：spop numbers<br><span class="hljs-regexp">//</span><span class="hljs-string">&quot;3&quot;</span><br></code></pre></td></tr></table></figure>
 
-//如：sismember numbers 5
-//(integer) 1
-</code></pre>
-<h3 id="spop：随机删除set指定数量成员，返回删除的成员"><a href="#spop：随机删除set指定数量成员，返回删除的成员" class="headerlink" title="spop：随机删除set指定数量成员，返回删除的成员"></a><strong>spop</strong>：随机删除set指定数量成员，返回删除的成员</h3><pre><code>//被删除的元素，当key不存在时返回nil。
-spop setkey [count]
+<h3 id="srem：删除set指定的成员"><a href="#srem：删除set指定的成员" class="headerlink" title="srem：删除set指定的成员"></a><strong>srem</strong>：删除set指定的成员</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>被删除元素个数，不含不存在的元素。<br>srem setkey value [value ...]<br></code></pre></td></tr></table></figure>
 
-//如：spop numbers
-//&quot;3&quot;
-</code></pre>
-<h3 id="srem：删除set指定的成员"><a href="#srem：删除set指定的成员" class="headerlink" title="srem：删除set指定的成员"></a><strong>srem</strong>：删除set指定的成员</h3><pre><code>//被删除元素个数，不含不存在的元素。
-srem setkey value [value ...]
-</code></pre>
-<h3 id="sdiff：获取第一个集合与其他集合之间的差异"><a href="#sdiff：获取第一个集合与其他集合之间的差异" class="headerlink" title="sdiff：获取第一个集合与其他集合之间的差异"></a><strong>sdiff</strong>：获取第一个集合与其他集合之间的差异</h3><pre><code>//返回第一个集合与其他集合之间的差异
-sdiff setkey [setkey ...]
-</code></pre>
-<h3 id="scard：获取set的成员总数"><a href="#scard：获取set的成员总数" class="headerlink" title="scard：获取set的成员总数"></a><strong>scard</strong>：获取set的成员总数</h3><pre><code>//集合中成员的数量。 当集合 key 不存在时，返回 0 。
-scard setkey
-</code></pre>
+<h3 id="sdiff：获取第一个集合与其他集合之间的差异"><a href="#sdiff：获取第一个集合与其他集合之间的差异" class="headerlink" title="sdiff：获取第一个集合与其他集合之间的差异"></a><strong>sdiff</strong>：获取第一个集合与其他集合之间的差异</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>返回第一个集合与其他集合之间的差异<br>sdiff setkey [setkey ...]<br></code></pre></td></tr></table></figure>
+
+<h3 id="scard：获取set的成员总数"><a href="#scard：获取set的成员总数" class="headerlink" title="scard：获取set的成员总数"></a><strong>scard</strong>：获取set的成员总数</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>集合中成员的数量。 当集合 key 不存在时，返回 <span class="hljs-number">0</span> 。<br>scard setkey<br></code></pre></td></tr></table></figure>
+
 <h1 id="Sorted-Set：有序集合"><a href="#Sorted-Set：有序集合" class="headerlink" title="Sorted Set：有序集合"></a>Sorted Set：有序集合</h1><h3 id="Sorted-Set介绍"><a href="#Sorted-Set介绍" class="headerlink" title="Sorted Set介绍"></a>Sorted Set介绍</h3><ul>
 <li>string类型的有序集合</li>
 <li>集合成员唯一</li>
@@ -927,19 +558,18 @@ scard setkey
 <li>增删查时间为O(1)</li>
 <li>最大容量：(2^32) - 1个</li>
 </ul>
-<h3 id="zadd：添加Sorted-Set成员，或者更新分数"><a href="#zadd：添加Sorted-Set成员，或者更新分数" class="headerlink" title="zadd：添加Sorted Set成员，或者更新分数"></a><strong>zadd</strong>：添加Sorted Set成员，或者更新分数</h3><pre><code>zadd sortedsetkey score member [score member ...]
-</code></pre>
-<h3 id="zrange：获取指定范围的成员"><a href="#zrange：获取指定范围的成员" class="headerlink" title="zrange：获取指定范围的成员"></a><strong>zrange</strong>：获取指定范围的成员</h3><pre><code>zrange sortedsetkey start end
-</code></pre>
-<h3 id="zpopmax：获取最大分数的（一个或最大count个）成员"><a href="#zpopmax：获取最大分数的（一个或最大count个）成员" class="headerlink" title="zpopmax：获取最大分数的（一个或最大count个）成员"></a><strong>zpopmax</strong>：获取最大分数的（一个或最大count个）成员</h3><pre><code>zpopmax key [count]
-</code></pre>
-<h3 id="zpopmin：获取最小分数的（一个或最大count个）成员"><a href="#zpopmin：获取最小分数的（一个或最大count个）成员" class="headerlink" title="zpopmin：获取最小分数的（一个或最大count个）成员"></a><strong>zpopmin</strong>：获取最小分数的（一个或最大count个）成员</h3><pre><code>zpopmin key [count]
-</code></pre>
-<h3 id="zcard：获取集合成员数"><a href="#zcard：获取集合成员数" class="headerlink" title="zcard：获取集合成员数"></a><strong>zcard</strong>：获取集合成员数</h3><pre><code>//回有序集的成员个数，当 key 不存在时，返回 0 。
-zcard sortedsetkey
-</code></pre>
-<h3 id="zcount：获取分数在min和max的成员数"><a href="#zcount：获取分数在min和max的成员数" class="headerlink" title="zcount：获取分数在min和max的成员数"></a><strong>zcount</strong>：获取分数在min和max的成员数</h3><pre><code>zcount sortedsetkey min max
-</code></pre>
+<h3 id="zadd：添加Sorted-Set成员，或者更新分数"><a href="#zadd：添加Sorted-Set成员，或者更新分数" class="headerlink" title="zadd：添加Sorted Set成员，或者更新分数"></a><strong>zadd</strong>：添加Sorted Set成员，或者更新分数</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">zadd sortedsetkey score <span class="hljs-keyword">member</span> [score <span class="hljs-keyword">member</span> <span class="hljs-operator">...</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="zrange：获取指定范围的成员"><a href="#zrange：获取指定范围的成员" class="headerlink" title="zrange：获取指定范围的成员"></a><strong>zrange</strong>：获取指定范围的成员</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">zrange sortedsetkey <span class="hljs-built_in">start</span> <span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="zpopmax：获取最大分数的（一个或最大count个）成员"><a href="#zpopmax：获取最大分数的（一个或最大count个）成员" class="headerlink" title="zpopmax：获取最大分数的（一个或最大count个）成员"></a><strong>zpopmax</strong>：获取最大分数的（一个或最大count个）成员</h3><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">zpopmax <span class="hljs-built_in">key</span> [<span class="hljs-built_in">count</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="zpopmin：获取最小分数的（一个或最大count个）成员"><a href="#zpopmin：获取最小分数的（一个或最大count个）成员" class="headerlink" title="zpopmin：获取最小分数的（一个或最大count个）成员"></a><strong>zpopmin</strong>：获取最小分数的（一个或最大count个）成员</h3><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs q">zpopmin <span class="hljs-built_in">key</span> [<span class="hljs-built_in">count</span>]<br></code></pre></td></tr></table></figure>
+
+<h3 id="zcard：获取集合成员数"><a href="#zcard：获取集合成员数" class="headerlink" title="zcard：获取集合成员数"></a><strong>zcard</strong>：获取集合成员数</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>回有序集的成员个数，当 key 不存在时，返回 <span class="hljs-number">0</span> 。<br>zcard sortedsetkey<br></code></pre></td></tr></table></figure>
+
+<h3 id="zcount：获取分数在min和max的成员数"><a href="#zcount：获取分数在min和max的成员数" class="headerlink" title="zcount：获取分数在min和max的成员数"></a><strong>zcount</strong>：获取分数在min和max的成员数</h3><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">zcount sortedsetkey <span class="hljs-built_in">min</span> <span class="hljs-built_in">max</span><br></code></pre></td></tr></table></figure>
+
 <h1 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h1><h3 id="订阅频道和客户端"><a href="#订阅频道和客户端" class="headerlink" title="订阅频道和客户端"></a>订阅频道和客户端</h3><ul>
 <li>客户端订阅需要接收信息的频道</li>
 </ul>
@@ -948,24 +578,18 @@ zcard sortedsetkey
 <li>频道推送消息给客户端（<strong>publish</strong>命令）</li>
 </ul>
 <p><img src="https://www.redis.com.cn/images/pubsub2.png" srcset="/img/loading.gif" lazyload alt="频道消息推送"></p>
-<h3 id="publish：推送消息"><a href="#publish：推送消息" class="headerlink" title="publish：推送消息"></a><strong>publish</strong>：推送消息</h3><pre><code>//频道推送消息
-publish channel message
-</code></pre>
-<h3 id="subscribe：订阅频道"><a href="#subscribe：订阅频道" class="headerlink" title="subscribe：订阅频道"></a><strong>subscribe</strong>：订阅频道</h3><pre><code>subscribe channel [channel ...]
-</code></pre>
-<h3 id="pubsub：查看发布订阅系统的状态"><a href="#pubsub：查看发布订阅系统的状态" class="headerlink" title="pubsub：查看发布订阅系统的状态"></a><strong>pubsub</strong>：查看发布订阅系统的状态</h3><pre><code>//查看活跃频道
-pubsub channels [pattern]
+<h3 id="publish：推送消息"><a href="#publish：推送消息" class="headerlink" title="publish：推送消息"></a><strong>publish</strong>：推送消息</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>频道推送消息<br>publish channel message<br></code></pre></td></tr></table></figure>
 
-//查看客户端订阅的所有模式数量
-pubsub numpat
-</code></pre>
-<h3 id="unsubscribe：取消订阅"><a href="#unsubscribe：取消订阅" class="headerlink" title="unsubscribe：取消订阅"></a><strong>unsubscribe</strong>：取消订阅</h3><pre><code>unsubscribe [channel ...]
-</code></pre>
-<h1 id="消息队列（MQ、Stream）"><a href="#消息队列（MQ、Stream）" class="headerlink" title="消息队列（MQ、Stream）"></a>消息队列（MQ、Stream）</h1><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h1 id="备份还原"><a href="#备份还原" class="headerlink" title="备份还原"></a>备份还原</h1><h3 id="save：同步备份"><a href="#save：同步备份" class="headerlink" title="save：同步备份"></a><strong>save</strong>：同步备份</h3><pre><code class="sh">//备份数据库，生产dump.rdb文件在redis目录中，具体位置可用find命令查找，或者使用config get dir 查看redis目录
-save
-</code></pre>
-<h3 id="bgsave：后台备份"><a href="#bgsave：后台备份" class="headerlink" title="bgsave：后台备份"></a><strong>bgsave</strong>：后台备份</h3><pre><code>bgsave
-</code></pre>
+<h3 id="subscribe：订阅频道"><a href="#subscribe：订阅频道" class="headerlink" title="subscribe：订阅频道"></a><strong>subscribe</strong>：订阅频道</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">subscribe</span> channel<span class="hljs-meta"> [channel ...]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="pubsub：查看发布订阅系统的状态"><a href="#pubsub：查看发布订阅系统的状态" class="headerlink" title="pubsub：查看发布订阅系统的状态"></a><strong>pubsub</strong>：查看发布订阅系统的状态</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>查看活跃频道<br>pubsub channels [pattern]<br><br><span class="hljs-regexp">//</span>查看客户端订阅的所有模式数量<br>pubsub numpat<br></code></pre></td></tr></table></figure>
+
+<h3 id="unsubscribe：取消订阅"><a href="#unsubscribe：取消订阅" class="headerlink" title="unsubscribe：取消订阅"></a><strong>unsubscribe</strong>：取消订阅</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">unsubscribe</span><span class="hljs-meta"> [channel ...]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="消息队列（MQ、Stream）"><a href="#消息队列（MQ、Stream）" class="headerlink" title="消息队列（MQ、Stream）"></a>消息队列（MQ、Stream）</h1><h1 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h1><h1 id="备份还原"><a href="#备份还原" class="headerlink" title="备份还原"></a>备份还原</h1><h3 id="save：同步备份"><a href="#save：同步备份" class="headerlink" title="save：同步备份"></a><strong>save</strong>：同步备份</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">//备份数据库，生产dump.rdb文件在redis目录中，具体位置可用find命令查找，或者使用config get <span class="hljs-built_in">dir</span> 查看redis目录<br>save<br></code></pre></td></tr></table></figure>
+
+<h3 id="bgsave：后台备份"><a href="#bgsave：后台备份" class="headerlink" title="bgsave：后台备份"></a><strong>bgsave</strong>：后台备份</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">bgsave</span><br></code></pre></td></tr></table></figure>
+
 <h3 id="数据库恢复"><a href="#数据库恢复" class="headerlink" title="数据库恢复"></a>数据库恢复</h3><p><strong>将dump.rdb文件移动至Redis安装目录，重启Redis服务即可还原数据库</strong></p>
 
                 
@@ -1000,11 +624,11 @@ save
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
-      
         <a href="/tags/Java/">#Java</a>
       
         <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
+      
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
       
         <a href="/tags/SpringBoot/">#SpringBoot</a>
       

@@ -16,18 +16,18 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="多数据源配置数据源信息配置spring:   datasource:       # 数据源一     olddm:       jdbc-url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;olddm       uesrname: oldblack       password: YB520lly..       driver-class-name: com.mysql.cj.j">
+    <meta name="description" content="多数据源配置数据源信息配置1234567891011121314spring:  datasource:  	# 数据源一    olddm:      jdbc-url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;olddm      uesrname: oldblack      password: YB520lly..      driver-class-name: com.m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot">
 <meta property="og:url" content="http://example.com/2022/08/09/SpingBoot/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="多数据源配置数据源信息配置spring:   datasource:       # 数据源一     olddm:       jdbc-url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;olddm       uesrname: oldblack       password: YB520lly..       driver-class-name: com.mysql.cj.j">
+<meta property="og:description" content="多数据源配置数据源信息配置1234567891011121314spring:  datasource:  	# 数据源一    olddm:      jdbc-url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;olddm      uesrname: oldblack      password: YB520lly..      driver-class-name: com.m">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-08T18:17:55.118Z">
 <meta property="article:modified_time" content="2022-09-30T12:14:16.789Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="博客">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="博客">
 <meta property="article:tag" content="SpringBoot">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary_large_image">
@@ -211,7 +211,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5k 字
+          5.3k 字
         
       </span>
     
@@ -222,7 +222,7 @@
         
         
         
-          42 分钟
+          44 分钟
         
       </span>
     
@@ -265,225 +265,45 @@
             
               <div class="markdown-body">
                 
-                <h1 id="多数据源配置"><a href="#多数据源配置" class="headerlink" title="多数据源配置"></a>多数据源配置</h1><h3 id="数据源信息配置"><a href="#数据源信息配置" class="headerlink" title="数据源信息配置"></a>数据源信息配置</h3><pre><code class="yml">spring:
-  datasource:
-      # 数据源一
-    olddm:
-      jdbc-url: jdbc:mysql://localhost:3306/olddm
-      uesrname: oldblack
-      password: YB520lly..
-      driver-class-name: com.mysql.cj.jdbc.Driver
-    # 数据源二
-    dbuser:
-      jdbc-url: jdbc:mysql://localhost:3306/db_user
-      uesrname: oldblack
-      password: YB520lly..
-      driver-class-name: com.mysql.cj.jdbc.Driver
-</code></pre>
+                <h1 id="多数据源配置"><a href="#多数据源配置" class="headerlink" title="多数据源配置"></a>多数据源配置</h1><h3 id="数据源信息配置"><a href="#数据源信息配置" class="headerlink" title="数据源信息配置"></a>数据源信息配置</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>  	<span class="hljs-comment"># 数据源一</span><br>    <span class="hljs-attr">olddm:</span><br>      <span class="hljs-attr">jdbc-url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/olddm</span><br>      <span class="hljs-attr">uesrname:</span> <span class="hljs-string">oldblack</span><br>      <span class="hljs-attr">password:</span> <span class="hljs-string">YB520lly..</span><br>      <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-comment"># 数据源二</span><br>    <span class="hljs-attr">dbuser:</span><br>      <span class="hljs-attr">jdbc-url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/db_user</span><br>      <span class="hljs-attr">uesrname:</span> <span class="hljs-string">oldblack</span><br>      <span class="hljs-attr">password:</span> <span class="hljs-string">YB520lly..</span><br>      <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br></code></pre></td></tr></table></figure>
+
 <p>在application.yml文件中配置需要连接的数据源。如上配置了olddm和dbuser两个数据源。</p>
-<h3 id="产生同数据源对应的DataSourceBean"><a href="#产生同数据源对应的DataSourceBean" class="headerlink" title="产生同数据源对应的DataSourceBean"></a>产生同数据源对应的DataSourceBean</h3><pre><code class="java">@Configuration
-public class DataSourceConfig &#123;
+<h3 id="产生同数据源对应的DataSourceBean"><a href="#产生同数据源对应的DataSourceBean" class="headerlink" title="产生同数据源对应的DataSourceBean"></a>产生同数据源对应的DataSourceBean</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DataSourceConfig</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.datasource.olddm&quot;)</span><br>    <span class="hljs-keyword">public</span> DataSource <span class="hljs-title function_">olddmDataSource</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> DataSourceBuilder.create().build();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.datasource.dbuser&quot;)</span><br>    <span class="hljs-keyword">public</span> DataSource <span class="hljs-title function_">dbUserDataSource</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> DataSourceBuilder.create().build();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    @Bean
-    @ConfigurationProperties(prefix = &quot;spring.datasource.olddm&quot;)
-    public DataSource olddmDataSource() &#123;
-        return DataSourceBuilder.create().build();
-    &#125;
-
-    @Bean
-    @ConfigurationProperties(prefix = &quot;spring.datasource.dbuser&quot;)
-    public DataSource dbUserDataSource() &#123;
-        return DataSourceBuilder.create().build();
-    &#125;
-&#125;
-</code></pre>
 <p>使用@ConfigurationProperties注入不同的数据源信息，@Bean注解生产对应的Bean对象。</p>
 <h3 id="简单多数据源配置（使用JdbcTemplate）"><a href="#简单多数据源配置（使用JdbcTemplate）" class="headerlink" title="简单多数据源配置（使用JdbcTemplate）"></a>简单多数据源配置（使用JdbcTemplate）</h3><ul>
 <li>依赖</li>
 </ul>
-<pre><code class="kotlin">//jdbc
-implementation &#39;org.springframework.boot:spring-boot-starter-jdbc:2.7.3
-//数据库连接jar
-runtimeOnly &#39;mysql:mysql-connector-java&#39;
-</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">//jdbc</span><br>implementation <span class="hljs-string">&#x27;org.springframework.boot:spring-boot-starter-jdbc:2.7.3</span><br><span class="hljs-string">//数据库连接jar</span><br><span class="hljs-string">runtimeOnly &#x27;</span>mysql:mysql-connector-java<span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>JdbcTemplateBean配置</li>
 </ul>
-<pre><code class="java">@Configuration
-public class JdbcTemplateConfig &#123;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JdbcTemplateConfig</span> &#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> JdbcTemplate <span class="hljs-title function_">olddmJdbcTemplate</span><span class="hljs-params">(</span><br><span class="hljs-params">            <span class="hljs-meta">@Qualifier(&quot;olddmDataSource&quot;)</span> DataSource dataSource)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JdbcTemplate</span>(dataSource);<br>    &#125;<br><br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> JdbcTemplate <span class="hljs-title function_">dbUserJdbcTemplate</span><span class="hljs-params">(</span><br><span class="hljs-params">            <span class="hljs-meta">@Qualifier(&quot;dbUserDataSource&quot;)</span> DataSource dataSource)</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JdbcTemplate</span>(dataSource);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-    @Bean
-    public JdbcTemplate olddmJdbcTemplate(
-            @Qualifier(&quot;olddmDataSource&quot;) DataSource dataSource) &#123;
-        return new JdbcTemplate(dataSource);
-    &#125;
-
-
-    @Bean
-    public JdbcTemplate dbUserJdbcTemplate(
-            @Qualifier(&quot;dbUserDataSource&quot;) DataSource dataSource) &#123;
-        return new JdbcTemplate(dataSource);
-    &#125;
-&#125;
-</code></pre>
 <p>@Qualifier(“olddmDataSource”)实现方法中参数需要的数据源Bean注入。也可以使用@Resource等注解在属性上注入。</p>
 <h3 id="Mybatis整合多数据源"><a href="#Mybatis整合多数据源" class="headerlink" title="Mybatis整合多数据源"></a>Mybatis整合多数据源</h3><ul>
 <li>依赖</li>
 </ul>
-<pre><code class="kotlin">//jdbc
-implementation &#39;org.springframework.boot:spring-boot-starter-jdbc:2.7.3
-//数据库连接jar
-runtimeOnly &#39;mysql:mysql-connector-java&#39;
-//mybatis plus
-implementation &#39;com.baomidou:mybatis-plus-boot-starter:3.5.2&#39;
-</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">//jdbc</span><br>implementation <span class="hljs-string">&#x27;org.springframework.boot:spring-boot-starter-jdbc:2.7.3</span><br><span class="hljs-string">//数据库连接jar</span><br><span class="hljs-string">runtimeOnly &#x27;</span>mysql:mysql-connector-java<span class="hljs-string">&#x27;</span><br><span class="hljs-string">//mybatis plus</span><br><span class="hljs-string">implementation &#x27;</span>com.baomidou:mybatis-plus-boot-starter:<span class="hljs-number">3.5</span><span class="hljs-number">.2</span><span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>配置mapper的位置、实体类位置</li>
 </ul>
-<pre><code class="yml">mybatis-plus:
-  mapper-locations:
-      # 数据源一的mapper位置
-    db-user: classpath:mapper/dbuser/*.xml
-    # 数据源二的mapper位置
-    olddm: classpath:mapper/olddm/*.xml
-  type-aliases-package: com.mds.domain
-</code></pre>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mybatis-plus:</span><br>  <span class="hljs-attr">mapper-locations:</span><br>  	<span class="hljs-comment"># 数据源一的mapper位置</span><br>    <span class="hljs-attr">db-user:</span> <span class="hljs-string">classpath:mapper/dbuser/*.xml</span><br>    <span class="hljs-comment"># 数据源二的mapper位置</span><br>    <span class="hljs-attr">olddm:</span> <span class="hljs-string">classpath:mapper/olddm/*.xml</span><br>  <span class="hljs-attr">type-aliases-package:</span> <span class="hljs-string">com.mds.domain</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>实现每个数据眼的Config，生成对应的SqlSessionFactory和SqlSessionTemplate</li>
 </ul>
-<pre><code class="java">@Configuration
-@MapperScan(
-        basePackages = &quot;com.mds.dao.olddm&quot;,
-        sqlSessionFactoryRef = &quot;olddmSqlSessionFactory&quot;,
-        sqlSessionTemplateRef = &quot;olddmSqlSessionTemplate&quot;
-)
-public class OlddmDSConfig &#123;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@MapperScan(</span><br><span class="hljs-meta">        basePackages = &quot;com.mds.dao.olddm&quot;,</span><br><span class="hljs-meta">        sqlSessionFactoryRef = &quot;olddmSqlSessionFactory&quot;,</span><br><span class="hljs-meta">        sqlSessionTemplateRef = &quot;olddmSqlSessionTemplate&quot;</span><br><span class="hljs-meta">)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OlddmDSConfig</span> &#123;<br><br><span class="hljs-comment">//    注入对应的数据源</span><br>    <span class="hljs-keyword">private</span> DataSource olddmDataSource;<br><br><span class="hljs-comment">//    对应数据源的mapper映射文件位置</span><br>    <span class="hljs-meta">@Value(&quot;$&#123;mybatis-plus.mapper-locations.olddm&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String olddmMapperLocation;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">OlddmDSConfig</span><span class="hljs-params">(<span class="hljs-meta">@Qualifier(&quot;olddmDataSource&quot;)</span></span><br><span class="hljs-params">                         DataSource olddmDataSource)</span> &#123;<br>        <span class="hljs-built_in">this</span>.olddmDataSource = olddmDataSource;<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> SqlSessionFactory <span class="hljs-title function_">olddmSqlSessionFactory</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">SqlSessionFactoryBean</span> <span class="hljs-variable">sqlSessionFactoryBean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBean</span>();<br>        sqlSessionFactoryBean.setDataSource(<span class="hljs-built_in">this</span>.olddmDataSource);<br><span class="hljs-comment">//        加载映射文件</span><br>        Resource[] resource = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PathMatchingResourcePatternResolver</span>().getResources(<br>                <span class="hljs-built_in">this</span>.olddmMapperLocation<br>        );<br>        sqlSessionFactoryBean.setMapperLocations(<br>                resource<br>        );<br>        <span class="hljs-keyword">return</span> sqlSessionFactoryBean.getObject();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> SqlSessionTemplate <span class="hljs-title function_">olddmSqlSessionTemplate</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionTemplate</span>(olddmSqlSessionFactory());<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-//    注入对应的数据源
-    private DataSource olddmDataSource;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@MapperScan(</span><br><span class="hljs-meta">        basePackages = &quot;com.mds.dao.dbuser&quot;,</span><br><span class="hljs-meta">        sqlSessionFactoryRef = &quot;dbUserSqlSessionFactory&quot;,</span><br><span class="hljs-meta">        sqlSessionTemplateRef = &quot;dbUserSqlSessionTemplate&quot;</span><br><span class="hljs-meta">)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDSConfig</span> &#123;<br><br>    <span class="hljs-keyword">private</span> DataSource dbUserDataSource;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;mybatis-plus.mapper-locations.db-user&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String dbUserMapperLocation;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">UserDSConfig</span><span class="hljs-params">(<span class="hljs-meta">@Qualifier(&quot;dbUserDataSource&quot;)</span></span><br><span class="hljs-params">                        DataSource dbUserDataSource)</span> &#123;<br>        <span class="hljs-built_in">this</span>.dbUserDataSource = dbUserDataSource;<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> SqlSessionFactory <span class="hljs-title function_">dbUserSqlSessionFactory</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">SqlSessionFactoryBean</span> <span class="hljs-variable">sqlSessionFactoryBean</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionFactoryBean</span>();<br>        sqlSessionFactoryBean.setDataSource(<span class="hljs-built_in">this</span>.dbUserDataSource);<br>        Resource[] resource = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PathMatchingResourcePatternResolver</span>().getResources(<br>                <span class="hljs-built_in">this</span>.dbUserMapperLocation<br>        );<br>        sqlSessionFactoryBean.setMapperLocations(<br>                resource<br>        );<br>        <span class="hljs-keyword">return</span> sqlSessionFactoryBean.getObject();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> SqlSessionTemplate <span class="hljs-title function_">dbUserSqlSessionTemplate</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SqlSessionTemplate</span>(dbUserSqlSessionFactory());<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
-//    对应数据源的mapper映射文件位置
-    @Value(&quot;$&#123;mybatis-plus.mapper-locations.olddm&#125;&quot;)
-    private String olddmMapperLocation;
+<h1 id="集成Mail"><a href="#集成Mail" class="headerlink" title="集成Mail"></a>集成Mail</h1><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-mail<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.3<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-    public OlddmDSConfig(@Qualifier(&quot;olddmDataSource&quot;)
-                         DataSource olddmDataSource) &#123;
-        this.olddmDataSource = olddmDataSource;
-    &#125;
+<h3 id="配置mail属性"><a href="#配置mail属性" class="headerlink" title="配置mail属性"></a>配置mail属性</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mail:</span><br>    <span class="hljs-attr">host:</span> <span class="hljs-string">smtp.office365.com</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">oldblacklly@outlook.com</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">YB520lly..</span><br>    <span class="hljs-attr">port:</span> <span class="hljs-number">587</span><br>    <span class="hljs-attr">default-encoding:</span> <span class="hljs-string">utf-8</span><br>    <span class="hljs-attr">protocol:</span> <span class="hljs-string">smtp</span><br>    <span class="hljs-attr">properties:</span><br>      <span class="hljs-attr">mail:</span><br>        <span class="hljs-attr">smtp:</span><br>          <span class="hljs-attr">auth:</span> <span class="hljs-literal">true</span><br>          <span class="hljs-attr">starttls:</span><br>            <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>          <span class="hljs-attr">ssl:</span><br>            <span class="hljs-attr">socketFactory:</span><br>              <span class="hljs-attr">class:</span> <span class="hljs-string">com.sun.mail.util.MailSSLSocketFactory</span><br>              <span class="hljs-attr">fallback:</span> <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
 
-    @Bean
-    public SqlSessionFactory olddmSqlSessionFactory() throws Exception &#123;
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(this.olddmDataSource);
-//        加载映射文件
-        Resource[] resource = new PathMatchingResourcePatternResolver().getResources(
-                this.olddmMapperLocation
-        );
-        sqlSessionFactoryBean.setMapperLocations(
-                resource
-        );
-        return sqlSessionFactoryBean.getObject();
-    &#125;
-
-    @Bean
-    public SqlSessionTemplate olddmSqlSessionTemplate() throws Exception &#123;
-        return new SqlSessionTemplate(olddmSqlSessionFactory());
-    &#125;
-
-&#125;
-</code></pre>
-<pre><code class="java">@Configuration
-@MapperScan(
-        basePackages = &quot;com.mds.dao.dbuser&quot;,
-        sqlSessionFactoryRef = &quot;dbUserSqlSessionFactory&quot;,
-        sqlSessionTemplateRef = &quot;dbUserSqlSessionTemplate&quot;
-)
-public class UserDSConfig &#123;
-
-    private DataSource dbUserDataSource;
-
-    @Value(&quot;$&#123;mybatis-plus.mapper-locations.db-user&#125;&quot;)
-    private String dbUserMapperLocation;
-
-    public UserDSConfig(@Qualifier(&quot;dbUserDataSource&quot;)
-                        DataSource dbUserDataSource) &#123;
-        this.dbUserDataSource = dbUserDataSource;
-    &#125;
-
-    @Bean
-    public SqlSessionFactory dbUserSqlSessionFactory() throws Exception &#123;
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(this.dbUserDataSource);
-        Resource[] resource = new PathMatchingResourcePatternResolver().getResources(
-                this.dbUserMapperLocation
-        );
-        sqlSessionFactoryBean.setMapperLocations(
-                resource
-        );
-        return sqlSessionFactoryBean.getObject();
-    &#125;
-
-    @Bean
-    public SqlSessionTemplate dbUserSqlSessionTemplate() throws Exception &#123;
-        return new SqlSessionTemplate(dbUserSqlSessionFactory());
-    &#125;
-
-&#125;
-</code></pre>
-<h1 id="集成Mail"><a href="#集成Mail" class="headerlink" title="集成Mail"></a>集成Mail</h1><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;
-    &lt;version&gt;2.7.3&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<h3 id="配置mail属性"><a href="#配置mail属性" class="headerlink" title="配置mail属性"></a>配置mail属性</h3><pre><code class="yml">spring:
-  mail:
-    host: smtp.office365.com
-    username: oldblacklly@outlook.com
-    password: YB520lly..
-    port: 587
-    default-encoding: utf-8
-    protocol: smtp
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-          ssl:
-            socketFactory:
-              class: com.sun.mail.util.MailSSLSocketFactory
-              fallback: false
-</code></pre>
-<h3 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h3><pre><code class="java">@Service
-public class MailService &#123;
-
-    //邮件发送类
-    @Resource
-    private JavaMailSender javaMailSender;
-
-    //邮件发送者
-    @Value(&quot;$&#123;spring.mail.username&#125;&quot;)
-    private String username;
-
-    public SaResult sendCode(String toEmail) &#123;
-       Assert.isTrue(RegxUtil.isTrueMail(toEmail), &quot;Email address not true&quot;);
-
-        //设置message
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setSubject(&quot;验证码&quot;);
-        message.setText(code);
-        message.setTo(toEmail);
-        message.setFrom(username);
-        
-        //发送邮件
-        javaMailSender.send(message);
-        
-        return SaResult.ok(&quot;验证码发送成功&quot;);
-    &#125;
-
-&#125;
-</code></pre>
+<h3 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MailService</span> &#123;<br><br>    <span class="hljs-comment">//邮件发送类</span><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> JavaMailSender javaMailSender;<br><br>    <span class="hljs-comment">//邮件发送者</span><br>    <span class="hljs-meta">@Value(&quot;$&#123;spring.mail.username&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String username;<br><br>    <span class="hljs-keyword">public</span> SaResult <span class="hljs-title function_">sendCode</span><span class="hljs-params">(String toEmail)</span> &#123;<br>       Assert.isTrue(RegxUtil.isTrueMail(toEmail), <span class="hljs-string">&quot;Email address not true&quot;</span>);<br><br>        <span class="hljs-comment">//设置message</span><br>        <span class="hljs-type">SimpleMailMessage</span> <span class="hljs-variable">message</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SimpleMailMessage</span>();<br>        message.setSubject(<span class="hljs-string">&quot;验证码&quot;</span>);<br>        message.setText(code);<br>        message.setTo(toEmail);<br>        message.setFrom(username);<br>        <br>        <span class="hljs-comment">//发送邮件</span><br>        javaMailSender.send(message);<br>        <br>        <span class="hljs-keyword">return</span> SaResult.ok(<span class="hljs-string">&quot;验证码发送成功&quot;</span>);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -517,9 +337,9 @@ public class MailService &#123;
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
-      
         <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E5%8D%9A%E5%AE%A2/">#博客</a>
       
         <a href="/tags/SpringBoot/">#SpringBoot</a>
       

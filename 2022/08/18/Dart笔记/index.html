@@ -24,7 +24,7 @@
 <meta property="og:description" content="类Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 Null 以外的所有的类都继承自Object类。 成员变量123456789101112class User&amp;#123;	&#x2F;&#x2F;不允许为null的公开成员变量，允许使用操作符&amp;#x27;.&amp;#x27;进行访问和修改	String name&#x3D;&quot;&quot;;    &#x2F;&#x2F;允许为null的公开成员变量，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-18T11:59:08.799Z">
-<meta property="article:modified_time" content="2022-10-05T14:11:59.093Z">
+<meta property="article:modified_time" content="2022-10-10T17:39:24.297Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="dart">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.2k 字
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          17 分钟
+          19 分钟
         
       </span>
     
@@ -263,7 +263,7 @@
               <div class="markdown-body">
                 
                 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 <code>Null</code> 以外的所有的类都继承自Object类。</p>
-<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//不允许为null的公开成员变量，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>	<span class="hljs-built_in">String</span> name=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//允许为null的公开成员变量，默认值为null，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">int?</span> age;<br>    <span class="hljs-comment">//允许为null的私有成员变量，默认值为null，不允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">String?</span> _address;<br>    <span class="hljs-comment">//使用final关键字声明变量，只初始化一次</span><br>    <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> school=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//使用late关键字声明变量，允许延迟初始化</span><br>    <span class="hljs-keyword">late</span> <span class="hljs-built_in">String</span> _emial;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//不允许为null的公开成员变量，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>	<span class="hljs-built_in">String</span> name=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//允许为null的公开成员变量，默认值为null，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">int?</span> age;<br>    <span class="hljs-comment">//允许为null的私有成员变量，默认值为null，不允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">String?</span> _address;<br>    <span class="hljs-comment">//使用final关键字声明变量，只初始化一次</span><br>    <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> school=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//使用late关键字声明变量，允许延迟初始化,不推荐，特别是实际开发中，尽可能使用允许为null代替延迟初始化</span><br>    <span class="hljs-keyword">late</span> <span class="hljs-built_in">String</span> _emial;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>如果你没有声明构造函数，那么 Dart 会自动生成一个无参数的构造函数并且该构造函数会调用其父类的无参数构造方法。</p>
 <p>子类不会继承父类的构造函数，如果子类没有声明构造函数，那么只会有一个默认无参数的构造函数。</p>
@@ -296,6 +296,8 @@
 <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">/// <span class="language-markdown">定义Message注解</span></span><br><span class="hljs-comment">/// <span class="language-markdown">一个成员变量message，表示输出的消息</span></span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Message</span> </span>&#123;<br>  <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> message;<br><br>  <span class="hljs-keyword">const</span> Message(<span class="hljs-keyword">this</span>.message);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// 反射库</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;dart:mirrors&#x27;</span>;<br><br><span class="hljs-comment">//创建反射对象</span><br>ClassMirror mirror = reflectClass(className);<br><br><span class="hljs-comment">// 注解遍历</span><br>mirror.metadata.forEach((element) &#123;<br>	<span class="hljs-comment">// reflectee获取对象</span><br>	<span class="hljs-built_in">print</span>(element.reflectee);<br>    <span class="hljs-keyword">if</span> (element.reflectee <span class="hljs-keyword">is</span> Message) &#123;<br>      <span class="hljs-built_in">print</span>((element.reflectee <span class="hljs-keyword">as</span> Message).message);<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h1 id="正则表达式使用"><a href="#正则表达式使用" class="headerlink" title="正则表达式使用"></a>正则表达式使用</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//定义匹配模板，dart中使用(r表达式)的形式作为匹配模板，与&quot;$变量&quot;区分</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">String</span> _httpSvgReg =<br>      <span class="hljs-string">r&quot;^(((http|https)\:\/\/)[\S]+(\.(svg|SVG))[\s\S]*)$&quot;</span>;<br><span class="hljs-comment">//创建模板类</span><br><span class="hljs-built_in">RegExp</span> httpSvg = <span class="hljs-built_in">RegExp</span>(_httpSvgReg);<br><br><span class="hljs-comment">//匹配字符串，返回值为true or false</span><br>httpSvg.hasMatch(image);<br></code></pre></td></tr></table></figure>
 
 
                 

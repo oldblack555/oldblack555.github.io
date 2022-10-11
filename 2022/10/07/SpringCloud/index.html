@@ -24,7 +24,7 @@
 <meta property="og:description" content="SpringCloud入门（一）使用Gradle搭建父子项目，引入SpringCloud框架。  创建空的Gradle项目，删除src文件夹（全局项目不需要编写java文件）  修改build.gradle配置文件 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-06T16:15:47.059Z">
-<meta property="article:modified_time" content="2022-10-08T13:58:58.064Z">
+<meta property="article:modified_time" content="2022-10-10T07:46:32.228Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="框架、SringCloud、Java">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.7k 字
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          30 分钟
+          31 分钟
         
       </span>
     
@@ -271,10 +271,10 @@
 </ol>
 <h1 id="SpringCloud入门（二）"><a href="#SpringCloud入门（二）" class="headerlink" title="SpringCloud入门（二）"></a>SpringCloud入门（二）</h1><p>创建子项目–服务注册中心，使用eureka作为服务注册框架。</p>
 <ol>
-<li><p>在全局项目build.gradle添加eureka-server依赖</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">implementation(<span class="hljs-string">&quot;org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.1.4&quot;</span>)<br></code></pre></td></tr></table></figure>
+<li><p>在父项目创建新的Gradle模块作为注册中心</p>
 </li>
-<li><p>在父项目创建新的Gradle模块</p>
+<li><p>在注册中心项目build.gradle添加eureka-server依赖</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">implementation(<span class="hljs-string">&quot;org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:3.1.4&quot;</span>)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>配置application.yml文件</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># 服务端口</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">9000</span><br>  <br><span class="hljs-comment"># eureka配置</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">register-with-eureka:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">fetch-registry:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment"># 服务地址</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:9000/eureka</span><br></code></pre></td></tr></table></figure>
@@ -283,12 +283,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//@EnableEurekaServer表示该模块为服务注册中心，所有服务模块均在此注册</span><br><span class="hljs-meta">@EnableEurekaServer</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OldBlackEurekaServerApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(OldBlackEurekaServerApplication.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
 <p>完成服务注册模块后，启动项目，访问localhost:9000即可进入注册中心面板。</p>
-<h1 id="SpringCloud入门（三）"><a href="#SpringCloud入门（三）" class="headerlink" title="SpringCloud入门（三）"></a>SpringCloud入门（三）</h1><p>创建子项目–服务模块，并在服务模块下增添一个服务（用户服务）。</p>
+<h1 id="SpringCloud入门（三）"><a href="#SpringCloud入门（三）" class="headerlink" title="SpringCloud入门（三）"></a>SpringCloud入门（三）</h1><p>创建子项目–服务模块（服务提供者），并在服务模块下增添一个服务（用户服务）。</p>
 <ol>
 <li><p>在顶级父项目下创建空的Gradle项目作为服务模块，删除src文件夹。</p>
 </li>
-<li><p>修改build.gradle文件</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">subprojects &#123;<br><br>    dependencies &#123;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<li><p>修改build.gradle文件，添加eureka-client依赖</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">subprojects &#123;<br><br>    dependencies &#123;<br>        implementation(<span class="hljs-string">&quot;org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:3.1.4&quot;</span>)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>在服务模块下创建Gradle项目–用户服务</p>
 </li>
@@ -302,6 +302,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// @EnableEurekaClient会将该模块作为客户端模块，将该服务注册到服务注册中心</span><br><span class="hljs-meta">@EnableEurekaClient</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OldBlackUserServiceApplication</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(OldBlackUserServiceApplication.class, args);<br>    &#125;<br>    <br>    <span class="hljs-comment">// 测试接口</span><br>    <span class="hljs-meta">@GetMapping(&quot;/test&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">test</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello World&quot;</span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
 <p>启动服务注册中心模块和用户服务模块（先后），访问服务注册中心面板会发现用户服务的服务名在面板上显示，表示服务注册成功。访问服务的测试接口，返回的数据正常。</p>
+<h1 id="SpringCloud入门（四）"><a href="#SpringCloud入门（四）" class="headerlink" title="SpringCloud入门（四）"></a>SpringCloud入门（四）</h1><p>创建子项目–消费模块（服务消费者），并在消费模块下增添一个消费者，使用fegin访问服务提供者。</p>
 
                 
               </div>

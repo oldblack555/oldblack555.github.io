@@ -24,7 +24,7 @@
 <meta property="og:description" content="图像加载Image.asset()加载本地图片123456Image.asset(	&amp;#x27;$&amp;#123;girdMenu[index][&amp;#x27;img&amp;#x27;]&amp;#125;&amp;#x27;,&#x2F;&#x2F;图片地址	fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式	width: double.infinity, &#x2F;&#x2F;图片宽度	height: double.infinity, &#x2F;&#x2F;图片高度)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-22T13:18:37.250Z">
-<meta property="article:modified_time" content="2022-10-04T15:14:30.175Z">
+<meta property="article:modified_time" content="2022-10-09T10:12:08.677Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="dart">
 <meta property="article:tag" content="flutter">
@@ -209,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3k 字
         
       </span>
     
@@ -220,7 +220,7 @@
         
         
         
-          28 分钟
+          26 分钟
         
       </span>
     
@@ -278,8 +278,6 @@
 <h3 id="Container设置阴影"><a href="#Container设置阴影" class="headerlink" title="Container设置阴影"></a>Container设置阴影</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dart">Container(<br>	decoration: <span class="hljs-keyword">new</span> BoxDecoration(<br>	boxShadow: [BoxShadow(color: Colors.grey, blurRadius: <span class="hljs-number">20.0</span>.wDp)],<br>	color: Colors.white,<br>),<br></code></pre></td></tr></table></figure>
 
 <h1 id="Card组件"><a href="#Card组件" class="headerlink" title="Card组件"></a>Card组件</h1><h3 id="Card设置圆角"><a href="#Card设置圆角" class="headerlink" title="Card设置圆角"></a>Card设置圆角</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dart">Card(<br>	elevation: <span class="hljs-number">3</span>,<br>	shadowColor: primaryColor,<br>    <span class="hljs-comment">//设置圆角</span><br>    shape: RoundedRectangleBorder(<br>      borderRadius: BorderRadius.all(<br>        Radius.circular(radius),<br>      ),<br>    ),<br>)<br></code></pre></td></tr></table></figure>
-
-<h1 id="正则表达式使用"><a href="#正则表达式使用" class="headerlink" title="正则表达式使用"></a>正则表达式使用</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//定义匹配模板，dart中使用(r表达式)的形式作为匹配模板，与&quot;$变量&quot;区分</span><br><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-built_in">String</span> _httpSvgReg =<br>      <span class="hljs-string">r&quot;^(((http|https)\:\/\/)[\S]+(\.(svg|SVG))[\s\S]*)$&quot;</span>;<br><span class="hljs-comment">//创建模板类</span><br><span class="hljs-built_in">RegExp</span> httpSvg = <span class="hljs-built_in">RegExp</span>(_httpSvgReg);<br><br><span class="hljs-comment">//匹配字符串，返回值为true or false</span><br>httpSvg.hasMatch(image);<br></code></pre></td></tr></table></figure>
 
 <h1 id="Flutter动画"><a href="#Flutter动画" class="headerlink" title="Flutter动画"></a>Flutter动画</h1><h3 id="数值变化"><a href="#数值变化" class="headerlink" title="数值变化"></a>数值变化</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//动画控制器</span><br><span class="hljs-keyword">late</span> AnimationController _animationController;<br><span class="hljs-comment">//数值动画</span><br><span class="hljs-keyword">late</span> Animation&lt;<span class="hljs-built_in">double</span>&gt; _valueAnimation;<br><br><span class="hljs-meta">@override</span><br><span class="hljs-keyword">void</span> initState() &#123;<br>    <span class="hljs-comment">//初始化动画控制器</span><br>	_animationController = AnimationController(<br>      vsync: <span class="hljs-keyword">this</span>,<br>      duration: <span class="hljs-keyword">const</span> <span class="hljs-built_in">Duration</span>(seconds: <span class="hljs-number">1</span>),<br>    );<br>    <span class="hljs-comment">//初始化数值动画，确定数值变化范围，以及添加事件监听刷新UI</span><br>    _valueAnimation = Tween&lt;<span class="hljs-built_in">double</span>&gt;(begin: <span class="hljs-number">0.0</span>, end: <span class="hljs-number">0.75</span>)<br>        .animate(_animationController)<br>      ..addListener(() &#123;<br>        setState(() &#123;&#125;);<br>      &#125;);<br>    <span class="hljs-comment">//启动动画</span><br>    _animationController.forward();<br>    <span class="hljs-keyword">super</span>.initState();<br>&#125;<br></code></pre></td></tr></table></figure>
 

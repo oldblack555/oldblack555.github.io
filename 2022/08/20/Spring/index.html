@@ -24,7 +24,7 @@
 <meta property="og:description" content="POJO参数绑定提交参数形式123456789101112&amp;#123;	name:&amp;#x27;tom&amp;#x27;,	age:18,    &#x2F;&#x2F;以post方式提交	address:&amp;#123;		road:&amp;#x27;xxx&amp;#x27;,		city:&amp;#x27;xx&amp;#x27;	&amp;#125;    &#x2F;&#x2F;以get方式提交    &#x2F;&#x2F;address.road:&amp;#x27;xxx&amp;#x27;,	&#x2F;&#x2F;ad">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-19T17:10:09.469Z">
-<meta property="article:modified_time" content="2022-10-08T11:08:51.862Z">
+<meta property="article:modified_time" content="2022-10-14T17:15:01.344Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="博客">
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.6k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          28 分钟
+          31 分钟
         
       </span>
     
@@ -297,8 +297,107 @@
 <td>按cron规则执行</td>
 </tr>
 </tbody></table>
+<h3 id="cron常用表达式"><a href="#cron常用表达式" class="headerlink" title="cron常用表达式"></a>cron常用表达式</h3><ul>
+<li>格式</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-attr">[秒]</span> <span class="hljs-selector-attr">[分]</span> <span class="hljs-selector-attr">[时]</span> <span class="hljs-selector-attr">[日]</span> <span class="hljs-selector-attr">[月]</span> <span class="hljs-selector-attr">[周]</span> <span class="hljs-selector-attr">[年]</span><br></code></pre></td></tr></table></figure>
+
 <ul>
-<li><strong>cron常用表达式</strong></li>
+<li>取值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>范围</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒</td>
+<td>0-59</td>
+<td>是</td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>是</td>
+</tr>
+<tr>
+<td>时</td>
+<td>0-23</td>
+<td>是</td>
+</tr>
+<tr>
+<td>日</td>
+<td>1-31</td>
+<td>是</td>
+</tr>
+<tr>
+<td>月</td>
+<td>1-12 或 JAN-DEC</td>
+<td>是</td>
+</tr>
+<tr>
+<td>周</td>
+<td>1-7 或 SUN-SAT</td>
+<td>是</td>
+</tr>
+<tr>
+<td>年</td>
+<td>1970-2099</td>
+<td>否</td>
+</tr>
+</tbody></table>
+<ul>
+<li>通配符</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>,</td>
+<td>表示在两个及以上的时间点中都执行</td>
+</tr>
+<tr>
+<td>*</td>
+<td>表示匹配该域任意值，可解读为 “每”，如小时的字段为*时，表示每一小时都触发事件</td>
+</tr>
+<tr>
+<td>?</td>
+<td>表示不指定值，用于日期和星期字段之间进行<code>互斥</code>。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>表示范围，一个连续触发的区间。</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>表示间隔时间触发事件（开始时间&#x2F;时间间隔）。</td>
+</tr>
+<tr>
+<td>#</td>
+<td>表示该月第n个星期x(x#n)，仅用星期域。</td>
+</tr>
+<tr>
+<td>L</td>
+<td>表示LAST 最后（最后一天或最后一个星期几）；仅出现在日和星期的域中。</td>
+</tr>
+<tr>
+<td>W</td>
+<td>仅用在日的域中，表示距离当月给定日期最近的工作日（周一到周五）</td>
+</tr>
+<tr>
+<td>LW</td>
+<td>表示当月的最后一个工作日触发事件</td>
+</tr>
+</tbody></table>
+<ul>
+<li>样例</li>
 </ul>
 <table>
 <thead>

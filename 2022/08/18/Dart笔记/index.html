@@ -16,15 +16,15 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="类Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 Null 以外的所有的类都继承自Object类。 成员变量123456789101112class User&amp;#123;	&#x2F;&#x2F;不允许为null的公开成员变量，允许使用操作符&amp;#x27;.&amp;#x27;进行访问和修改	String name&#x3D;&quot;&quot;;    &#x2F;&#x2F;允许为null的公开成员变量，">
+    <meta name="description" content="const、final关键字constconst修饰常量，在变量声明时必须初始化。 123456const int num &#x3D; 10;&#x2F;&#x2F; const必须定义时赋值&#x2F;&#x2F; const String msg;print(num);&#x2F;&#x2F; const常量不可被修修改&#x2F;&#x2F; num &#x3D; 20;  finalfinal修饰常量，只允许赋值一次，可以在定义时或者定义后赋值。如果是集合则内容可变，集合实例不可变。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dart笔记（草稿）">
 <meta property="og:url" content="http://example.com/2022/08/18/Dart%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="类Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 Null 以外的所有的类都继承自Object类。 成员变量123456789101112class User&amp;#123;	&#x2F;&#x2F;不允许为null的公开成员变量，允许使用操作符&amp;#x27;.&amp;#x27;进行访问和修改	String name&#x3D;&quot;&quot;;    &#x2F;&#x2F;允许为null的公开成员变量，">
+<meta property="og:description" content="const、final关键字constconst修饰常量，在变量声明时必须初始化。 123456const int num &#x3D; 10;&#x2F;&#x2F; const必须定义时赋值&#x2F;&#x2F; const String msg;print(num);&#x2F;&#x2F; const常量不可被修修改&#x2F;&#x2F; num &#x3D; 20;  finalfinal修饰常量，只允许赋值一次，可以在定义时或者定义后赋值。如果是集合则内容可变，集合实例不可变。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-18T11:59:08.799Z">
-<meta property="article:modified_time" content="2022-10-10T17:39:24.297Z">
+<meta property="article:modified_time" content="2022-10-13T15:28:45.677Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="dart">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.6k 字
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          19 分钟
+          22 分钟
         
       </span>
     
@@ -262,7 +262,13 @@
             
               <div class="markdown-body">
                 
-                <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 <code>Null</code> 以外的所有的类都继承自Object类。</p>
+                <h1 id="const、final关键字"><a href="#const、final关键字" class="headerlink" title="const、final关键字"></a>const、final关键字</h1><h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>const修饰常量，在变量声明时必须初始化。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span> <span class="hljs-built_in">num</span> = <span class="hljs-number">10</span>;<br><span class="hljs-comment">// const必须定义时赋值</span><br><span class="hljs-comment">// const String msg;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">num</span>);<br><span class="hljs-comment">// const常量不可被修修改</span><br><span class="hljs-comment">// num = 20;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final修饰常量，只允许赋值一次，可以在定义时或者定义后赋值。如果是集合则内容可变，集合实例不可变。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// final修饰只能初始化一次，可在定义时、声明后初始化。</span><br><span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> str;<br>str = <span class="hljs-string">&quot;13&quot;</span>;<br><span class="hljs-keyword">final</span> <span class="hljs-built_in">int</span> num2 = <span class="hljs-number">20</span>;<br><span class="hljs-built_in">print</span>(num2);<br><span class="hljs-comment">// final只能被设置一次，即对象（实例）不可以改变，如果是集合则内容可变，集合实例不可变</span><br><span class="hljs-comment">// num2 += num;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>Dart 是支持基于 mixin 继承机制的面向对象语言，所有对象都是一个类的实例，而除了 <code>Null</code> 以外的所有的类都继承自Object类。</p>
 <h3 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>&#123;<br>	<span class="hljs-comment">//不允许为null的公开成员变量，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>	<span class="hljs-built_in">String</span> name=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//允许为null的公开成员变量，默认值为null，允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">int?</span> age;<br>    <span class="hljs-comment">//允许为null的私有成员变量，默认值为null，不允许使用操作符&#x27;.&#x27;进行访问和修改</span><br>    <span class="hljs-built_in">String?</span> _address;<br>    <span class="hljs-comment">//使用final关键字声明变量，只初始化一次</span><br>    <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> school=<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">//使用late关键字声明变量，允许延迟初始化,不推荐，特别是实际开发中，尽可能使用允许为null代替延迟初始化</span><br>    <span class="hljs-keyword">late</span> <span class="hljs-built_in">String</span> _emial;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>如果你没有声明构造函数，那么 Dart 会自动生成一个无参数的构造函数并且该构造函数会调用其父类的无参数构造方法。</p>

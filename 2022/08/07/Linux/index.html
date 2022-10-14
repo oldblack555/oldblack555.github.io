@@ -24,7 +24,7 @@
 <meta property="og:description" content="Linux设置环境变量设置完成使用该命令刷新1source 编辑的文件  临时设置1export PATH&#x3D;&#x2F;you&#x2F;bin&#x2F;path:$PATH  当前用户永久生效12vim ~&#x2F;.bashrcexport PATH&#x3D;&#x2F;you&#x2F;bin&#x2F;path:$PATH  所有用户永久生效（需要重新登录）123456&#x2F;&#x2F;三者挑其一vim &#x2F;etc&#x2F;bashrcvim &#x2F;etc&#x2F;profilevim &#x2F;etc&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-07T01:02:04.932Z">
-<meta property="article:modified_time" content="2022-10-04T15:16:46.544Z">
+<meta property="article:modified_time" content="2022-10-12T15:13:52.439Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -291,6 +291,7 @@
 <h1 id="问题：Snap商店安装错误"><a href="#问题：Snap商店安装错误" class="headerlink" title="问题：Snap商店安装错误"></a>问题：Snap商店安装错误</h1><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p><strong>snap “xxxx” has “install-snap” change in progress</strong></p>
 <h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">//查看snap 正在安装的软件，获取<span class="hljs-built_in">id</span><br>snap changes<br><br>//终止安装软件<br>sudo snap abort <span class="hljs-built_in">id</span><br><br>//重新安装软件即可<br>sudo snap install xxx<br></code></pre></td></tr></table></figure>
 
+<h1 id="问题：N-由于文件’-x2F-root-x2F-下载-x2F-xxxt-deb’无法被用户’-apt’访问，已脱离沙盒并提权为根用户来进行下载。-pkgAcquire-Run-13-权限不够"><a href="#问题：N-由于文件’-x2F-root-x2F-下载-x2F-xxxt-deb’无法被用户’-apt’访问，已脱离沙盒并提权为根用户来进行下载。-pkgAcquire-Run-13-权限不够" class="headerlink" title="问题：N: 由于文件’&#x2F;root&#x2F;下载&#x2F;xxxt.deb’无法被用户’_apt’访问，已脱离沙盒并提权为根用户来进行下载。 - pkgAcquire::Run (13: 权限不够)"></a>问题：N: 由于文件’&#x2F;root&#x2F;下载&#x2F;xxxt.deb’无法被用户’_apt’访问，已脱离沙盒并提权为根用户来进行下载。 - pkgAcquire::Run (13: 权限不够)</h1><h3 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h3><p>通过系统自带市场进行安装或者sudo dpkg -i xxx.deb。</p>
 <h1 id="Cat日志查看"><a href="#Cat日志查看" class="headerlink" title="Cat日志查看"></a>Cat日志查看</h1><p><strong>cat常用于查看指定日志信息，系统在运行时，日志会不断写入，如果使用vim等编辑器指令查看会无法得到全部的日志，同时也可能导致日志的修改。</strong></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sh">//查看文件的全部内容<br><span class="hljs-built_in">cat</span> 文件名 <br>//如：<span class="hljs-built_in">cat</span> test.js<br><br>//对所有行添加编号输出，1开始<br><span class="hljs-built_in">cat</span> -n 文件名<br>//如：<span class="hljs-built_in">cat</span> -n test.js<br><br>//排除空白行添加编号输出<br><span class="hljs-built_in">cat</span> -b 文件名<br>//如：<span class="hljs-built_in">cat</span> -b test.js<br><br>//替换连续两行以上的空白行为一行空白行<br><span class="hljs-built_in">cat</span> -s 文件名<br>//如：<span class="hljs-built_in">cat</span> -b test.js<br><br>//结合grep查看指定内容<br><span class="hljs-built_in">cat</span> 文件名 | grep 搜索内容<br></code></pre></td></tr></table></figure>
 

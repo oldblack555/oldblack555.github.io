@@ -24,7 +24,7 @@
 <meta property="og:description" content="用户创建1create user &amp;#x27;username&amp;#x27;@&amp;#x27;address&amp;#x27; identified by &amp;#x27;password&amp;#x27;;  授权123grant privileges[all privileges|select等] on databasename.tablename to &amp;#x27;username&amp;#x27;@&amp;#x27;add">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-08T14:13:05.669Z">
-<meta property="article:modified_time" content="2022-10-04T13:30:36.496Z">
+<meta property="article:modified_time" content="2022-10-17T15:20:00.267Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据库">
 <meta property="article:tag" content="博客">
@@ -209,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          2k 字
         
       </span>
     
@@ -220,7 +220,7 @@
         
         
         
-          15 分钟
+          18 分钟
         
       </span>
     
@@ -359,7 +359,63 @@
 <p>MySQL weekday() 函数和 dayofweek() 类似，都是返回“某天”在一周中的位置。不同点在于参考的标准， weekday：(0 &#x3D; Monday, 1 &#x3D; Tuesday, …, 6 &#x3D; Sunday)； dayofweek：（1 &#x3D; Sunday, 2 &#x3D; Monday, …, 7 &#x3D; Saturday）。</p>
 <h1 id="返回星期、月份名称"><a href="#返回星期、月份名称" class="headerlink" title="返回星期、月份名称"></a>返回星期、月份名称</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">set</span> <span class="hljs-variable">@dt</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;2008-08-08&#x27;</span>;<br><br><span class="hljs-keyword">select</span> dayname(<span class="hljs-variable">@dt</span>); <span class="hljs-comment">-- Friday</span><br><span class="hljs-keyword">select</span> monthname(<span class="hljs-variable">@dt</span>); <span class="hljs-comment">-- August</span><br></code></pre></td></tr></table></figure>
 
-
+<h1 id="建表优化"><a href="#建表优化" class="headerlink" title="建表优化"></a>建表优化</h1><h3 id="数据类型优化"><a href="#数据类型优化" class="headerlink" title="数据类型优化"></a>数据类型优化</h3><h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
+<li>更小的通常更好</li>
+<li>简单就好</li>
+<li>尽量避免NULL</li>
+</ul>
+<h4 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tinyint</td>
+<td>8bit</td>
+</tr>
+<tr>
+<td>smallint</td>
+<td>16bit</td>
+</tr>
+<tr>
+<td>mediumint</td>
+<td>24bit</td>
+</tr>
+<tr>
+<td>int</td>
+<td>32bit</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>64bit</td>
+</tr>
+</tbody></table>
+<p><strong>存储范围：-2^(n-1)到2^(n-1)-1</strong></p>
+<p><strong>无符号和有符号类型存储空间相同，性能相同</strong></p>
+<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>4B~32bit</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8B~64bit</td>
+</tr>
+<tr>
+<td>decimal</td>
+<td>二进制字符串。最多允许存储65个数字（针对高精度场景）</td>
+</tr>
+</tbody></table>
+<p><strong>非必要场景不使用decimal类型，因为需要额外的空间和计算开销</strong></p>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3>
                 
               </div>
             

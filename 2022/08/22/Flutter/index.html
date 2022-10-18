@@ -24,7 +24,7 @@
 <meta property="og:description" content="图像加载Image.asset()加载本地图片123456Image.asset(	&amp;#x27;$&amp;#123;girdMenu[index][&amp;#x27;img&amp;#x27;]&amp;#125;&amp;#x27;,&#x2F;&#x2F;图片地址	fit: BoxFit.cover, &#x2F;&#x2F;图片适应方式	width: double.infinity, &#x2F;&#x2F;图片宽度	height: double.infinity, &#x2F;&#x2F;图片高度)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-22T13:18:37.250Z">
-<meta property="article:modified_time" content="2022-10-09T10:12:08.677Z">
+<meta property="article:modified_time" content="2022-10-17T05:27:39.055Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="dart">
 <meta property="article:tag" content="flutter">
@@ -209,7 +209,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3k 字
+          4.6k 字
         
       </span>
     
@@ -220,7 +220,7 @@
         
         
         
-          26 分钟
+          39 分钟
         
       </span>
     
@@ -284,6 +284,40 @@
 <h3 id="组件旋转动画"><a href="#组件旋转动画" class="headerlink" title="组件旋转动画"></a>组件旋转动画</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">//动画控制器</span><br><span class="hljs-keyword">late</span> AnimationController _animationController;<br><br><span class="hljs-meta">@override</span><br><span class="hljs-keyword">void</span> initState() &#123;<br>    <span class="hljs-keyword">super</span>.initState();<br>    <span class="hljs-comment">//初始哈控制器，设置动画时长</span><br>    _animationController = AnimationController(<br>      vsync: <span class="hljs-keyword">this</span>,<br>      duration: <span class="hljs-keyword">const</span> <span class="hljs-built_in">Duration</span>(milliseconds: <span class="hljs-number">300</span>),<br>      upperBound: <span class="hljs-number">0.5</span>,<br>    );<br>&#125;<br><br><span class="hljs-comment">//旋转组件，包裹需要旋转的组件，设置旋转角度</span><br>RotationTransition(<br>	turns: Tween(<br>		begin: <span class="hljs-number">0.0</span>,<br>		end: <span class="hljs-number">0.5</span>,<br>	).animate(_animationController),<br>		child: Icon(<br>		defaultRightArrow,<br>		size: <span class="hljs-number">20</span>,<br>		color: widget.selectColor,<br>	),<br>),<br><br><span class="hljs-comment">//点击事件逻辑，启动动画执行</span><br><span class="hljs-keyword">if</span> (widget.isShowNextMenu) &#123;<br>	_animationController.reverse(from: <span class="hljs-number">0.5</span>);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>	_animationController.forward(from: <span class="hljs-number">0.0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="Warp流式布局"><a href="#Warp流式布局" class="headerlink" title="Warp流式布局"></a>Warp流式布局</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs dart">Wrap(<br>   spacing: <span class="hljs-number">8.0</span>, <span class="hljs-comment">// 主轴(水平)方向间距</span><br>   runSpacing: <span class="hljs-number">4.0</span>, <span class="hljs-comment">// 纵轴（垂直）方向间距</span><br>   alignment: WrapAlignment.center, <span class="hljs-comment">//沿主轴方向居中</span><br>   children: &lt;Widget&gt;[<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;A&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Hamilton&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;M&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Lafayette&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;H&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Mulligan&#x27;</span>),<br>     ),<br>     Chip(<br>       avatar: CircleAvatar(backgroundColor: Colors.blue, child: Text(<span class="hljs-string">&#x27;J&#x27;</span>)),<br>       label: Text(<span class="hljs-string">&#x27;Laurens&#x27;</span>),<br>     ),<br>   ],<br>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="Notification父子组件间通信"><a href="#Notification父子组件间通信" class="headerlink" title="Notification父子组件间通信"></a>Notification父子组件间通信</h1><ul>
+<li><h3 id="自定义通信消息"><a href="#自定义通信消息" class="headerlink" title="自定义通信消息"></a>自定义通信消息</h3></li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConfigNotification</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Notification</span> </span>&#123;<br>  <span class="hljs-keyword">final</span> NotificationEnum systemState;<br><br>  ConfigNotification(<span class="hljs-keyword">this</span>.systemState);<br>&#125;<br><br><span class="hljs-keyword">enum</span> NotificationEnum &#123;<br>  update,<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>子组件发送通知，dispatch发送通知</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart">ConfigNotification(NotificationEnum.update).dispatch(context);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>父组件监听消息，使用NotificationListener组件将Widget包裹即可进行监听消息，在onNotification内进行更新状态</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs dart">NotificationListener&lt;ConfigNotification&gt;(<br>	onNotification: (notification) &#123;<br>        <span class="hljs-comment">// 更新父组件</span><br>		<span class="hljs-keyword">if</span> (notification.systemState == NotificationEnum.update) &#123;<br>			setState(() &#123;&#125;);<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>		&#125;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>	&#125;,<br>	child: Container(),<br>);<br></code></pre></td></tr></table></figure>
+
+<h1 id="RawKeyboardListener键盘事件监听"><a href="#RawKeyboardListener键盘事件监听" class="headerlink" title="RawKeyboardListener键盘事件监听"></a>RawKeyboardListener键盘事件监听</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-comment">// RawKeyboardListener包裹需要被监听的widget</span><br>RawKeyboardListener(<br>	onKey: (value) =&gt; handleKey(value),<br>	focusNode: focusNode,<br>	child: SizedBox(<br>		width: MediaQuery.of(context).size.width,<br>        height: MediaQuery.of(context).size.height,<br>        child: Text(<span class="hljs-string">&quot;HelloWOrld&quot;</span>),<br>	),<br>);<br><br>handleKey(RawKeyEvent value) &#123;<br>    <span class="hljs-keyword">if</span> (kDebugMode) &#123;<br><span class="hljs-comment">// value.isKeyPressed(LogicalKeyboardKey.tab)必须使用该方法判断是否按下，否则会进行两次事件监听</span><br>      <span class="hljs-keyword">if</span> (value.isKeyPressed(LogicalKeyboardKey.tab)) &#123;<br>        <span class="hljs-built_in">print</span>(value.logicalKey.keyLabel);<br>      &#125;<br>      <span class="hljs-keyword">if</span> (value.isKeyPressed(LogicalKeyboardKey.enter)) &#123;<br>        <span class="hljs-built_in">print</span>(value.logicalKey.keyLabel);<br>      &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="显示Markdown文本"><a href="#显示Markdown文本" class="headerlink" title="显示Markdown文本"></a>显示Markdown文本</h1><ul>
+<li>引入依赖</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">flutter_markdown:</span> <span class="hljs-string">^0.6.12</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>导入dart包</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;package:flutter_markdown/flutter_markdown.dart&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>组件基本使用</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dart"> Markdown(<br>     <span class="hljs-comment">// data为md语法字符串</span><br>	data: <span class="hljs-string">&quot;# title&quot;</span>,<br>);<br></code></pre></td></tr></table></figure>
+
+<h1 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs dart">BackdropFilter(<br>	filter: ImageFilter.blur(<br>		sigmaX: SystemController.blur!,<br>		sigmaY: SystemController.blur!,<br>	),<br>    <span class="hljs-comment">// 包裹背景之上的组件</span><br>	child:Container(),<br>)<br></code></pre></td></tr></table></figure>
 
 
                 
